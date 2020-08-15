@@ -1,21 +1,23 @@
 package org.domain;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Table;
 
-//import javax.persistence.Entity;
-//import javax.persistence.Id;
-
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
+@Entity
+@Table(name = "businessruletype")
 public class BusinessRuleType {
 
-    private int businessRuleTypeId;
+    @Id
+    @GeneratedValue
+    private int Id;
+
+    @Column
     private String name;
+
+    @Column
     private String templateCode;
+
+    @Column
     private String code;
 }

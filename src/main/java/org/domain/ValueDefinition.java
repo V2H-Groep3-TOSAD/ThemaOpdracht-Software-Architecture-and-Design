@@ -5,8 +5,9 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-//import javax.persistence.Entity;
-//import javax.persistence.Id;
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 
 @Getter
 @Setter
@@ -14,9 +15,19 @@ import lombok.Setter;
 @AllArgsConstructor
 public class ValueDefinition {
 
+    @Id
+    @GeneratedValue
     private int valueDefinitionId;
-    private String minValue;
-    private String maxValue;
+
+    @Column
+    private int minValue;
+
+    @Column
+    private int maxValue;
+
+    @Column
     private String literalValue;
+
+    @Column
     private String dataType;
 }

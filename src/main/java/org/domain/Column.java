@@ -5,8 +5,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-//import javax.persistence.Entity;
-//import javax.persistence.Id;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 
 @Getter
 @Setter
@@ -14,6 +14,10 @@ import lombok.Setter;
 @AllArgsConstructor
 public class Column {
 
+    @Id
+    @GeneratedValue
     private int columnId;
+
+    @javax.persistence.Column
     private String name;
 }

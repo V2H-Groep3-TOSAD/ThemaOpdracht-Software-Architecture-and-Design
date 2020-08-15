@@ -5,16 +5,24 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-//import javax.persistence.Entity;
-//import javax.persistence.Id;
+import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Table;
 
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
+@Entity
+@Table(name = "businessrule")
 public class BusinessRule {
 
-    private int businessRuleId;
-    private String codeName;
+    @Id
+    @GeneratedValue
+    private int Id;
+
+    @Column
     private String name;
+
+    @Column
+    private String description;
+
+    @Column
+    private int volgnummer;
 }
