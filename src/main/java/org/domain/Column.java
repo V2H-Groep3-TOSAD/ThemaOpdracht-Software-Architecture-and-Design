@@ -1,4 +1,4 @@
-package org.openjfx.businesslogic.domain;
+package org.domain;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -12,9 +12,8 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Table {
+public class Column {
 
-    private int tableId;
+    private int columnId;
     private String name;
-    private String code;
 }

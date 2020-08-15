@@ -1,4 +1,4 @@
-package org.openjfx.businesslogic.domain;
+package org.domain;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -12,11 +12,10 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class ValueDefinition {
+public class BusinessRuleType {
 
-    private int valueDefinitionId;
-    private String minValue;
-    private String maxValue;
-    private String literalValue;
-    private String dataType;
+    private int businessRuleTypeId;
+    private String name;
+    private String templateCode;
+    private String code;
 }

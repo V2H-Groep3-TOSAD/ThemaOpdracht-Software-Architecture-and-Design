@@ -1,4 +1,4 @@
-package org.openjfx.businesslogic.domain;
+package org.domain;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -12,8 +12,8 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Column {
+public class Category {
 
-    private int columnId;
+    private int categoryId;
     private String name;
 }

@@ -1,4 +1,4 @@
-package org.openjfx.businesslogic.domain;
+package org.domain;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

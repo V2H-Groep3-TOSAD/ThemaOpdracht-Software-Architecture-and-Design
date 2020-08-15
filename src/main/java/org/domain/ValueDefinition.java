@@ -1,4 +1,4 @@
-package org.openjfx.businesslogic.domain;
+package org.domain;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -12,8 +12,11 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Operator {
+public class ValueDefinition {
 
-    private int operatorId;
-    private String name;
+    private int valueDefinitionId;
+    private String minValue;
+    private String maxValue;
+    private String literalValue;
+    private String dataType;
 }
