@@ -10,7 +10,7 @@ import javax.persistence.Column;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "businessrule")
+@Table(name = "BusinessRule")
 public class BusinessRule {
 
     @Id

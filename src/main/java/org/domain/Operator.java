@@ -11,14 +11,16 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "operator")
-@Getter
-@Setter
+
 public class Operator {
 
     @Id
     @GeneratedValue
     private int Id;
 
-    @Column
     private String name;
+
+    public String getName() {
+        return name;
+    }
 }

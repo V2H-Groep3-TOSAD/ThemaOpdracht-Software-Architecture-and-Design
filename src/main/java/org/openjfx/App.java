@@ -5,8 +5,11 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import org.domain.Operator;
+import org.services.ServiceProvider;
 
 import java.io.IOException;
+import java.util.List;
 
 /**
  * JavaFX App
@@ -17,6 +20,7 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
+
         scene = new Scene(loadFXML("primary"));
         stage.setScene(scene);
         stage.show();
@@ -32,6 +36,7 @@ public class App extends Application {
     }
 
     public static void main(String[] args) {
+
         launch();
     }
 
