@@ -6,9 +6,9 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="tosad-business-rule-generator" />
         <module name="ThemaOpdracht-Software-Architecture-and-Design" />
         <module name="TOSAD" />
-        <module name="tosad-business-rule-generator" />
       </profile>
     </annotationProcessing>
   </component>
