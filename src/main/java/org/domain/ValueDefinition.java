@@ -6,28 +6,28 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
+@Entity
+@Table(name = "valuedefinition")
 public class ValueDefinition {
 
     @Id
     @GeneratedValue
-    private int valueDefinitionId;
+    private int id;
 
-    @Column
+    @Column(name = "minvalue")
     private int minValue;
 
-    @Column
+    @Column(name = "maxvalue")
     private int maxValue;
 
-    @Column
+    @Column(name = "literalvalue")
     private String literalValue;
 
-    @Column
+    @Column(name = "datatype")
     private String dataType;
 }
