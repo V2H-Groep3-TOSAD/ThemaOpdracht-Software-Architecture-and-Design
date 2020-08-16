@@ -33,4 +33,8 @@ public class BusinessRule {
     @OneToOne
     @JoinColumn(name = "operator_id", referencedColumnName = "id")
     private Operator operator;
+
+    @OneToOne
+    @JoinColumn(name = "valuedefinition_id", referencedColumnName = "id")
+    private ValueDefinition valueDefinition;
 }

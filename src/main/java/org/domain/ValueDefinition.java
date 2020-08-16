@@ -5,10 +5,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import javax.persistence.*;
 import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
@@ -30,4 +28,7 @@ public class ValueDefinition {
 
     @Column(name = "datatype")
     private String dataType;
+
+    @OneToOne(mappedBy = "valueDefinition")
+    private BusinessRule businessRule;
 }
