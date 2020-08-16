@@ -10,7 +10,7 @@ public class test {
         ServiceProvider serviceProvider = new ServiceProvider();
         List<Operator> operators = serviceProvider.getOperatorDao().getAll();
         for (Operator operator : operators){
-            System.out.println(operator);
+            System.out.println(operator.getName());
         }
         System.out.println(serviceProvider.getOperatorDao().findById(1));
     }
