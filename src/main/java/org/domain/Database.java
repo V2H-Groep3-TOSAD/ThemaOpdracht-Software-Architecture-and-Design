@@ -5,25 +5,27 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import javax.persistence.*;
 import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.Table;
+import java.util.List;
 
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
+@Entity
+@Table(name = "database")
 public class Database {
 
 
     @Id
     @GeneratedValue
-    private int databaseId;
+    private int id;
 
-    @Column
+    @Column(name = "code")
     private String code;
 
-    @Column
+    @Column(name = "name")
     private String name;
+
+    @OneToMany(mappedBy = "database")
+    private List<org.domain.Table> tables;
 
 }

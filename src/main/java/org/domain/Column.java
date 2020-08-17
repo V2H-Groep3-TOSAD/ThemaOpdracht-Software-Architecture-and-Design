@@ -5,19 +5,21 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
+import javax.persistence.Table;
 
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
+@Entity
+@Table(name = "table_column")
 public class Column {
 
     @Id
     @GeneratedValue
-    private int columnId;
+    private int id;
 
-    @javax.persistence.Column
+    @javax.persistence.Column(name = "name")
     private String name;
+
+    @ManyToOne
+    @JoinColumn(name = "table_id", referencedColumnName = "id")
+    private org.domain.Table table;
 }

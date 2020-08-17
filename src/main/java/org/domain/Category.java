@@ -5,20 +5,22 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import javax.persistence.*;
 import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.Table;
+import java.util.List;
 
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
+@Entity
+@Table(name = "category")
 public class Category {
 
     @Id
     @GeneratedValue
-    private int categoryId;
+    private int id;
 
-    @Column
+    @Column(name = "name")
     private String name;
+
+    @OneToMany(mappedBy = "category")
+    private List<BusinessRuleType> businessRuleType;
 }

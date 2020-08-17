@@ -10,19 +10,31 @@ import javax.persistence.Column;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "BusinessRule")
+@Table(name = "businessrule")
 public class BusinessRule {
 
     @Id
     @GeneratedValue
-    private int Id;
+    private int id;
 
-    @Column
+    @Column(name = "name")
     private String name;
 
-    @Column
+    @Column(name = "description")
     private String description;
 
-    @Column
-    private int volgnummer;
+    @Column(name = "volgnummer")
+    private int volgNummer;
+
+    @ManyToOne
+    @JoinColumn(name = "businessruletype_id", referencedColumnName = "id")
+    private BusinessRuleType businessRuleType;
+
+    @OneToOne
+    @JoinColumn(name = "operator_id", referencedColumnName = "id")
+    private Operator operator;
+
+    @OneToOne
+    @JoinColumn(name = "valuedefinition_id", referencedColumnName = "id")
+    private ValueDefinition valueDefinition;
 }

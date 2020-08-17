@@ -23,8 +23,10 @@
 
             <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQL10Dialect" />
             <property name="hibernate.show_sql" value="true" />
-            <property name="hibernate.hbm2ddl.auto" value="create" />
+            <property name="hibernate.hbm2ddl.auto" value="validate" />
             <property name="hibernate.ejb.cfgfile" value="hibernate.cfg.xml" />
+            <property name="hibernate.temp.use_jdbc_metadata_defaults" value="false" />
+
 
 
         </properties>
