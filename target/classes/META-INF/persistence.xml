@@ -5,6 +5,14 @@
 
     <persistence-unit name="hibernate.postgres">
         <class>org.domain.Operator</class>
+        <class>org.domain.Table</class>
+        <class>org.domain.BusinessRule</class>
+        <class>org.domain.BusinessRuleType</class>
+        <class>org.domain.Category</class>
+        <class>org.domain.Column</class>
+        <class>org.domain.Database</class>
+        <class>org.domain.ValueDefinition</class>
+
 
 
         <properties>
