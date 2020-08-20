@@ -10,10 +10,11 @@ public class PrimaryController {
     private PostgresServiceProvider postgresServiceProvider = new PostgresServiceProvider();
 
     @FXML
-    private void switchToSecondary() throws IOException {
-        App.setRoot("secondary");
-
-
-
+    private void switchToDefine() throws IOException {
+        App.setRoot("database");
+    }
+    @FXML
+    private void switchToGenerate() throws IOException {
+        App.setRoot("generate");
     }
 }
