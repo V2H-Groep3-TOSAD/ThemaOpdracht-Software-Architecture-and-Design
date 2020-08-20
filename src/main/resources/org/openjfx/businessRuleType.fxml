@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.openjfx.BusinessRuleTypeController">
+   <children>
+      <Button layoutX="297.0" layoutY="184.0" mnemonicParsing="false" onAction="#nextKnopClick" prefHeight="35.0" prefWidth="67.0" text="Next" />
+      <ComboBox layoutX="255.0" layoutY="120.0" prefWidth="150.0" />
+      <Label layoutX="225.0" layoutY="33.0" prefHeight="41.0" prefWidth="211.0" text="Business Rule Type">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

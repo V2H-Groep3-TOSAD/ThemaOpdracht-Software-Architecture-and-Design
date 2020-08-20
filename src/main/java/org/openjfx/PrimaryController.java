@@ -15,7 +15,7 @@ public class PrimaryController {
 
     @FXML
     private void switchToDefine() throws IOException {
-        App.setRoot("define");
+        App.setRoot("database");
     }
     @FXML
     private void switchToGenerate() throws IOException {
