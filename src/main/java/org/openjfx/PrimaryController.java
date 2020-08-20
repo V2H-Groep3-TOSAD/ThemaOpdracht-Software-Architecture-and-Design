@@ -14,13 +14,11 @@ public class PrimaryController {
     private ServiceProvider serviceProvider = new ServiceProvider();
 
     @FXML
-    private void switchToSecondary() throws IOException {
-        App.setRoot("secondary");
-        List<Operator> operators = serviceProvider.getOperatorDao().getAll();
-        for (Operator operator : operators){
-            System.out.println(operator.getName());
-        }
-
-
+    private void switchToDefine() throws IOException {
+        App.setRoot("define");
+    }
+    @FXML
+    private void switchToGenerate() throws IOException {
+        App.setRoot("generate");
     }
 }
