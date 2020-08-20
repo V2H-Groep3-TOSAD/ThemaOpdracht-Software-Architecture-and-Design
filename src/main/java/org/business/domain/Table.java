@@ -1,9 +1,4 @@
-package org.domain;
-
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+package org.business.domain;
 
 import javax.persistence.*;
 import javax.persistence.Column;
@@ -25,7 +20,7 @@ public class Table {
     private String code;
 
     @OneToMany(mappedBy = "table")
-    private List<org.domain.Column> columns;
+    private List<org.business.domain.Column> columns;
 
     @ManyToOne
     @JoinColumn(name = "database_id")

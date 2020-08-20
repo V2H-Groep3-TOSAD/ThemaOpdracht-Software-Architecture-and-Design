@@ -1,4 +1,4 @@
-package org.domain;
+package org.business.domain;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -8,7 +8,10 @@ import lombok.Setter;
 import javax.persistence.*;
 import javax.persistence.Column;
 import javax.persistence.Table;
-
+@AllArgsConstructor
+@Getter
+@Setter
+@NoArgsConstructor
 @Entity
 @Table(name = "businessrule")
 public class BusinessRule {
@@ -37,4 +40,14 @@ public class BusinessRule {
     @OneToOne
     @JoinColumn(name = "valuedefinition_id", referencedColumnName = "id")
     private ValueDefinition valueDefinition;
+
+    public BusinessRule(int id, String name, String description, int volgNummer, BusinessRuleType businessRuleType, Operator operator, ValueDefinition valueDefinition) {
+        this.id = id;
+        this.name = name;
+        this.description = description;
+        this.volgNummer = volgNummer;
+        this.businessRuleType = businessRuleType;
+        this.operator = operator;
+        this.valueDefinition = valueDefinition;
+    }
 }

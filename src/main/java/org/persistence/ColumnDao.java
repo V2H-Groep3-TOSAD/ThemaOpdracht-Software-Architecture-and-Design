@@ -1,6 +1,6 @@
 package org.persistence;
 
-import org.domain.Column;
+import org.business.domain.Column;
 
 public interface ColumnDao extends GenericDAO<Column>{
 }

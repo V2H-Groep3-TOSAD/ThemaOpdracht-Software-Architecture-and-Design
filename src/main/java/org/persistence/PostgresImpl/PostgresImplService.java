@@ -1,10 +1,6 @@
 package org.persistence.PostgresImpl;
 
-import org.domain.BusinessRule;
-import org.domain.ValueDefinition;
 import org.persistence.*;
-import org.persistence.PostgresImpl.OperatorDaoPostgresImpl;
-import org.persistence.PostgresImpl.TableDaoPostgresImpl;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;

@@ -1,9 +1,8 @@
 package org.services.PostgresServiceImpl;
 
-import org.domain.BusinessRuleType;
+import org.business.domain.BusinessRuleType;
 import org.persistence.BusinessRuleTypeDao;
 import org.persistence.PostgresImpl.PostgresImplService;
-import org.services.BusinessRuleTypeService;
 
 import java.util.List;
 

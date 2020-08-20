@@ -1,6 +1,6 @@
 package org.persistence;
 
-import org.domain.ValueDefinition;
+import org.business.domain.ValueDefinition;
 
 public interface ValueDefinitionDao extends GenericDAO<ValueDefinition> {
 }

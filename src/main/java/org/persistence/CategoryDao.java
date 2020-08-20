@@ -1,6 +1,6 @@
 package org.persistence;
 
-import org.domain.Category;
+import org.business.domain.Category;
 
 public interface CategoryDao extends GenericDAO<Category> {
 }

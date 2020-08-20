@@ -1,6 +1,6 @@
 package org.persistence.PostgresImpl;
 
-import org.domain.ValueDefinition;
+import org.business.domain.ValueDefinition;
 import org.persistence.ValueDefinitionDao;
 
 import javax.persistence.EntityManager;

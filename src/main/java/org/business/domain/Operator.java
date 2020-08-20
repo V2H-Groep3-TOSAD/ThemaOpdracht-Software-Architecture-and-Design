@@ -1,6 +1,5 @@
-package org.domain;
+package org.business.domain;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -10,9 +9,12 @@ import javax.persistence.Column;
 import javax.persistence.Table;
 import java.util.List;
 
+@Getter
+@Setter
+@NoArgsConstructor
 @Entity
-@Table(name = "category")
-public class Category {
+@Table(name = "operator")
+public class Operator {
 
     @Id
     @GeneratedValue
@@ -21,6 +23,9 @@ public class Category {
     @Column(name = "name")
     private String name;
 
-    @OneToMany(mappedBy = "category")
+    @OneToOne(mappedBy = "operator")
+    private BusinessRule businessRule;
+
+    @ManyToMany(mappedBy = "operators")
     private List<BusinessRuleType> businessRuleType;
 }

@@ -1,6 +1,6 @@
 package org.persistence;
 
-import org.domain.Table;
+import org.business.domain.Table;
 
 public interface TableDao  extends GenericDAO<Table> {
 }

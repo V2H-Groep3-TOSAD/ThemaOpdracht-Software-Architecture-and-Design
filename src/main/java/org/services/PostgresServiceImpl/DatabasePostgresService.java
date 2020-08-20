@@ -1,9 +1,8 @@
 package org.services.PostgresServiceImpl;
 
-import org.domain.Database;
+import org.business.domain.Database;
 import org.persistence.DatabaseDao;
 import org.persistence.PostgresImpl.PostgresImplService;
-import org.services.DatabaseService;
 
 import java.util.List;
 

@@ -1,13 +1,7 @@
 package org.services;
 
-import org.domain.BusinessRuleType;
-import org.domain.Operator;
 import org.persistence.*;
-import org.persistence.PostgresImpl.OperatorDaoPostgresImpl;
-import org.persistence.PostgresImpl.PostgresImplService;
 import org.services.PostgresServiceImpl.*;
-
-import java.util.List;
 
 public class PostgresServiceProvider {
     private OperatorPostgresService operatorPostgresService;

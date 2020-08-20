@@ -1,9 +1,8 @@
 package org.services.PostgresServiceImpl;
 
-import org.domain.Table;
+import org.business.domain.Table;
 import org.persistence.PostgresImpl.PostgresImplService;
 import org.persistence.TableDao;
-import org.services.TableService;
 
 import java.util.List;
 

@@ -1,6 +1,6 @@
 package org.services;
 
-import org.domain.ValueDefinition;
+import org.business.domain.ValueDefinition;
 
 public interface ValueDefinitionService extends GenericService<ValueDefinition> {
 }

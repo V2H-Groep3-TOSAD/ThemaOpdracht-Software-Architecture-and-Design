@@ -1,9 +1,8 @@
 package org.services.PostgresServiceImpl;
 
-import org.domain.ValueDefinition;
+import org.business.domain.ValueDefinition;
 import org.persistence.PostgresImpl.PostgresImplService;
 import org.persistence.ValueDefinitionDao;
-import org.services.ValueDefinitionService;
 
 import java.util.List;
 
