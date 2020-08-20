@@ -1,11 +1,13 @@
-package org.persistence;
+package org.persistence.PostgresImpl;
+
+import org.persistence.GenericDAO;
 
 import javax.persistence.EntityManager;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 import java.util.List;
 
-public abstract class AbstractDaoPostgresImpl<T> implements GenericDAO<T>{
+public abstract class AbstractDaoPostgresImpl<T> implements GenericDAO<T> {
     protected EntityManager em;
     protected Class<T> type;
 

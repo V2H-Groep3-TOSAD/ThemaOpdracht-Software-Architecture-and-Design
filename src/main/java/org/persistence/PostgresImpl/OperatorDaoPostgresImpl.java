@@ -1,11 +1,13 @@
-package org.persistence;
+package org.persistence.PostgresImpl;
 
 import org.domain.Operator;
+import org.persistence.OperatorDao;
+import org.persistence.PostgresImpl.AbstractDaoPostgresImpl;
 
 import javax.persistence.EntityManager;
 import java.util.List;
 
-public class OperatorDaoPostgresImpl extends AbstractDaoPostgresImpl<Operator> implements OperatorDao{
+public class OperatorDaoPostgresImpl extends AbstractDaoPostgresImpl<Operator> implements OperatorDao {
 
     public OperatorDaoPostgresImpl(EntityManager entityManager){
         super(entityManager);
