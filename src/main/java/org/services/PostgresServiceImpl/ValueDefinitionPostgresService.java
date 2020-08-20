@@ -1,7 +1,7 @@
 package org.services.PostgresServiceImpl;
 
 import org.business.domain.ValueDefinition;
-import org.persistence.PostgresImpl.PostgresImplService;
+import org.persistence.PostgresImpl.PostgresDaoImplProvider;
 import org.persistence.ValueDefinitionDao;
 
 import java.util.List;
@@ -12,11 +12,11 @@ public class ValueDefinitionPostgresService {
 //        super(valueDefinitionDao);
 //    }
 private ValueDefinitionDao valueDefinitionDao;
-    private PostgresImplService postgresImplService;
+    private PostgresDaoImplProvider postgresDaoImplProvider;
 
     public ValueDefinitionPostgresService(){
-        postgresImplService = new PostgresImplService();
-        valueDefinitionDao = postgresImplService.getValueDefinitionDao();
+        postgresDaoImplProvider = new PostgresDaoImplProvider();
+        valueDefinitionDao = postgresDaoImplProvider.getValueDefinitionDao();
     };
 
 

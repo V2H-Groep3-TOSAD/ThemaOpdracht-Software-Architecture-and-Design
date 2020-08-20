@@ -2,7 +2,7 @@ package org.services.PostgresServiceImpl;
 
 import org.business.domain.BusinessRule;
 import org.persistence.BusinessRuleDao;
-import org.persistence.PostgresImpl.PostgresImplService;
+import org.persistence.PostgresImpl.PostgresDaoImplProvider;
 
 import java.util.List;
 
@@ -13,11 +13,11 @@ public class BusinessRulePostgresService {
 //        super(businessRuleDao);
 //    };
     private BusinessRuleDao businessRuleDao;
-    private PostgresImplService postgresImplService;
+    private PostgresDaoImplProvider postgresDaoImplProvider;
 
     public BusinessRulePostgresService(){
-        postgresImplService = new PostgresImplService();
-        businessRuleDao = postgresImplService.getBusinessRuleDao();
+        postgresDaoImplProvider = new PostgresDaoImplProvider();
+        businessRuleDao = postgresDaoImplProvider.getBusinessRuleDao();
     };
 
 

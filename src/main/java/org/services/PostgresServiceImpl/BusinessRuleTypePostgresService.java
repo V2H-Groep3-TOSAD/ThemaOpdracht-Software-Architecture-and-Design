@@ -2,7 +2,7 @@ package org.services.PostgresServiceImpl;
 
 import org.business.domain.BusinessRuleType;
 import org.persistence.BusinessRuleTypeDao;
-import org.persistence.PostgresImpl.PostgresImplService;
+import org.persistence.PostgresImpl.PostgresDaoImplProvider;
 
 import java.util.List;
 
@@ -14,11 +14,11 @@ public class BusinessRuleTypePostgresService {
 //    };
 
     private BusinessRuleTypeDao businessRuleTypeDao;
-    private PostgresImplService postgresImplService;
+    private PostgresDaoImplProvider postgresDaoImplProvider;
 
     public BusinessRuleTypePostgresService(){
-        postgresImplService = new PostgresImplService();
-        businessRuleTypeDao = postgresImplService.getBusinessRuleTypeDao();
+        postgresDaoImplProvider = new PostgresDaoImplProvider();
+        businessRuleTypeDao = postgresDaoImplProvider.getBusinessRuleTypeDao();
     };
 
 

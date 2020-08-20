@@ -2,7 +2,7 @@ package org.services.PostgresServiceImpl;
 
 import org.business.domain.Database;
 import org.persistence.DatabaseDao;
-import org.persistence.PostgresImpl.PostgresImplService;
+import org.persistence.PostgresImpl.PostgresDaoImplProvider;
 
 import java.util.List;
 
@@ -13,11 +13,11 @@ public class DatabasePostgresService {
 //        super(databaseDao);
 //    };
 private DatabaseDao databaseDao;
-    private PostgresImplService postgresImplService;
+    private PostgresDaoImplProvider postgresDaoImplProvider;
 
     public DatabasePostgresService(){
-        postgresImplService = new PostgresImplService();
-        databaseDao = postgresImplService.getDatabaseDao();
+        postgresDaoImplProvider = new PostgresDaoImplProvider();
+        databaseDao = postgresDaoImplProvider.getDatabaseDao();
     };
 
 
@@ -32,4 +32,6 @@ private DatabaseDao databaseDao;
     public Database getDatabaseById(int id){
         return databaseDao.findById(id);
     };
+
+
 }

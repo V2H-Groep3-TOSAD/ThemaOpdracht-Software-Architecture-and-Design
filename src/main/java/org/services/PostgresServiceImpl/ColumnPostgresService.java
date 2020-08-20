@@ -2,7 +2,7 @@ package org.services.PostgresServiceImpl;
 
 import org.business.domain.Column;
 import org.persistence.ColumnDao;
-import org.persistence.PostgresImpl.PostgresImplService;
+import org.persistence.PostgresImpl.PostgresDaoImplProvider;
 
 import java.util.List;
 
@@ -13,11 +13,11 @@ public class ColumnPostgresService {
 //    };
 
     private ColumnDao columnDao;
-    private PostgresImplService postgresImplService;
+    private PostgresDaoImplProvider postgresDaoImplProvider;
 
     public ColumnPostgresService(){
-        postgresImplService = new PostgresImplService();
-        columnDao = postgresImplService.getColumnDao();
+        postgresDaoImplProvider = new PostgresDaoImplProvider();
+        columnDao = postgresDaoImplProvider.getColumnDao();
     };
 
 
@@ -32,4 +32,8 @@ public class ColumnPostgresService {
     public Column getColumnById(int id){
         return columnDao.findById(id);
     };
+
+    public List<Column> getColumnsByTableID(int id){ return columnDao.findByTableId(id);
+
+    }
 }

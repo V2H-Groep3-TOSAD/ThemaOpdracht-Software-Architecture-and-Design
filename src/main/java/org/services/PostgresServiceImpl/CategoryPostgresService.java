@@ -2,7 +2,7 @@ package org.services.PostgresServiceImpl;
 
 import org.business.domain.Category;
 import org.persistence.CategoryDao;
-import org.persistence.PostgresImpl.PostgresImplService;
+import org.persistence.PostgresImpl.PostgresDaoImplProvider;
 
 import java.util.List;
 
@@ -14,11 +14,11 @@ public class CategoryPostgresService {
 //    };
 
     private CategoryDao categoryDao;
-    private PostgresImplService postgresImplService;
+    private PostgresDaoImplProvider postgresDaoImplProvider;
 
     public CategoryPostgresService(){
-        postgresImplService = new PostgresImplService();
-        categoryDao = postgresImplService.getCategoryDao();
+        postgresDaoImplProvider = new PostgresDaoImplProvider();
+        categoryDao = postgresDaoImplProvider.getCategoryDao();
     };
 
 

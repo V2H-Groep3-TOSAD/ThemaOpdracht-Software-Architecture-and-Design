@@ -2,7 +2,7 @@ package org.services.PostgresServiceImpl;
 
 import org.business.domain.Operator;
 import org.persistence.OperatorDao;
-import org.persistence.PostgresImpl.PostgresImplService;
+import org.persistence.PostgresImpl.PostgresDaoImplProvider;
 
 import java.util.List;
 
@@ -12,11 +12,11 @@ public class OperatorPostgresService {
 //        super(operatorDao);
 //    };
     private OperatorDao operatorDao;
-    private PostgresImplService postgresImplService;
+    private PostgresDaoImplProvider postgresDaoImplProvider;
 
     public OperatorPostgresService(){
-        postgresImplService = new PostgresImplService();
-        operatorDao = postgresImplService.getOperatorDao();
+        postgresDaoImplProvider = new PostgresDaoImplProvider();
+        operatorDao = postgresDaoImplProvider.getOperatorDao();
     };
 
 

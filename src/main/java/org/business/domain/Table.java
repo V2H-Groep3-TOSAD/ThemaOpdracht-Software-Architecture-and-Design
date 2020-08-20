@@ -25,4 +25,46 @@ public class Table {
     @ManyToOne
     @JoinColumn(name = "database_id")
     private Database database;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
+    }
+
+    public List<org.business.domain.Column> getColumns() {
+        return columns;
+    }
+
+    public void setColumns(List<org.business.domain.Column> columns) {
+        this.columns = columns;
+    }
+
+    public Database getDatabase() {
+        return database;
+    }
+
+    public void setDatabase(Database database) {
+        this.database = database;
+    }
+
+
 }
