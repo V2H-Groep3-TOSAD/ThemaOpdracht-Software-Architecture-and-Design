@@ -2,7 +2,6 @@ package org.business.domain;
 
 public class BusinessRuleBuilder {
 
-    private int id;
     private String name;
     private String description;
     private int volgNummer;
@@ -10,9 +9,6 @@ public class BusinessRuleBuilder {
     private Operator operator;
     private ValueDefinition valueDefinition;
 
-    public void setId(int id) {
-        this.id = id;
-    }
 
     public void setName(String name) {
         this.name = name;
@@ -39,7 +35,7 @@ public class BusinessRuleBuilder {
     }
 
     public BusinessRule build(){
-        return new BusinessRule(this.id,this.name, this.description, this.volgNummer, this.businessRuleType, this.operator, this.valueDefinition);
+        return new BusinessRule(this.name, this.description, this.volgNummer, this.businessRuleType, this.operator, this.valueDefinition);
     }
 
 }

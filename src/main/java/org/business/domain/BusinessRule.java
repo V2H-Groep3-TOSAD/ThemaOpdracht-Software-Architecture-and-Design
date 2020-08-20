@@ -41,8 +41,8 @@ public class BusinessRule {
     @JoinColumn(name = "valuedefinition_id", referencedColumnName = "id")
     private ValueDefinition valueDefinition;
 
-    public BusinessRule(int id, String name, String description, int volgNummer, BusinessRuleType businessRuleType, Operator operator, ValueDefinition valueDefinition) {
-        this.id = id;
+    public BusinessRule( String name, String description, int volgNummer, BusinessRuleType businessRuleType, Operator operator, ValueDefinition valueDefinition) {
+
         this.name = name;
         this.description = description;
         this.volgNummer = volgNummer;

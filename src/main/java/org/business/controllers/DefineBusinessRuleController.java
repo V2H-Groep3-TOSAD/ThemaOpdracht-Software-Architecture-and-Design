@@ -47,7 +47,13 @@ public class DefineBusinessRuleController {
         businessRuleBuilder.setValueDefinition(valueDefinition);
     }
 
+    public void setName(String name){
+        businessRuleBuilder.setName(name);
+    }
+
     public BusinessRule buildBusinessRule(){
        return businessRuleBuilder.build();
     }
+
+
 }
