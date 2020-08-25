@@ -1,6 +1,6 @@
 package org.services;
 
-import org.domain.Category;
+import org.business.domain.Category;
 
 public interface CategoryService extends GenericService<Category> {
 }

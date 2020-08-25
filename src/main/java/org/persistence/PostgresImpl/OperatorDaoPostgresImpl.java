@@ -1,8 +1,7 @@
 package org.persistence.PostgresImpl;
 
-import org.domain.Operator;
+import org.business.domain.Operator;
 import org.persistence.OperatorDao;
-import org.persistence.PostgresImpl.AbstractDaoPostgresImpl;
 
 import javax.persistence.EntityManager;
 import java.util.List;

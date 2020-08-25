@@ -1,6 +1,7 @@
 package org.services;
 
-import org.domain.Table;
+import org.business.domain.Table;
 
 public interface TableService extends GenericService<Table>{
+
 }

@@ -1,6 +1,6 @@
 package org.services;
 
-import org.domain.Operator;
+import org.business.domain.Operator;
 
 public interface OperatorService extends GenericService<Operator> {
 }

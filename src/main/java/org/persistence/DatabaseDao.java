@@ -1,6 +1,6 @@
 package org.persistence;
 
-import org.domain.Database;
+import org.business.domain.Database;
 
 public interface DatabaseDao extends GenericDAO<Database>{
 }

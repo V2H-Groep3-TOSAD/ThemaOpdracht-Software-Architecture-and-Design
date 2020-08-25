@@ -1,13 +1,7 @@
 package org.services;
 
-import org.domain.BusinessRuleType;
-import org.domain.Operator;
 import org.persistence.*;
-import org.persistence.PostgresImpl.OperatorDaoPostgresImpl;
-import org.persistence.PostgresImpl.PostgresImplService;
 import org.services.PostgresServiceImpl.*;
-
-import java.util.List;
 
 public class PostgresServiceProvider {
     private OperatorPostgresService operatorPostgresService;
@@ -60,6 +54,13 @@ public class PostgresServiceProvider {
 //            }
 //        });
         operatorPostgresService = new OperatorPostgresService();
+        tablePostgresService = new TablePostgresService();
+        businessRulePostgresService = new BusinessRulePostgresService();
+        businessRuleTypePostgresService = new BusinessRuleTypePostgresService();
+        categoryPostgresService = new CategoryPostgresService();
+        columnPostgresService = new ColumnPostgresService();
+        databasePostgresService = new DatabasePostgresService();
+        valueDefinitionPostgresService = new ValueDefinitionPostgresService();
 //        tablePostgresService = new TablePostgresService(tableDao);
 //        businessRulePostgresService = new BusinessRulePostgresService(businessRuleDao);
 //        businessRuleTypePostgresService = new BusinessRuleTypePostgresService(businessRuleTypeDao);
