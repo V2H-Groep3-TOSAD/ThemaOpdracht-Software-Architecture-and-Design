@@ -26,6 +26,6 @@ public class Operator {
     @OneToOne(mappedBy = "operator")
     private BusinessRule businessRule;
 
-    @ManyToMany(mappedBy = "operators")
-    private List<BusinessRuleType> businessRuleType;
+    @OneToMany(mappedBy = "operator")
+    private List<BusinessRuleTypeOperators> businessRuleType;
 }
