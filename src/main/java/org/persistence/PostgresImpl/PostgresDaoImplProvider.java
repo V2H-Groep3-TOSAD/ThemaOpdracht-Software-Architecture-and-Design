@@ -1,15 +1,11 @@
 package org.persistence.PostgresImpl;
 
-import org.domain.BusinessRule;
-import org.domain.ValueDefinition;
 import org.persistence.*;
-import org.persistence.PostgresImpl.OperatorDaoPostgresImpl;
-import org.persistence.PostgresImpl.TableDaoPostgresImpl;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 
-public class PostgresImplService extends HibernateUtil {
+public class PostgresDaoImplProvider extends HibernateUtil {
 
     private static EntityManagerFactory entityManagerFactory;
     private OperatorDao operatorDao;
@@ -22,7 +18,7 @@ public class PostgresImplService extends HibernateUtil {
     private ValueDefinitionDao valueDefinitionDao;
     private PersonDao personDao;
 
-    public PostgresImplService(){
+    public PostgresDaoImplProvider(){
         EntityManager entityManager = null;
         try {
             entityManagerFactory = HibernateUtil.getEntityManagerFactory();

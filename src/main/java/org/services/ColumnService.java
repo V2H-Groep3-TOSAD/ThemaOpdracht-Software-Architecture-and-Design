@@ -1,6 +1,6 @@
 package org.services;
 
-import org.domain.Column;
+import org.business.domain.Column;
 
 public interface ColumnService extends GenericService<Column> {
 }

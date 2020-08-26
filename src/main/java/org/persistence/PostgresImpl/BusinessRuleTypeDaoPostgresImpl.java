@@ -1,6 +1,6 @@
 package org.persistence.PostgresImpl;
 
-import org.domain.BusinessRuleType;
+import org.business.domain.BusinessRuleType;
 import org.persistence.BusinessRuleTypeDao;
 
 import javax.persistence.EntityManager;

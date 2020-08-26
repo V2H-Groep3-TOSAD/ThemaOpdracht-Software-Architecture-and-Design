@@ -1,4 +1,4 @@
-package org.domain;
+package org.business.domain;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -10,6 +10,10 @@ import javax.persistence.Column;
 import javax.persistence.Table;
 import java.util.List;
 
+@AllArgsConstructor
+@Getter
+@Setter
+@NoArgsConstructor
 @Entity
 @Table(name = "businessrule")
 public class BusinessRule {
@@ -32,7 +36,7 @@ public class BusinessRule {
     private BusinessRuleType businessRuleType;
 
     @OneToMany
-    private List<org.domain.Column> columns;
+    private List<org.business.domain.Column> columns;
 
     @OneToOne
     @JoinColumn(name = "operator_id", referencedColumnName = "id")
@@ -41,4 +45,14 @@ public class BusinessRule {
     @OneToOne
     @JoinColumn(name = "valuedefinition_id", referencedColumnName = "id")
     private ValueDefinition valueDefinition;
+
+    public BusinessRule( String name, String description, int serialNumber, BusinessRuleType businessRuleType, Operator operator, ValueDefinition valueDefinition) {
+
+        this.name = name;
+        this.description = description;
+        this.serialNumber = serialNumber;
+        this.businessRuleType = businessRuleType;
+        this.operator = operator;
+        this.valueDefinition = valueDefinition;
+    }
 }

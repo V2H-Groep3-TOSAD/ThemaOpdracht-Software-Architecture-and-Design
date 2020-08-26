@@ -1,4 +1,4 @@
-package org.domain;
+package org.business.domain;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;

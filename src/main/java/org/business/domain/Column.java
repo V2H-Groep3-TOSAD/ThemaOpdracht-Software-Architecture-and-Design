@@ -1,9 +1,4 @@
-package org.domain;
-
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+package org.business.domain;
 
 import javax.persistence.*;
 import javax.persistence.Table;
@@ -21,5 +16,5 @@ public class Column {
 
     @ManyToOne
     @JoinColumn(name = "table_id", referencedColumnName = "id")
-    private org.domain.Table table;
+    private org.business.domain.Table table;
 }

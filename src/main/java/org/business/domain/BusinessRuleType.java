@@ -1,4 +1,4 @@
-package org.domain;
+package org.business.domain;
 
 import javax.persistence.*;
 import javax.persistence.Column;

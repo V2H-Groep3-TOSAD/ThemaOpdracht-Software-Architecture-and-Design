@@ -1,6 +1,6 @@
 package org.services;
 
-import org.domain.Database;
+import org.business.domain.Database;
 
 public interface DatabaseService extends GenericService<Database> {
 }

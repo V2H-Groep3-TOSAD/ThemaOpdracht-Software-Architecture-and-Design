@@ -2,7 +2,7 @@ package org.services.PostgresServiceImpl;
 
 import org.domain.target.Person;
 import org.persistence.PersonDao;
-import org.persistence.PostgresImpl.PostgresImplService;
+import org.persistence.PostgresImpl.PostgresDaoImplProvider;
 
 import java.util.List;
 
@@ -12,11 +12,11 @@ public class PersonPostgresService {
 //        super(personDao);
 //    };
     private PersonDao personDao;
-    private PostgresImplService postgresImplService;
+    private PostgresDaoImplProvider postgresDaoImplProvider;
 
     public PersonPostgresService(){
-        postgresImplService = new PostgresImplService();
-        personDao = postgresImplService.getPersonDao();
+        postgresDaoImplProvider = new PostgresDaoImplProvider();
+        personDao = postgresDaoImplProvider.getPersonDao();
     };
 
 

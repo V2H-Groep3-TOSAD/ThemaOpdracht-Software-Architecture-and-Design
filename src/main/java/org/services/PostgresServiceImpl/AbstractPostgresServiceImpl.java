@@ -1,8 +1,6 @@
 package org.services.PostgresServiceImpl;
 
-import com.sun.jdi.InterfaceType;
 import org.persistence.GenericDAO;
-import org.persistence.PostgresImpl.PostgresImplService;
 import org.services.GenericService;
 
 import java.lang.reflect.ParameterizedType;

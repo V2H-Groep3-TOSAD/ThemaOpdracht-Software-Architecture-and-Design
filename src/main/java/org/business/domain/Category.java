@@ -1,9 +1,4 @@
-package org.domain;
-
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+package org.business.domain;
 
 import javax.persistence.*;
 import javax.persistence.Column;
