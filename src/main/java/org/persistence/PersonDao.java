@@ -1,6 +1,6 @@
 package org.persistence;
 
-import org.domain.target.Person;
+import org.business.domain.target.Person;
 
 import java.util.List;
 

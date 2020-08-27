@@ -4,15 +4,15 @@
              version="2.0">
 
     <persistence-unit name="hibernate.postgres">
-        <class>org.business.domain.Operator</class>
-        <class>org.business.domain.Table</class>
-        <class>org.business.domain.BusinessRule</class>
-        <class>org.business.domain.BusinessRuleType</class>
-        <class>org.business.domain.BusinessRuleTypeOperators</class>
-        <class>org.business.domain.Category</class>
-        <class>org.business.domain.Column</class>
-        <class>org.business.domain.Database</class>
-        <class>org.business.domain.ValueDefinition</class>
+        <class>org.business.domain.source.Operator</class>
+        <class>org.business.domain.source.Table</class>
+        <class>org.business.domain.source.BusinessRule</class>
+        <class>org.business.domain.source.BusinessRuleType</class>
+        <class>org.business.domain.source.BusinessRuleTypeOperators</class>
+        <class>org.business.domain.source.Category</class>
+        <class>org.business.domain.source.Column</class>
+        <class>org.business.domain.source.Database</class>
+        <class>org.business.domain.source.ValueDefinition</class>
         <exclude-unlisted-classes>true</exclude-unlisted-classes>
         <properties>
             <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver" />
@@ -27,8 +27,8 @@
         </properties>
     </persistence-unit>
     <persistence-unit name="hibernate.postgres.target">
-        <class>org.domain.target.Person</class>
-        <class>org.domain.target.Address</class>
+        <class>org.business.domain.target.Person</class>
+        <class>org.business.domain.target.Address</class>
         <exclude-unlisted-classes>true</exclude-unlisted-classes>
         <properties>
             <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver" />

@@ -1,6 +1,6 @@
 package org.openjfx;
 
-import org.business.domain.Operator;
+import org.business.domain.source.Operator;
 import org.services.PostgresServiceProvider;
 
 import java.util.List;

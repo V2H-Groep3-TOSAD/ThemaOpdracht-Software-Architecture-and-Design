@@ -1,6 +1,6 @@
 package org.services.PostgresServiceImpl;
 
-import org.business.domain.ValueDefinition;
+import org.business.domain.source.ValueDefinition;
 import org.persistence.PostgresImpl.PostgresDaoImplProvider;
 import org.persistence.ValueDefinitionDao;
 

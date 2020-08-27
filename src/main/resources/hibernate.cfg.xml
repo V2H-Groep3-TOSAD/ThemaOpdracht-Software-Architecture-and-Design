@@ -10,13 +10,13 @@
         <property name="connection.url">jdbc:postgresql://ec2-54-247-89-181.eu-west-1.compute.amazonaws.com:5432/dfntpmqb82jqmb?sslmode=require</property>
         <property name="hibernate.connection.username">agsdjxtwhsyrdz</property>
         <property name="hibernate.connection.password">1b63080b3a77e07d1fd81abb3e8e65f09075bc8ceceba4cb55cecb37668b9bbd</property>
-        <mapping class="org.business.domain.BusinessRule"/>
-        <mapping class="org.business.domain.BusinessRuleType"/>
-        <mapping class="org.business.domain.Category"/>
-        <mapping class="org.business.domain.Column"/>
-        <mapping class="org.business.domain.Database"/>
-        <mapping class="org.business.domain.Operator"/>
-        <mapping class="org.business.domain.Table"/>
-        <mapping class="org.business.domain.ValueDefinition"/>
+        <mapping class="org.business.domain.source.BusinessRule"/>
+        <mapping class="org.business.domain.source.BusinessRuleType"/>
+        <mapping class="org.business.domain.source.Category"/>
+        <mapping class="org.business.domain.source.Column"/>
+        <mapping class="org.business.domain.source.Database"/>
+        <mapping class="org.business.domain.source.Operator"/>
+        <mapping class="org.business.domain.source.Table"/>
+        <mapping class="org.business.domain.source.ValueDefinition"/>
     </session-factory>
 </hibernate-configuration> 

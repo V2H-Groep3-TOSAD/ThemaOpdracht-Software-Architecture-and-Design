@@ -1,7 +1,6 @@
 package org.persistence.PostgresImpl;
 
-import org.business.domain.Database;
-import org.business.domain.Table;
+import org.business.domain.source.Table;
 import org.persistence.TableDao;
 
 import javax.persistence.EntityManager;

@@ -1,6 +1,6 @@
 package org.services.PostgresServiceImpl;
 
-import org.business.domain.Table;
+import org.business.domain.source.Table;
 import org.persistence.PostgresImpl.PostgresDaoImplProvider;
 import org.persistence.TableDao;
 

@@ -1,6 +1,6 @@
 package org.persistence;
 
-import org.business.domain.Operator;
+import org.business.domain.source.Operator;
 
 import java.util.List;
 

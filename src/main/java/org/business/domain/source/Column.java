@@ -1,4 +1,4 @@
-package org.business.domain;
+package org.business.domain.source;
 
 import javax.persistence.*;
 import javax.persistence.Table;
@@ -16,5 +16,5 @@ public class Column {
 
     @ManyToOne
     @JoinColumn(name = "table_id", referencedColumnName = "id")
-    private org.business.domain.Table table;
+    private org.business.domain.source.Table table;
 }
