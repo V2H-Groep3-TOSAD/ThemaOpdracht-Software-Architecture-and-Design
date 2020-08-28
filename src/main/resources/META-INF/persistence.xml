@@ -27,8 +27,8 @@
         </properties>
     </persistence-unit>
     <persistence-unit name="hibernate.postgres.target">
-        <class>org.domain.target.Person</class>
-        <class>org.domain.target.Address</class>
+        <class>org.business.domain.target.Person</class>
+        <class>org.business.domain.target.Address</class>
         <exclude-unlisted-classes>true</exclude-unlisted-classes>
         <properties>
             <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver" />
