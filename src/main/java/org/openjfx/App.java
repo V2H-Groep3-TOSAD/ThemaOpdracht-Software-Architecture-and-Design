@@ -5,7 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import org.business.domain.Database;
+import org.business.domain.tool.Database;
 import org.services.PostgresServiceProvider;
 
 import java.io.IOException;

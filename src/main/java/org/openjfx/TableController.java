@@ -4,8 +4,8 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.ChoiceBox;
-import org.business.domain.Database;
-import org.business.domain.Table;
+
+import org.business.domain.tool.Table;
 
 import java.io.IOException;
 import java.util.ArrayList;
