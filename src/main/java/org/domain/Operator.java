@@ -1,19 +1,17 @@
 package org.domain;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.*;
 import javax.persistence.Column;
 import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.List;
 
 @Getter
 @Setter
 @NoArgsConstructor
-@AllArgsConstructor
 @Entity
 @Table(name = "operator")
 public class Operator {
@@ -28,6 +26,6 @@ public class Operator {
     @OneToOne(mappedBy = "operator")
     private BusinessRule businessRule;
 
-    @ManyToMany(mappedBy = "operators")
-    private List<BusinessRuleType> businessRuleType;
+    @OneToMany(mappedBy = "operator")
+    private List<BusinessRuleTypeOperators> businessRuleType;
 }

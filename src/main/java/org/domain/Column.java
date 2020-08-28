@@ -1,19 +1,10 @@
 package org.domain;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-
-import javax.persistence.*;
 import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "table_column")
-@Getter
-@Setter
-@AllArgsConstructor
-@NoArgsConstructor
 public class Column {
 
     @Id
@@ -25,5 +16,5 @@ public class Column {
 
     @ManyToOne
     @JoinColumn(name = "table_id", referencedColumnName = "id")
-    private org.domain.Table table;
+    private org.business.domain.tool.Table table;
 }

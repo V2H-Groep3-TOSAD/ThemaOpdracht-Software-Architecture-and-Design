@@ -1,21 +1,12 @@
 package org.domain;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-
-import javax.persistence.*;
 import javax.persistence.Column;
+import javax.persistence.*;
 import java.util.List;
 
 
 @Entity
 @javax.persistence.Table(name = "database_table")
-@Getter
-@Setter
-@AllArgsConstructor
-@NoArgsConstructor
 public class Table {
 
     @Id
@@ -29,9 +20,51 @@ public class Table {
     private String code;
 
     @OneToMany(mappedBy = "table")
-    private List<org.domain.Column> columns;
+    private List<org.business.domain.tool.Column> columns;
 
     @ManyToOne
     @JoinColumn(name = "database_id")
     private Database database;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
+    }
+
+    public List<org.business.domain.tool.Column> getColumns() {
+        return columns;
+    }
+
+    public void setColumns(List<org.business.domain.tool.Column> columns) {
+        this.columns = columns;
+    }
+
+    public Database getDatabase() {
+        return database;
+    }
+
+    public void setDatabase(Database database) {
+        this.database = database;
+    }
+
+
 }
