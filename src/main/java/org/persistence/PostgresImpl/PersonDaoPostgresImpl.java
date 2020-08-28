@@ -1,6 +1,6 @@
 package org.persistence.PostgresImpl;
 
-import org.business.domain.target.Person;
+import org.business.domain.doel.Person;
 import org.persistence.PersonDao;
 
 import javax.persistence.EntityManager;
