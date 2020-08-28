@@ -10,15 +10,19 @@ import javafx.scene.control.ChoiceBox;
 import javafx.stage.Stage;
 import org.business.controllers.DefineBusinessRuleController;
 import org.business.domain.tool.Database;
+import org.business.domain.tool.Table;
+
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 public class DatabaseController {
 
-    DefineBusinessRuleController defineController = new DefineBusinessRuleController();
-    PrimaryController primaryController = new PrimaryController();
+    private DefineBusinessRuleController defineController = new DefineBusinessRuleController();
+    private TableController tableController = new TableController();
     @FXML
-    ChoiceBox<String> databaseBox;
+    private ChoiceBox<String> databaseBox;
+    private String message;
 
 
 
@@ -40,12 +44,46 @@ public class DatabaseController {
 
     @FXML
     private void nextKnopClick() throws IOException {
-        App.setRoot("table");
-
         String selectedChoice = databaseBox.getSelectionModel().getSelectedItem();
-        primaryController.transferMessageDatabaseToTable(selectedChoice);
-        //System.out.println(selectedChoice);
+        //tableController = new TableController();
+        transferMessageDatabaseToTable(selectedChoice);
+        //App.setRoot("table");
     }
+
+    public void transferMessageDatabaseToTable(String message) throws IOException {
+        String dbNaam = message;
+        List<Database> databases = defineController.giveAllDatabases();
+        for (Database db : databases) {
+            System.out.println("Hallo" + db.getName());
+            if (db.getName().equals(dbNaam)) {
+                System.out.println("geigvdd"+ db.getName());
+                List<Table> allTables = defineController.giveAllTablesByDatabase(db);
+                ObservableList<String> options = FXCollections.observableArrayList();
+                for (Table table : allTables) {
+                    System.out.println(table);
+                    options.add(table.getName());
+//                    System.out.println(getTableController());
+//                    System.out.println(getTableController().tablesBox);
+//                    tableController.tablesBox.getItems().addAll(options);
+                    //tableController.setTables(allTables);
+                    //tableController.initialize(allTables);
+                    try {
+                        tableController.initialize(allTables);
+                        //App.setRoot("table");
+                    }catch (Exception e){
+                        e.toString();
+                    }
+                }
+            }
+        }
+
+        }
+
+    public TableController getTableController(){
+        return tableController;}
+//    public String getMessage(){
+//        return message;
+//    }
 
 //    private void loadSceneAndSendMessage(String messageString, String resourceString) {
 //        try {
@@ -62,4 +100,4 @@ public class DatabaseController {
 //            System.err.println(ex);
 //        }
 //    }
-}
+    }

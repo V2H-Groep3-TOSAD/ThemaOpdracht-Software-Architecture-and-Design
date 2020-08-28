@@ -3,12 +3,15 @@ package org.openjfx;
 import java.io.IOException;
 import java.util.List;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import org.business.domain.tool.Database;
+import org.business.domain.tool.Table;
 import org.services.PostgresServiceProvider;
 import org.business.controllers.DefineBusinessRuleController;
 import org.openjfx.DatabaseController;
@@ -29,9 +32,6 @@ public class PrimaryController {
 
         App.setRoot("database");
 
-
-
-
     }
 
     @FXML
@@ -39,14 +39,17 @@ public class PrimaryController {
         App.setRoot("generate");
     }
 
-
-
-    public void transferMessageDatabaseToTable(String message) {
-        messageString = message;
-        List<Database> databases = postgresServiceProvider.getDatabasePostgresService().getDatabaseByName(message);
-        Database database = databases.get(1);
-        tableController.initialize(postgresServiceProvider.getTablePostgresService().getTablesByDatabaseId(database.getId()));
+    private void switchToTable() throws IOException {
+        App.setRoot("table");
     }
+
+
+
+
+
+
+
+
 
 
 }
