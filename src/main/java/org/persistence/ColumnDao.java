@@ -1,6 +1,6 @@
 package org.persistence;
 
-import org.business.domain.Column;
+import org.business.domain.tool.Column;
 
 import java.util.List;
 

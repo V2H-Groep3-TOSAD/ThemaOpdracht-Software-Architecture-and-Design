@@ -1,6 +1,6 @@
 package org.persistence;
 
-import org.business.domain.Database;
+import org.business.domain.tool.Database;
 
 import java.util.List;
 

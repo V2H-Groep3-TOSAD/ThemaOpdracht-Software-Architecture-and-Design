@@ -1,4 +1,4 @@
-package org.business.domain;
+package org.business.domain.tool;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -26,6 +26,6 @@ public class Operator {
     @OneToOne(mappedBy = "operator")
     private BusinessRule businessRule;
 
-    @ManyToMany(mappedBy = "operators")
-    private List<BusinessRuleType> businessRuleType;
+    @OneToMany(mappedBy = "operator")
+    private List<BusinessRuleTypeOperators> businessRuleType;
 }

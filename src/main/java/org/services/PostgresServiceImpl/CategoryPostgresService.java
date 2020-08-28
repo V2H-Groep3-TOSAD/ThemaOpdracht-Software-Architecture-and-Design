@@ -1,6 +1,6 @@
 package org.services.PostgresServiceImpl;
 
-import org.business.domain.Category;
+import org.business.domain.tool.Category;
 import org.persistence.CategoryDao;
 import org.persistence.PostgresImpl.PostgresDaoImplProvider;
 

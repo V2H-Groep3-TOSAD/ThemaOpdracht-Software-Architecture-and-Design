@@ -1,6 +1,6 @@
 package org.business.controllers;
 
-import org.business.domain.*;
+import org.business.domain.tool.*;
 import org.services.PostgresServiceProvider;
 
 import java.util.List;

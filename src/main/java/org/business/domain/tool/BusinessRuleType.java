@@ -1,4 +1,4 @@
-package org.business.domain;
+package org.business.domain.tool;
 
 import javax.persistence.*;
 import javax.persistence.Column;
@@ -16,9 +16,6 @@ public class BusinessRuleType {
     @Column(name = "name")
     private String name;
 
-    @Column(name = "templatecode")
-    private String templateCode;
-
     @Column(name = "code")
     private String code;
 
@@ -26,10 +23,6 @@ public class BusinessRuleType {
     @JoinColumn(name = "category_id", referencedColumnName = "id")
     private Category category;
 
-    @ManyToMany
-    @JoinTable(name = "businessruletype_operators",
-               joinColumns = {@JoinColumn(name = "businessruletype_id")},
-               inverseJoinColumns = {@JoinColumn(name = "operator_id")})
-    private List<Operator> operators;
-
+    @OneToMany(mappedBy = "businessRuleType")
+    private List<BusinessRuleTypeOperators> operators;
 }

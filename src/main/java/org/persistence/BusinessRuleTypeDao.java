@@ -1,6 +1,6 @@
 package org.persistence;
 
-import org.business.domain.BusinessRuleType;
+import org.business.domain.tool.BusinessRuleType;
 
 public interface BusinessRuleTypeDao extends GenericDAO<BusinessRuleType> {
 }

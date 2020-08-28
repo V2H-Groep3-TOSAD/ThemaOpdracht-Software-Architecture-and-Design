@@ -1,4 +1,4 @@
-package org.business.domain;
+package org.business.domain.tool;
 
 import javax.persistence.*;
 import javax.persistence.Column;
@@ -20,7 +20,7 @@ public class Table {
     private String code;
 
     @OneToMany(mappedBy = "table")
-    private List<org.business.domain.Column> columns;
+    private List<org.business.domain.tool.Column> columns;
 
     @ManyToOne
     @JoinColumn(name = "database_id")
@@ -50,11 +50,11 @@ public class Table {
         this.code = code;
     }
 
-    public List<org.business.domain.Column> getColumns() {
+    public List<org.business.domain.tool.Column> getColumns() {
         return columns;
     }
 
-    public void setColumns(List<org.business.domain.Column> columns) {
+    public void setColumns(List<org.business.domain.tool.Column> columns) {
         this.columns = columns;
     }
 

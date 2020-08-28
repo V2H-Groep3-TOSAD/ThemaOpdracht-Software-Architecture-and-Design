@@ -4,17 +4,16 @@
              version="2.0">
 
     <persistence-unit name="hibernate.postgres">
-        <class>org.business.domain.Operator</class>
-        <class>org.business.domain.Table</class>
-        <class>org.business.domain.BusinessRule</class>
-        <class>org.business.domain.BusinessRuleType</class>
-        <class>org.business.domain.Category</class>
-        <class>org.business.domain.Column</class>
-        <class>org.business.domain.Database</class>
-        <class>org.business.domain.ValueDefinition</class>
-
-
-
+        <class>org.business.domain.tool.Operator</class>
+        <class>org.business.domain.tool.Table</class>
+        <class>org.business.domain.tool.BusinessRule</class>
+        <class>org.business.domain.tool.BusinessRuleType</class>
+        <class>org.business.domain.tool.BusinessRuleTypeOperators</class>
+        <class>org.business.domain.tool.Category</class>
+        <class>org.business.domain.tool.Column</class>
+        <class>org.business.domain.tool.Database</class>
+        <class>org.business.domain.tool.ValueDefinition</class>
+        <exclude-unlisted-classes>true</exclude-unlisted-classes>
         <properties>
             <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver" />
             <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://ec2-54-247-89-181.eu-west-1.compute.amazonaws.com:5432/dfntpmqb82jqmb?sslmode=require" />
@@ -24,13 +23,23 @@
             <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQL10Dialect" />
             <property name="hibernate.show_sql" value="true" />
             <property name="hibernate.hbm2ddl.auto" value="validate" />
-            <property name="hibernate.ejb.cfgfile" value="hibernate.cfg.xml" />
             <property name="hibernate.temp.use_jdbc_metadata_defaults" value="false" />
-
-
-
         </properties>
-
     </persistence-unit>
+    <persistence-unit name="hibernate.postgres.target">
+        <class>org.business.domain.target.Person</class>
+        <class>org.business.domain.target.Address</class>
+        <exclude-unlisted-classes>true</exclude-unlisted-classes>
+        <properties>
+            <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver" />
+            <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://ec2-54-75-248-49.eu-west-1.compute.amazonaws.com:5432/dcq41biincupgu?sslmode=require" />
+            <property name="javax.persistence.jdbc.user" value="xpphvtanxtwyzl" />
+            <property name="javax.persistence.jdbc.password" value="a0064b5d387af741fdb82accdf2bd1ae51699e287ee98d22f4b94ae1177434b6" />
 
+            <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQL10Dialect" />
+            <property name="hibernate.show_sql" value="true" />
+            <property name="hibernate.hbm2ddl.auto" value="validate" />
+            <property name="hibernate.temp.use_jdbc_metadata_defaults" value="false" />
+        </properties>
+    </persistence-unit>
 </persistence>

@@ -1,4 +1,4 @@
-package org.business.domain;
+package org.business.domain.tool;
 
 import javax.persistence.*;
 import javax.persistence.Column;
@@ -32,11 +32,11 @@ public class Database {
         this.name = name;
     }
 
-    public List<org.business.domain.Table> getTables() {
+    public List<org.business.domain.tool.Table> getTables() {
         return tables;
     }
 
-    public void setTables(List<org.business.domain.Table> tables) {
+    public void setTables(List<org.business.domain.tool.Table> tables) {
         this.tables = tables;
     }
 
@@ -51,6 +51,6 @@ public class Database {
     private String name;
 
     @OneToMany(mappedBy = "database")
-    private List<org.business.domain.Table> tables;
+    private List<org.business.domain.tool.Table> tables;
 
 }

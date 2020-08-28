@@ -16,6 +16,7 @@ public class PostgresDaoImplProvider extends HibernateUtil {
     private ColumnDao columnDao;
     private DatabaseDao databaseDao;
     private ValueDefinitionDao valueDefinitionDao;
+    private PersonDao personDao;
 
     public PostgresDaoImplProvider(){
         EntityManager entityManager = null;
@@ -30,6 +31,7 @@ public class PostgresDaoImplProvider extends HibernateUtil {
             columnDao = new ColumnDaoPostgresImpl(entityManager);
             databaseDao = new DatabaseDaoPostgresImpl(entityManager);
             valueDefinitionDao = new ValueDefinitionDaoPostgresImpl(entityManager);
+            personDao = new PersonDaoPostgresImpl(entityManager);
         }catch (Throwable ex){
             System.err.println("Failed to create entitymanager object." + ex);
             throw new ExceptionInInitializerError(ex);
@@ -64,6 +66,8 @@ public class PostgresDaoImplProvider extends HibernateUtil {
     public DatabaseDao getDatabaseDao() {
         return databaseDao;
     }
+
+    public PersonDao getPersonDao(){return personDao;}
 
     public ValueDefinitionDao getValueDefinitionDao() {
         return valueDefinitionDao;
