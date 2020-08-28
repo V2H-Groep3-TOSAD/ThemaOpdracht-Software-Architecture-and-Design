@@ -3,7 +3,7 @@ package org.openjfx;
 import java.io.IOException;
 
 import javafx.fxml.FXML;
-import org.businesslogic.services.postgresservice.PostgresServiceProvider;
+import org.definemodule.businesslogic.services.postgresservice.PostgresServiceProvider;
 
 public class PrimaryController {
 

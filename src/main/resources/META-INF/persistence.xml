@@ -4,14 +4,14 @@
              version="2.0">
 
     <persistence-unit name="hibernate.postgres">
-        <class>org.businesslogic.domain.Operator</class>
-        <class>org.businesslogic.domain.Table</class>
-        <class>org.businesslogic.domain.BusinessRule</class>
-        <class>org.businesslogic.domain.BusinessRuleType</class>
-        <class>org.businesslogic.domain.Category</class>
-        <class>org.businesslogic.domain.Column</class>
-        <class>org.businesslogic.domain.Database</class>
-        <class>org.businesslogic.domain.ValueDefinition</class>
+        <class>org.domain.Operator</class>
+        <class>org.domain.Table</class>
+        <class>org.domain.BusinessRule</class>
+        <class>org.domain.BusinessRuleType</class>
+        <class>org.domain.Category</class>
+        <class>org.domain.Column</class>
+        <class>org.domain.Database</class>
+        <class>org.domain.ValueDefinition</class>
 
 
 

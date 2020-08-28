@@ -1,7 +1,7 @@
 package org.openjfx;
 
-import org.businesslogic.domain.Operator;
-import org.businesslogic.services.postgresservice.PostgresServiceProvider;
+import org.domain.Operator;
+import org.definemodule.businesslogic.services.postgresservice.PostgresServiceProvider;
 
 import java.util.List;
 

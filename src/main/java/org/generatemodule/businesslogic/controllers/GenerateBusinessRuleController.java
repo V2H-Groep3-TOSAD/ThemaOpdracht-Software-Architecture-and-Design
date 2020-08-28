@@ -1,6 +1,6 @@
 package org.generatemodule.businesslogic.controllers;
 
-import org.generatemodule.businesslogic.domain.BusinessRule;
+import org.domain.BusinessRule;
 import org.generatemodule.businesslogic.services.GenerateBusinessRuleService;
 
 import java.util.List;
