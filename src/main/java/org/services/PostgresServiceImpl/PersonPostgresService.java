@@ -1,5 +1,5 @@
 package org.services.PostgresServiceImpl;
-import org.business.domain.target.Person;
+import org.business.domain.doel.Person;
 import org.persistence.PersonDao;
 import org.persistence.PostgresImpl.PostgresDaoImplProvider;
 

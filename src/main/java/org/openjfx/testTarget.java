@@ -1,6 +1,6 @@
 package org.openjfx;
 
-import org.business.domain.target.Person;
+import org.business.domain.doel.Person;
 import org.services.PostgresServiceProvider;
 
 import java.util.List;
