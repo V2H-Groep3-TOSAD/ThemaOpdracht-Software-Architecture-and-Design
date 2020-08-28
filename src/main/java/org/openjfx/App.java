@@ -5,8 +5,11 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import org.business.domain.Database;
+import org.services.PostgresServiceProvider;
 
 import java.io.IOException;
+import java.util.List;
 
 /**
  * JavaFX App
@@ -18,9 +21,16 @@ public class App extends Application {
     @Override
     public void start(Stage stage) throws IOException {
 
-        scene = new Scene(loadFXML("primary"));
-        stage.setScene(scene);
-        stage.show();
+        PostgresServiceProvider postgresServiceProvider = new PostgresServiceProvider();
+        TableController tableController = new TableController();
+        String message = "dniudnjldndl";
+        List<Database> databases = postgresServiceProvider.getDatabasePostgresService().getDatabaseByName(message);
+        Database database = databases.get(1);
+        System.out.println(database.getName());
+       // tableController.initialize(postgresServiceProvider.getTablePostgresService().getTablesByDatabaseId(database.getId()));
+//        scene = new Scene(loadFXML("primary"));
+//        stage.setScene(scene);
+//        stage.show();
     }
 
     static void setRoot(String fxml) throws IOException {

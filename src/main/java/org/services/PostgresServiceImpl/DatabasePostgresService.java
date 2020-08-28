@@ -33,5 +33,7 @@ private DatabaseDao databaseDao;
         return databaseDao.findById(id);
     };
 
+    public List<Database> getDatabaseByName(String name){return databaseDao.findByName(name);}
+
 
 }
