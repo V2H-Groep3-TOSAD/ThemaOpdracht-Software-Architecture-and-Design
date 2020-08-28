@@ -1,4 +1,4 @@
-package org.business.domain;
+package org.business.domain.tool;
 
 public class BusinessRuleBuilder {
 

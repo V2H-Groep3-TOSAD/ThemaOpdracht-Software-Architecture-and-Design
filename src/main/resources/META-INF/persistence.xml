@@ -4,15 +4,15 @@
              version="2.0">
 
     <persistence-unit name="hibernate.postgres">
-        <class>org.business.domain.Operator</class>
-        <class>org.business.domain.Table</class>
-        <class>org.business.domain.BusinessRule</class>
-        <class>org.business.domain.BusinessRuleType</class>
-        <class>org.business.domain.BusinessRuleTypeOperators</class>
-        <class>org.business.domain.Category</class>
-        <class>org.business.domain.Column</class>
-        <class>org.business.domain.Database</class>
-        <class>org.business.domain.ValueDefinition</class>
+        <class>org.business.domain.tool.Operator</class>
+        <class>org.business.domain.tool.Table</class>
+        <class>org.business.domain.tool.BusinessRule</class>
+        <class>org.business.domain.tool.BusinessRuleType</class>
+        <class>org.business.domain.tool.BusinessRuleTypeOperators</class>
+        <class>org.business.domain.tool.Category</class>
+        <class>org.business.domain.tool.Column</class>
+        <class>org.business.domain.tool.Database</class>
+        <class>org.business.domain.tool.ValueDefinition</class>
         <exclude-unlisted-classes>true</exclude-unlisted-classes>
         <properties>
             <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver" />

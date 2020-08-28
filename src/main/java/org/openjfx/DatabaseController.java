@@ -5,10 +5,9 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.ChoiceBox;
 import org.business.controllers.DefineBusinessRuleController;
-import org.business.domain.Database;
+import org.business.domain.tool.Database;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.List;
 
 public class DatabaseController {
 

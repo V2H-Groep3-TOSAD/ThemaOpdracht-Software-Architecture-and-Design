@@ -1,4 +1,4 @@
-package org.business.domain;
+package org.business.domain.tool;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -36,7 +36,7 @@ public class BusinessRule {
     private BusinessRuleType businessRuleType;
 
     @OneToMany
-    private List<org.business.domain.Column> columns;
+    private List<org.business.domain.tool.Column> columns;
 
     @OneToOne
     @JoinColumn(name = "operator_id", referencedColumnName = "id")

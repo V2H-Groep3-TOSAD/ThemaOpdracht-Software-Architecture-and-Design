@@ -1,6 +1,6 @@
 package org.persistence;
 
-import org.business.domain.Table;
+import org.business.domain.tool.Table;
 
 import java.util.List;
 

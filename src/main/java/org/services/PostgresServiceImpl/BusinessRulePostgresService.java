@@ -1,6 +1,6 @@
 package org.services.PostgresServiceImpl;
 
-import org.business.domain.BusinessRule;
+import org.business.domain.tool.BusinessRule;
 import org.persistence.BusinessRuleDao;
 import org.persistence.PostgresImpl.PostgresDaoImplProvider;
 
