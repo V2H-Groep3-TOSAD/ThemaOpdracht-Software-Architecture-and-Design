@@ -1,8 +1,8 @@
 package org.domain;
 
+import javax.persistence.*;
 import javax.persistence.Column;
 import javax.persistence.Table;
-import javax.persistence.*;
 
 @Entity
 @Table(name = "businessruletype_operators")

@@ -1,7 +1,7 @@
 package org.domain;
 
-import javax.persistence.Table;
 import javax.persistence.*;
+import javax.persistence.Table;
 
 @Entity
 @Table(name = "table_column")

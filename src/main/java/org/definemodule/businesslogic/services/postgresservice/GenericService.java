@@ -1,5 +1,7 @@
 package org.definemodule.businesslogic.services.postgresservice;
 
+import org.w3c.dom.Entity;
+
 import java.util.List;
 
 public interface GenericService<T> {

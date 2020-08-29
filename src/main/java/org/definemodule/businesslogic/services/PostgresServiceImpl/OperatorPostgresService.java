@@ -1,13 +1,13 @@
-package org.definemodule.businesslogic.services.PostgresServiceImpl;
+package org.definemodule.businesslogic.services.postgresserviceimpl;
 
 import org.domain.Operator;
 import org.definemodule.persistence.postgresdao.OperatorDao;
-import org.definemodule.persistence.postgresdaoimpl.PostgresDaoImplProvider;
+import org.definemodule.persistence.PostgresImpl.PostgresDaoImplProvider;
 
 import java.util.List;
 
 public class OperatorPostgresService {
-    //        extends AbstractPostgresServiceImpl<Operator> implements OperatorService {
+//        extends AbstractPostgresServiceImpl<Operator> implements OperatorService {
 //    public OperatorPostgresService(OperatorDao operatorDao){
 //        super(operatorDao);
 //    };

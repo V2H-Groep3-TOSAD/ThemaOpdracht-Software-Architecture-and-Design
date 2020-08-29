@@ -1,12 +1,18 @@
-package org.definemodule.businesslogic.services.PostgresServiceImpl;
+package org.definemodule.businesslogic.services.postgresserviceimpl;
 
 import org.domain.BusinessRuleType;
 import org.definemodule.persistence.postgresdao.BusinessRuleTypeDao;
-import org.definemodule.persistence.postgresdaoimpl.PostgresDaoImplProvider;
+import org.definemodule.persistence.PostgresImpl.PostgresDaoImplProvider;
 
 import java.util.List;
 
 public class BusinessRuleTypePostgresService {
+//    extends
+//} AbstractPostgresServiceImpl<BusinessRuleType> implements BusinessRuleTypeService {
+//    public BusinessRuleTypePostgresService(BusinessRuleTypeDao businessRuleTypeDao) {
+//        super(businessRuleTypeDao);
+//    };
+
     private BusinessRuleTypeDao businessRuleTypeDao;
     private PostgresDaoImplProvider postgresDaoImplProvider;
 
@@ -27,6 +33,4 @@ public class BusinessRuleTypePostgresService {
     public BusinessRuleType getBusinessRuleTypeById(int id){
         return businessRuleTypeDao.findById(id);
     };
-
-
 }

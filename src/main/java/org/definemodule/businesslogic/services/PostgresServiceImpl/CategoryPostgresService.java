@@ -1,12 +1,18 @@
-package org.definemodule.businesslogic.services.PostgresServiceImpl;
+package org.definemodule.businesslogic.services.postgresserviceimpl;
 
 import org.domain.Category;
 import org.definemodule.persistence.postgresdao.CategoryDao;
-import org.definemodule.persistence.postgresdaoimpl.PostgresDaoImplProvider;
+import org.definemodule.persistence.PostgresImpl.PostgresDaoImplProvider;
 
 import java.util.List;
 
 public class CategoryPostgresService {
+//    extends
+//} AbstractPostgresServiceImpl<Category> implements CategoryService {
+//    public CategoryPostgresService(CategoryDao categoryDao) {
+//        super(categoryDao);
+//    };
+
     private CategoryDao categoryDao;
     private PostgresDaoImplProvider postgresDaoImplProvider;
 

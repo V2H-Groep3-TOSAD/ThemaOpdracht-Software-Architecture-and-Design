@@ -1,8 +1,7 @@
 package org.definemodule.businesslogic.controllers;
 
-
-import org.domain.*;
 import org.definemodule.businesslogic.services.postgresservice.PostgresServiceProvider;
+import org.domain.*;
 
 import java.util.List;
 
@@ -33,7 +32,7 @@ public class DefineBusinessRuleController {
     }
 
     public List<Operator> giveAllOperators(){
-        return postgresServiceProvider.getOperatorPostgresService().getAllOperators();
+       return postgresServiceProvider.getOperatorPostgresService().getAllOperators();
     }
 
     public void setBusinessRuleType(BusinessRuleType businessRuleType){
@@ -53,7 +52,7 @@ public class DefineBusinessRuleController {
     }
 
     public BusinessRule buildBusinessRule(){
-        return businessRuleBuilder.build();
+       return businessRuleBuilder.build();
     }
 
 

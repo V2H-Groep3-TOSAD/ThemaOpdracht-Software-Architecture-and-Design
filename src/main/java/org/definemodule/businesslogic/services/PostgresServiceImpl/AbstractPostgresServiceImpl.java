@@ -1,4 +1,4 @@
-package org.definemodule.businesslogic.services.PostgresServiceImpl;
+package org.definemodule.businesslogic.services.postgresserviceimpl;
 
 import org.definemodule.persistence.postgresdao.GenericDAO;
 import org.definemodule.businesslogic.services.postgresservice.GenericService;

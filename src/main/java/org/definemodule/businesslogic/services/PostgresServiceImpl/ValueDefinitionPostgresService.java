@@ -1,13 +1,17 @@
-package org.definemodule.businesslogic.services.PostgresServiceImpl;
+package org.definemodule.businesslogic.services.postgresserviceimpl;
 
 import org.domain.ValueDefinition;
+import org.definemodule.persistence.PostgresImpl.PostgresDaoImplProvider;
 import org.definemodule.persistence.postgresdao.ValueDefinitionDao;
-import org.definemodule.persistence.postgresdaoimpl.PostgresDaoImplProvider;
 
 import java.util.List;
 
 public class ValueDefinitionPostgresService {
-    private ValueDefinitionDao valueDefinitionDao;
+//        extends AbstractPostgresServiceImpl<ValueDefinition> implements ValueDefinitionService {
+//    public ValueDefinitionPostgresService(ValueDefinitionDao valueDefinitionDao) {
+//        super(valueDefinitionDao);
+//    }
+private ValueDefinitionDao valueDefinitionDao;
     private PostgresDaoImplProvider postgresDaoImplProvider;
 
     public ValueDefinitionPostgresService(){

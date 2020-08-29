@@ -1,13 +1,13 @@
-package org.definemodule.businesslogic.services.PostgresServiceImpl;
+package org.definemodule.businesslogic.services.postgresserviceimpl;
 
 import org.domain.Table;
+import org.definemodule.persistence.PostgresImpl.PostgresDaoImplProvider;
 import org.definemodule.persistence.postgresdao.TableDao;
-import org.definemodule.persistence.postgresdaoimpl.PostgresDaoImplProvider;
 
 import java.util.List;
 
 public class TablePostgresService {
-    //    extends
+//    extends
 //} AbstractPostgresServiceImpl<Table> implements TableService {
 //    public TablePostgresService(TableDao tableDao){
 //        super(tableDao);
