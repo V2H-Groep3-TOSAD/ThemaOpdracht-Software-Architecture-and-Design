@@ -4,7 +4,6 @@ import javax.persistence.Column;
 import javax.persistence.*;
 import java.util.List;
 
-
 @Entity
 @javax.persistence.Table(name = "database_table")
 public class Table {
@@ -20,7 +19,7 @@ public class Table {
     private String code;
 
     @OneToMany(mappedBy = "table")
-    private List<org.business.domain.tool.Column> columns;
+    private List<org.domain.Column> columns;
 
     @ManyToOne
     @JoinColumn(name = "database_id")
@@ -50,11 +49,11 @@ public class Table {
         this.code = code;
     }
 
-    public List<org.business.domain.tool.Column> getColumns() {
+    public List<org.domain.Column> getColumns() {
         return columns;
     }
 
-    public void setColumns(List<org.business.domain.tool.Column> columns) {
+    public void setColumns(List<org.domain.Column> columns) {
         this.columns = columns;
     }
 

@@ -16,5 +16,5 @@ public class Column {
 
     @ManyToOne
     @JoinColumn(name = "table_id", referencedColumnName = "id")
-    private org.business.domain.tool.Table table;
+    private org.domain.Table table;
 }

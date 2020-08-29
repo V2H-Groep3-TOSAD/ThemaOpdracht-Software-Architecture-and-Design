@@ -1,6 +1,7 @@
 package org.openjfx;
 
 import java.io.IOException;
+import org.openjfx.App;
 
 import javafx.fxml.FXML;
 import org.definemodule.businesslogic.controllers.DefineBusinessRuleController;

@@ -32,11 +32,11 @@ public class Database {
         this.name = name;
     }
 
-    public List<org.business.domain.tool.Table> getTables() {
+    public List<org.domain.Table> getTables() {
         return tables;
     }
 
-    public void setTables(List<org.business.domain.tool.Table> tables) {
+    public void setTables(List<org.domain.Table> tables) {
         this.tables = tables;
     }
 
@@ -51,6 +51,6 @@ public class Database {
     private String name;
 
     @OneToMany(mappedBy = "database")
-    private List<org.business.domain.tool.Table> tables;
+    private List<org.domain.Table> tables;
 
 }
