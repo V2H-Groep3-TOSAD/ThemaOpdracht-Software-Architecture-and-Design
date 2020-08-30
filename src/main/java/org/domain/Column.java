@@ -17,4 +17,16 @@ public class Column {
     @ManyToOne
     @JoinColumn(name = "table_id", referencedColumnName = "id")
     private org.domain.Table table;
+
+    public int getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public org.domain.Table getTable() {
+        return table;
+    }
 }
