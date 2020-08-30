@@ -1,4 +1,4 @@
-package org.definemodule.businesslogic.services.postgresserviceimpl;
+package org.definemodule.businesslogic.services.PostgresServiceImpl;
 
 import org.domain.Operator;
 import org.definemodule.persistence.postgresdao.OperatorDao;

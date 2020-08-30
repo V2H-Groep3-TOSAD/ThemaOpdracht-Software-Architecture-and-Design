@@ -1,7 +1,7 @@
-package org.definemodule.businesslogic.services.postgresserviceimpl;
+package org.generatemodule.businesslogic.services.PostgresServiceImpl;
+import org.generatemodule.persistence.target.PostgresImpl.PostgresDaoImplProvider;
 import org.generatemodule.businesslogic.targetdomain.Person;
-import org.definemodule.persistence.postgresdao.PersonDao;
-import org.definemodule.persistence.PostgresImpl.PostgresDaoImplProvider;
+import org.generatemodule.persistence.target.PostgresDao.PersonDao;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package org.definemodule.businesslogic.services.postgresserviceimpl;
+package org.definemodule.businesslogic.services.PostgresServiceImpl;
 
 import org.domain.Table;
 import org.definemodule.persistence.PostgresImpl.PostgresDaoImplProvider;

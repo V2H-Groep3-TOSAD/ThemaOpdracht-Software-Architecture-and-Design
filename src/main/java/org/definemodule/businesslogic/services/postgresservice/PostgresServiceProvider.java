@@ -1,6 +1,6 @@
 package org.definemodule.businesslogic.services.postgresservice;
 
-import org.definemodule.businesslogic.services.postgresserviceimpl.*;
+import org.definemodule.businesslogic.services.PostgresServiceImpl.*;
 import org.definemodule.persistence.postgresdao.*;
 
 public class PostgresServiceProvider {
@@ -12,7 +12,6 @@ public class PostgresServiceProvider {
     private ColumnPostgresService columnPostgresService;
     private DatabasePostgresService databasePostgresService;
     private ValueDefinitionPostgresService valueDefinitionPostgresService;
-    private PersonPostgresService personService;
     private BusinessRuleDao businessRuleDao;
     private OperatorDao operatorDao;
     private BusinessRuleTypeDao businessRuleTypeDao;
@@ -21,7 +20,6 @@ public class PostgresServiceProvider {
     private CategoryDao categoryDao;
     private ColumnDao columnDao;
     private ValueDefinitionDao valueDefinitionDao;
-    private PersonDao personDao;
 
     public PostgresServiceProvider(){
 //        operatorPostgresService = new OperatorPostgresService( {
@@ -56,7 +54,6 @@ public class PostgresServiceProvider {
 //            }
 //        });
         operatorPostgresService = new OperatorPostgresService();
-        personService = new PersonPostgresService();
         tablePostgresService = new TablePostgresService();
         businessRulePostgresService = new BusinessRulePostgresService();
         businessRuleTypePostgresService = new BusinessRuleTypePostgresService();
@@ -73,9 +70,6 @@ public class PostgresServiceProvider {
 //        valueDefinitionPostgresService = new ValueDefinitionPostgresService(valueDefinitionDao);
 
     }
-
-    public PersonPostgresService getPersonPostgresService(){return personService;}
-
     public OperatorPostgresService getOperatorPostgresService() {
         return operatorPostgresService;
     }

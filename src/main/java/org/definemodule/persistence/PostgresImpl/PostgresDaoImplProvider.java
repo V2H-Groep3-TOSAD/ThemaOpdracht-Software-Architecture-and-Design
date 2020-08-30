@@ -1,6 +1,8 @@
 package org.definemodule.persistence.PostgresImpl;
 
 import org.definemodule.persistence.postgresdao.*;
+import org.generatemodule.persistence.target.PostgresDao.PersonDao;
+import org.generatemodule.persistence.target.PostgresImpl.PersonDaoPostgresImpl;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -8,6 +10,7 @@ import javax.persistence.EntityManagerFactory;
 public class PostgresDaoImplProvider extends HibernateUtil {
 
     private static EntityManagerFactory entityManagerFactory;
+    private static EntityManagerFactory entityManagerFactoryTarget;
     private OperatorDao operatorDao;
     private TableDao tableDao;
     private BusinessRuleDao businessRuleDao;
@@ -20,9 +23,11 @@ public class PostgresDaoImplProvider extends HibernateUtil {
 
     public PostgresDaoImplProvider(){
         EntityManager entityManager = null;
+        EntityManager entityManagerTarget = null;
         try {
             entityManagerFactory = HibernateUtil.getEntityManagerFactory();
             entityManager = entityManagerFactory.createEntityManager();
+            entityManagerTarget = entityManagerFactory.createEntityManager();
             operatorDao = new OperatorDaoPostgresImpl(entityManager);
             tableDao = new TableDaoPostgresImpl(entityManager);
             businessRuleDao = new BusinessRuleDaoPostgresImpl(entityManager);
