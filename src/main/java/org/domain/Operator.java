@@ -28,4 +28,20 @@ public class Operator {
 
     @OneToMany(mappedBy = "operator")
     private List<BusinessRuleTypeOperators> businessRuleType;
+
+    public int getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public BusinessRule getBusinessRule() {
+        return businessRule;
+    }
+
+    public List<BusinessRuleTypeOperators> getBusinessRuleType() {
+        return businessRuleType;
+    }
 }

@@ -55,4 +55,36 @@ public class BusinessRule {
         this.operator = operator;
         this.valueDefinition = valueDefinition;
     }
+
+    public int getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public int getSerialNumber() {
+        return serialNumber;
+    }
+
+    public BusinessRuleType getBusinessRuleType() {
+        return businessRuleType;
+    }
+
+    public List<org.domain.Column> getColumns() {
+        return columns;
+    }
+
+    public Operator getOperator() {
+        return operator;
+    }
+
+    public ValueDefinition getValueDefinition() {
+        return valueDefinition;
+    }
 }

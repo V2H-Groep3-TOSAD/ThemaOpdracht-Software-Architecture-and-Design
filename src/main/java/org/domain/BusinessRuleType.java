@@ -25,4 +25,24 @@ public class BusinessRuleType {
 
     @OneToMany(mappedBy = "businessRuleType")
     private List<BusinessRuleTypeOperators> operators;
+
+    public int getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getCode() {
+        return code;
+    }
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public List<BusinessRuleTypeOperators> getOperators() {
+        return operators;
+    }
 }
