@@ -1,7 +1,7 @@
 package org.generatemodule.businesslogic.services.postgresservice;
 
 import org.generatemodule.businesslogic.services.PostgresServiceImpl.PersonPostgresService;
-import org.generatemodule.persistence.target.PostgresDao.PersonDao;
+import org.generatemodule.persistence.PostgresDao.PersonDao;
 
 public class PostgresServiceProvider {
     private PersonPostgresService personService;

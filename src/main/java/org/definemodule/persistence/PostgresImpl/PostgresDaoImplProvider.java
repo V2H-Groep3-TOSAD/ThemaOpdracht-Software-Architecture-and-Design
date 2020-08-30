@@ -1,8 +1,8 @@
 package org.definemodule.persistence.PostgresImpl;
 
 import org.definemodule.persistence.postgresdao.*;
-import org.generatemodule.persistence.target.PostgresDao.PersonDao;
-import org.generatemodule.persistence.target.PostgresImpl.PersonDaoPostgresImpl;
+import org.generatemodule.persistence.PostgresDao.PersonDao;
+import org.generatemodule.persistence.PostgresImpl.PersonDaoPostgresImpl;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
