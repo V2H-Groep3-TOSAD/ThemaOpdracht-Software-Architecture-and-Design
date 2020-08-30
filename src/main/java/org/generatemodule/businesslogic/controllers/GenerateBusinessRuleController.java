@@ -32,7 +32,7 @@ public class GenerateBusinessRuleController implements GenerateBusinessRuleServi
             templateCode = acne.generateTrigger(businessRule);
         }
         if (businessRule.getBusinessRuleType().getName().equals("Attribute Compare Rule") && businessRule.getOperator().getName().equals("Greater")){
-            
+
         }
         return templateCode;
     }
