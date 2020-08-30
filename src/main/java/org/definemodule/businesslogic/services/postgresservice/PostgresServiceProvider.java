@@ -12,14 +12,14 @@ public class PostgresServiceProvider {
     private ColumnPostgresService columnPostgresService;
     private DatabasePostgresService databasePostgresService;
     private ValueDefinitionPostgresService valueDefinitionPostgresService;
-    private BusinessRuleDao businessRuleDao;
-    private OperatorDao operatorDao;
-    private BusinessRuleTypeDao businessRuleTypeDao;
-    private DatabaseDao databaseDao;
-    private TableDao tableDao;
-    private CategoryDao categoryDao;
-    private ColumnDao columnDao;
-    private ValueDefinitionDao valueDefinitionDao;
+//    private BusinessRuleDao businessRuleDao;
+//    private OperatorDao operatorDao;
+//    private BusinessRuleTypeDao businessRuleTypeDao;
+//    private DatabaseDao databaseDao;
+//    private TableDao tableDao;
+//    private CategoryDao categoryDao;
+//    private ColumnDao columnDao;
+//    private ValueDefinitionDao valueDefinitionDao;
 
     public PostgresServiceProvider(){
 //        operatorPostgresService = new OperatorPostgresService( {

@@ -3,6 +3,7 @@ package org.generatemodule.businesslogic.targetdomain;
 import lombok.Getter;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Getter
 @Entity
@@ -15,6 +16,9 @@ public class Person {
 
     @Column(name = "name")
     private String name;
+
+    @OneToMany(mappedBy = "person")
+    private List<Address> addresses;
 
     public int getId() {
         return id;

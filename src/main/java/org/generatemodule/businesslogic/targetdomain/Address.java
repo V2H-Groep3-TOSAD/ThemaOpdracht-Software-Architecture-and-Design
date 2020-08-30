@@ -14,4 +14,8 @@ public class Address {
 
     @Column(name = "housenr")
     private String housenr;
+
+    @ManyToOne
+    @JoinColumn(name = "person_id")
+    private Person person;
 }

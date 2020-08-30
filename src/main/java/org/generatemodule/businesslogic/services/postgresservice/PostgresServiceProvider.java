@@ -1,15 +1,20 @@
 package org.generatemodule.businesslogic.services.postgresservice;
 
+import org.generatemodule.businesslogic.services.PostgresServiceImpl.AddressPostgresService;
 import org.generatemodule.businesslogic.services.PostgresServiceImpl.PersonPostgresService;
 import org.generatemodule.persistence.PostgresDao.PersonDao;
 
 public class PostgresServiceProvider {
-    private PersonPostgresService personService;
-    private PersonDao personDao;
+    private PersonPostgresService personPostgresService;
+    private AddressPostgresService addressPostgresService;
 
     public PostgresServiceProvider(){
-        personService = new PersonPostgresService();
+
+        personPostgresService = new PersonPostgresService();
+        addressPostgresService = new AddressPostgresService();
+
     }
 
-    public PersonPostgresService getPersonPostgresService(){return personService;}
+    public PersonPostgresService getPersonPostgresService(){return personPostgresService;}
+    public AddressPostgresService getAddressPostgresService(){return addressPostgresService;}
 }
