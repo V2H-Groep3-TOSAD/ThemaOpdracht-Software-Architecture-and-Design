@@ -31,7 +31,9 @@ public class GenerateBusinessRuleController implements GenerateBusinessRuleServi
             attributeCompareNotEqual acne = new attributeCompareNotEqual();
             templateCode = acne.generateTrigger(businessRule);
         }
-
+        if (businessRule.getBusinessRuleType().getName().equals("Attribute Compare Rule") && businessRule.getOperator().getName().equals("Greater")){
+            
+        }
         return templateCode;
     }
 
