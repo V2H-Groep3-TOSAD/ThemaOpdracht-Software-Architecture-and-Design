@@ -17,11 +17,19 @@ public class GenerateBusinessRuleController implements GenerateBusinessRuleServi
         String templateCode = null;
         if(businessRule.getBusinessRuleType().getName().equals("Attribute Range Rule") && businessRule.getOperator().getName().equals("Betweem")){
             attributeRangeBetween arb = new attributeRangeBetween();
-            templateCode = arb.generateBusinessRule(businessRule);
+            templateCode = arb.generateTrigger(businessRule);
         }
         if(businessRule.getBusinessRuleType().getName().equals("Attribute Range Rule") && businessRule.getOperator().getName().equals("Not Betweem")){
             attributeRangeNotBetween arnb = new attributeRangeNotBetween();
-            templateCode = arnb.generateBusinessRule(businessRule);
+            templateCode = arnb.generateTrigger(businessRule);
+        }
+        if(businessRule.getBusinessRuleType().getName().equals("Attribute Compare Rule") && businessRule.getOperator().getName().equals("Equal")){
+            attributeCompareEqual ace = new attributeCompareEqual();
+            templateCode = ace.generateTrigger(businessRule);
+        }
+        if(businessRule.getBusinessRuleType().getName().equals("Attribute Compare Rule") && businessRule.getOperator().getName().equals("Not Equal")){
+            attributeCompareNotEqual acne = new attributeCompareNotEqual();
+            templateCode = acne.generateTrigger(businessRule);
         }
 
         return templateCode;
