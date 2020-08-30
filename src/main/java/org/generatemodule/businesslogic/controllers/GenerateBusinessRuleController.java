@@ -32,8 +32,22 @@ public class GenerateBusinessRuleController implements GenerateBusinessRuleServi
             templateCode = acne.generateTrigger(businessRule);
         }
         if (businessRule.getBusinessRuleType().getName().equals("Attribute Compare Rule") && businessRule.getOperator().getName().equals("Greater")){
-
+            attributeCompareGreater acg = new attributeCompareGreater();
+            templateCode = acg.generateTrigger(businessRule);
         }
+        if (businessRule.getBusinessRuleType().getName().equals("Attribute Compare Rule") && businessRule.getOperator().getName().equals("Smaller")){
+            attributeCompareSmaller acs = new attributeCompareSmaller();
+            templateCode = acs.generateTrigger(businessRule);
+        }
+        if (businessRule.getBusinessRuleType().getName().equals("Attribute Compare Rule") && businessRule.getOperator().getName().equals("Smaller Or Equal")){
+            attributeCompareSmallerOrEqual acsoe = new attributeCompareSmallerOrEqual();
+            templateCode = acsoe.generateTrigger(businessRule);
+        }
+        if (businessRule.getBusinessRuleType().getName().equals("Attribute Compare Rule") && businessRule.getOperator().getName().equals("Greater Or Equal")){
+            attributeCompareGreaterOrEqual acgoe = new attributeCompareGreaterOrEqual();
+            templateCode = acgoe.generateTrigger(businessRule);
+        }
+
         return templateCode;
     }
 
