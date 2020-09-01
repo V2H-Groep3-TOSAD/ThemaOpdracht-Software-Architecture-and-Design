@@ -1,11 +1,10 @@
 package org.definemodule.businesslogic.services.postgresservice;
 
-import org.definemodule.businesslogic.services.PostgresServiceImpl.*;
-import org.definemodule.persistence.postgresdao.*;
+import org.definemodule.businesslogic.services.postgresserviceimpl.*;
 
 public class PostgresServiceProvider {
     private OperatorPostgresService operatorPostgresService;
-    private TablePostgresService tablePostgresService;
+    private org.definemodule.businesslogic.services.postgresserviceimpl.TablePostgresService tablePostgresService;
     private BusinessRulePostgresService businessRulePostgresService;
     private BusinessRuleTypePostgresService businessRuleTypePostgresService;
     private CategoryPostgresService categoryPostgresService;

@@ -1,4 +1,4 @@
-package org.definemodule.businesslogic.services.PostgresServiceImpl;
+package org.definemodule.businesslogic.services.postgresserviceimpl;
 
 import org.domain.Column;
 import org.definemodule.persistence.postgresdao.ColumnDao;

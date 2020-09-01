@@ -1,4 +1,4 @@
-package org.generatemodule.businesslogic.services.triggerGenerators;
+package org.generatemodule.businesslogic.triggerGenerators;
 
 import org.domain.BusinessRule;
 

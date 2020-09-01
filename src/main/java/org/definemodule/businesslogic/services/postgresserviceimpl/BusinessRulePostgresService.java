@@ -1,4 +1,4 @@
-package org.definemodule.businesslogic.services.PostgresServiceImpl;
+package org.definemodule.businesslogic.services.postgresserviceimpl;
 
 import org.domain.BusinessRule;
 import org.definemodule.persistence.postgresdao.BusinessRuleDao;
