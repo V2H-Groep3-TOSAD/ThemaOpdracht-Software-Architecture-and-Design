@@ -1,8 +1,13 @@
 package org.presentation;
 
 import java.io.IOException;
-
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
 import org.definemodule.businesslogic.services.postgresservice.PostgresServiceProvider;
 import org.definemodule.businesslogic.controllers.DefineBusinessRuleController;
 
@@ -10,17 +15,18 @@ import org.definemodule.businesslogic.controllers.DefineBusinessRuleController;
 public class PrimaryController {
 
     private DefineBusinessRuleController defineController = new DefineBusinessRuleController();
-    private DatabaseController databaseController = new DatabaseController();
-    private TableController tableController = new TableController();
     private PostgresServiceProvider postgresServiceProvider = new PostgresServiceProvider();
-    private String messageString;
-    private String resoureceString;
 
     @FXML
-    private void switchToDefine() throws IOException {
+    private void switchToDefine(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("database.fxml"));
+        Parent databaseViewParent = loader.load();
 
-        App.setRoot("database");
-
+        Scene databaseViewScene = new Scene(databaseViewParent);
+        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+        window.setScene(databaseViewScene);
+        window.show();
     }
 
     @FXML
