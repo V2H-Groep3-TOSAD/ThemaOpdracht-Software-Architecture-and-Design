@@ -1,99 +1,52 @@
 package org.presentation;
 
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
+import javafx.stage.Stage;
 import org.definemodule.businesslogic.controllers.DefineBusinessRuleController;
 import org.domain.Database;
-import org.domain.Table;
 
+import javafx.event.ActionEvent;
 import java.io.IOException;
+import java.net.URL;
 import java.util.ArrayList;
-import java.util.List;
+import java.util.ResourceBundle;
 
-public class DatabaseController {
+public class DatabaseController implements Initializable {
 
     private DefineBusinessRuleController defineController = new DefineBusinessRuleController();
-    private TableController tableController = new TableController();
-    @FXML
-    private ChoiceBox<String> databaseBox;
-    private String message;
-
-
-
-    public void initialize() {
-        System.out.println(defineController.giveAllDatabases());
-
-        ArrayList<Database> lijst = (ArrayList<Database>)defineController.giveAllDatabases();
-
-        ObservableList<String> options = FXCollections.observableArrayList();
-        for(Database db : lijst){
-            System.out.println(db.getName());
-            options.add(db.getName());
-        }
-        System.out.println(options);
-        databaseBox.getItems().addAll(options);
-
-
-    }
 
     @FXML
-    private void nextKnopClick() throws IOException {
-        String selectedChoice = databaseBox.getSelectionModel().getSelectedItem();
-        //tableController = new TableController();
-        transferMessageDatabaseToTable(selectedChoice);
-        //App.setRoot("table");
+    private ChoiceBox<Database> databaseBox;
+
+    @FXML
+    private Button nextKnop;
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        ArrayList<Database> allDatabases = (ArrayList<Database>)defineController.giveAllDatabases();
+        databaseBox.getItems().addAll(allDatabases);
     }
 
-    public void transferMessageDatabaseToTable(String message) throws IOException {
-        String dbNaam = message;
-        List<Database> databases = defineController.giveAllDatabases();
-        for (Database db : databases) {
-            System.out.println("Hallo" + db.getName());
-            if (db.getName().equals(dbNaam)) {
-                System.out.println("geigvdd"+ db.getName());
-                List<Table> allTables = defineController.giveAllTablesByDatabase(db);
-                ObservableList<String> options = FXCollections.observableArrayList();
-                for (Table table : allTables) {
-                    System.out.println(table);
-                    options.add(table.getName());
-//                    System.out.println(getTableController());
-//                    System.out.println(getTableController().tablesBox);
-//                    tableController.tablesBox.getItems().addAll(options);
-                    //tableController.setTables(allTables);
-                    //tableController.initialize(allTables);
-                    try {
-                        tableController.initialize(allTables);
-                        //App.setRoot("table");
-                    }catch (Exception e){
-                        e.toString();
-                    }
-                }
-            }
-        }
+    public void nextKnopClick(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("table.fxml"));
+        Parent tableViewParent = loader.load();
+        Scene tableViewScene = new Scene(tableViewParent);
 
-        }
+        Database selectedDatabase = databaseBox.getSelectionModel().getSelectedItem();
+        TableController tableController = loader.getController();
+        tableController.fillTables(selectedDatabase);
 
-    public TableController getTableController(){
-        return tableController;}
-//    public String getMessage(){
-//        return message;
-//    }
+        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+        window.setScene(tableViewScene);
+        window.show();
+    }
 
-//    private void loadSceneAndSendMessage(String messageString, String resourceString) {
-//        try {
-//            //Load second scene
-//            FXMLLoader loader = new FXMLLoader(getClass().getResource(resourceString));
-//            Parent root = loader.load();
-//
-//            //Show scene 2 in new window
-//            Stage stage = new Stage();
-//            stage.setScene(new Scene(root));
-//            stage.setTitle("Second Window");
-//            stage.show();
-//        } catch (IOException ex) {
-//            System.err.println(ex);
-//        }
-//    }
     }
