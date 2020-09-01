@@ -53,4 +53,8 @@ public class Database {
     @OneToMany(mappedBy = "database")
     private List<org.domain.Table> tables;
 
+    public String toString(){
+        return name;
+    }
+
 }

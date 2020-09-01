@@ -1,45 +1,33 @@
 package org.presentation;
 
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.ChoiceBox;
 
+import org.definemodule.businesslogic.controllers.DefineBusinessRuleController;
+import org.domain.Database;
 import org.domain.Table;
 
 import java.io.IOException;
+import java.net.URL;
 import java.util.List;
+import java.util.ResourceBundle;
 
-public class TableController {
+public class TableController implements Initializable {
+
+    private DefineBusinessRuleController defineBusinessRuleController = new DefineBusinessRuleController();
 
     @FXML
-    public ChoiceBox<String> tablesBox;
-    public List<Table> allTables;
+    public ChoiceBox<Table> tablesBox;
 
-
-    public void fillTables(List<Table> allTables){
-        tablesBox = new ChoiceBox<>();
-        ObservableList<String> options = FXCollections.observableArrayList();
-        for(Table table : allTables){
-            options.add(table.getName());
-            System.out.println("tablecontroller " + table);
-        }
-        System.out.println(tablesBox);
-        tablesBox.getItems().addAll(options);
-    }
-    public void initialize(List<Table> allTables) throws IOException{
-
-       fillTables(allTables);
-        runTable();
-
+    public void fillTables(Database database){
+        List<Table>allTables = defineBusinessRuleController.giveAllTablesByDatabase(database);
+        tablesBox.getItems().addAll(allTables);
     }
 
-    public void setTables(List<Table> tables){
-        allTables = tables;
-    }
-
-    public ChoiceBox<String> getTablesBox() {
-        return tablesBox;
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        // TODO: 1-9-2020  
     }
 
     @FXML
