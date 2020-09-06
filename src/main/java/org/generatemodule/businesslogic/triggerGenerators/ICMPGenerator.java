@@ -57,7 +57,6 @@ public class ICMPGenerator extends GenericTriggerGenerator {
                 businessRule.getColumns().get(0).getTable().getName(),
                 businessRule.getColumns().get(1).getTable().getName(),
                 businessRule.getColumns().get(1).getTable().getName(), //13
-
                 businessRule.getColumns().get(0).getName(), //14
                 businessRule.getColumns().get(0).getName(), //15
                 businessRule.getColumns().get(0).getName(), //16

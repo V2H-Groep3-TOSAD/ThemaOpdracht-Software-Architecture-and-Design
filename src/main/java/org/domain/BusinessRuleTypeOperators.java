@@ -19,7 +19,4 @@ public class BusinessRuleTypeOperators {
     @ManyToOne
     @JoinColumn(name = "operator_id")
     private Operator operator;
-
-    @Column(name = "templatecode")
-    private String templateCode;
 }

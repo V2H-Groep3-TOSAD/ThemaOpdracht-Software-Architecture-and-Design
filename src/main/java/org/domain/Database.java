@@ -16,14 +16,6 @@ public class Database {
         this.id = id;
     }
 
-    public String getCode() {
-        return code;
-    }
-
-    public void setCode(String code) {
-        this.code = code;
-    }
-
     public String getName() {
         return name;
     }
@@ -43,9 +35,6 @@ public class Database {
     @Id
     @GeneratedValue
     private int id;
-
-    @Column(name = "code")
-    private String code;
 
     @Column(name = "name")
     private String name;

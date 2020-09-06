@@ -16,9 +16,6 @@ public class Table {
     @Column(name = "name")
     private String name;
 
-    @Column(name = "code")
-    private String code;
-
     @OneToMany(mappedBy = "table")
     private List<org.domain.Column> columns;
 
@@ -40,14 +37,6 @@ public class Table {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public String getCode() {
-        return code;
-    }
-
-    public void setCode(String code) {
-        this.code = code;
     }
 
     public List<org.domain.Column> getColumns() {

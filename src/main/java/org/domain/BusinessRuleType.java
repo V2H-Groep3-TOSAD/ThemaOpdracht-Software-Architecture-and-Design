@@ -16,9 +16,6 @@ public class BusinessRuleType {
     @Column(name = "name")
     private String name;
 
-    @Column(name = "code")
-    private String code;
-
     @ManyToOne
     @JoinColumn(name = "category_id", referencedColumnName = "id")
     private Category category;
@@ -32,10 +29,6 @@ public class BusinessRuleType {
 
     public String getName() {
         return name;
-    }
-
-    public String getCode() {
-        return code;
     }
 
     public Category getCategory() {
