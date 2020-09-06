@@ -5,13 +5,13 @@ import org.domain.BusinessRule;
 public class ACMPGenerator extends GenericTriggerGenerator {
 
     private String template =
-        "CREATE OR REPLACE FUNCTION %s "
+        "CREATE OR REPLACE FUNCTION %s_function() "
         +   "RETURNS TRIGGER AS "
         + "$BODY$ "
         +   "BEGIN "
         +       "IF (OLD.%s IS DISTINCT FROM NEW.%s AND NEW.%s %s '%s') THEN "
-        +       "RAISE EXCEPTION '%s' "
-        +       "USING ERRCODE = 22000; "
+        +           "RAISE EXCEPTION '%s' "
+        +           "USING ERRCODE = 22000; "
         +       "END IF; "
 
         +       "RETURN NEW; "
@@ -24,27 +24,26 @@ public class ACMPGenerator extends GenericTriggerGenerator {
 
         if (businessRule.getOperator().getName().equals("==")) {
             message = "De waarde is niet anders";
-        } if(businessRule.getOperator().getName().equals("!=")) {
+        } if (businessRule.getOperator().getName().equals("!=")) {
             message = "De waarde is niet gelijk";
-        } if(businessRule.getOperator().getName().equals(">")) {
+        } if (businessRule.getOperator().getName().equals(">")) {
             message = "De waarde is niet kleiner of gelijk";
-        } if(businessRule.getOperator().getName().equals("<")) {
+        } if (businessRule.getOperator().getName().equals("<")) {
             message = "De waarde is niet groter of gelijk";
-        } if(businessRule.getOperator().getName().equals("<=")) {
+        } if (businessRule.getOperator().getName().equals("<=")) {
             message = "De waarde is niet kleiner";
-        } if(businessRule.getOperator().getName().equals(">=")) {
+        } if (businessRule.getOperator().getName().equals(">=")) {
             message = "De waarde is niet groter";
         }
 
         template = String.format(template,
-                businessRule.getName() + "_function()",
+                businessRule.getName(),
                 businessRule.getColumns().get(0).getName(),
                 businessRule.getColumns().get(0).getName(),
                 businessRule.getColumns().get(0).getName(),
                 businessRule.getOperator().getName(),
                 businessRule.getValueDefinition().getLiteralValue(),
-                message,
-                businessRule.getName());
+                message);
 
         String genericTriggerTemplate = generateGenericTrigger(businessRule);
 
