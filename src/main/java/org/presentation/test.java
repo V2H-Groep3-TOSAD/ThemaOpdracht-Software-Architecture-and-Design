@@ -1,6 +1,7 @@
 package org.presentation;
 
 import org.domain.BusinessRule;
+import org.domain.Column;
 import org.domain.Operator;
 import org.definemodule.businesslogic.services.postgresservice.PostgresServiceProvider;
 import org.generatemodule.businesslogic.controllers.GenerateBusinessRuleController;
@@ -17,11 +18,16 @@ public class test {
         List<BusinessRule> businessRules = postgresServiceProvider.getBusinessRulePostgresService().getAllBusinessRules();
 
         for (BusinessRule businessRule : businessRules){
-            System.out.println(businessRule.getName());
-            System.out.println(businessRule.getBusinessRuleType().getName());
-            System.out.println(businessRule.getOperator().getName());
 
             System.out.println("----------------------------");
+            System.out.println(businessRule.getName());
+//            System.out.println(businessRule.getColumns().get(0).getName());
+
+            for (Column column : businessRule.getColumns()) {
+                System.out.println(column.toString());
+            }
+
+            System.out.println("");
             System.out.println(generateBusinessRuleController.generate(businessRule));
             System.out.println("----------------------------");
         }

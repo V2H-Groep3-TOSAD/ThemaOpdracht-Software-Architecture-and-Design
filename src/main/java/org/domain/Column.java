@@ -29,4 +29,12 @@ public class Column {
     public org.domain.Table getTable() {
         return table;
     }
+
+    @Override
+    public String toString() {
+        return "Column{" +
+                "id=" + id +
+                ", name='" + name + '\'' + ", table=" + table.getId() +
+                '}';
+    }
 }

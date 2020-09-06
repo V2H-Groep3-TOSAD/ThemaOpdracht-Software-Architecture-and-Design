@@ -22,10 +22,10 @@ public class ARNGGenerator extends GenericTriggerGenerator {
     public String generateTrigger (BusinessRule businessRule) {
         String message = "";
 
-        if (businessRule.getBusinessRuleType().getName().equals("BETWEEN")) {
+        if (businessRule.getOperator().getName().equals("BETWEEN")) {
             message =   "De waarde valt niet buiten " + businessRule.getValueDefinition().getMinValue() + " en "
                         + businessRule.getValueDefinition().getMaxValue();
-        } if (businessRule.getBusinessRuleType().getName().equals("NOT BETWEEN")) {
+        } if (businessRule.getOperator().getName().equals("NOT BETWEEN")) {
             message =   "De waarde valt niet binnen " + businessRule.getValueDefinition().getMinValue() + " en "
                     + businessRule.getValueDefinition().getMaxValue();
         }
