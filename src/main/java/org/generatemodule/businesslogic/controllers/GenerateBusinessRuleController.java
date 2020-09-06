@@ -8,11 +8,6 @@ import java.util.List;
 
 public class GenerateBusinessRuleController implements GenerateBusinessRuleService {
     @Override
-    public List<BusinessRule> giveAllBusinessRules() {
-        return null;
-    }
-
-    @Override
     public String generate(BusinessRule businessRule) {
         String templateCode = null;
 
@@ -20,26 +15,15 @@ public class GenerateBusinessRuleController implements GenerateBusinessRuleServi
             ACMPGenerator acmpGenerator = new ACMPGenerator();
             templateCode = acmpGenerator.generateTrigger(businessRule);
         } if (businessRule.getBusinessRuleType().getName().equals("TCMP")) {
-            ACMPGenerator acmpGenerator = new ACMPGenerator();
-            templateCode = acmpGenerator.generateTrigger(businessRule);
+            TCMPGenerator tcmpGenerator = new TCMPGenerator();
+            templateCode = tcmpGenerator.generateTrigger(businessRule);
         } if (businessRule.getBusinessRuleType().getName().equals("ARNG")) {
-            ACMPGenerator acmpGenerator = new ACMPGenerator();
-            templateCode = acmpGenerator.generateTrigger(businessRule);
+            ARNGGenerator arngGenerator = new ARNGGenerator();
+            templateCode = arngGenerator.generateTrigger(businessRule);
         } if (businessRule.getBusinessRuleType().getName().equals("ICMP")) {
-            ACMPGenerator acmpGenerator = new ACMPGenerator();
-            templateCode = acmpGenerator.generateTrigger(businessRule);
+            ICMPGenerator icmpGenerator = new ICMPGenerator();
+            templateCode = icmpGenerator.generateTrigger(businessRule);
         }
-
-
-//        if(businessRule.getBusinessRuleType().getName().equals("Attribute Range Rule") && businessRule.getOperator().getName().equals("Between")){
-//            attributeRangeBetween arb = new attributeRangeBetween();
-//            templateCode = arb.generateTrigger(businessRule);
-//        }
-//        if(businessRule.getBusinessRuleType().getName().equals("Attribute Range Rule") && businessRule.getOperator().getName().equals("Not Between")){
-//            attributeRangeNotBetween arnb = new attributeRangeNotBetween();
-//            templateCode = arnb.generateTrigger(businessRule);
-//        }
-
 
         return templateCode;
     }

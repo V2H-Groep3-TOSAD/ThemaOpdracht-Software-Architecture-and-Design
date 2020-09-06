@@ -13,7 +13,13 @@ public class Address {
     private String postal;
 
     @Column(name = "housenr")
-    private String housenr;
+    private int housenr;
+
+    @Column(name = "rent")
+    private int rent;
+
+    @Column(name = "deposit")
+    private int deposit;
 
     @ManyToOne
     @JoinColumn(name = "person_id")

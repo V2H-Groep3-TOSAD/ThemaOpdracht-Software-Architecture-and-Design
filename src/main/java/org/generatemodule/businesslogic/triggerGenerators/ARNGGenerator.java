@@ -3,22 +3,26 @@ package org.generatemodule.businesslogic.triggerGenerators;
 import org.domain.BusinessRule;
 
 public class ARNGGenerator {
-//    private String template = "create or replace trigger ? "
-//            + "before insert on ? "
-//            + "for each row begin if :new.? <= ? "
-//            + "then SQLSTATE '22000' SET MESSAGE_TEXT = 'De waarde is niet groter';"
-//            + " end if;"
-//            + " end;";
 
-    private String template = "create or replace trigger %s "
-            + "before insert on %s "
-            + "for each row begin if :new.%s < %d "
-            + "then SQLSTATE '22003' SET MESSAGE_TEXT = 'De waarde valt onder de min value'; "
-            + "end if; "
-            + "if :new.%s > %d "
-            + "then SQLSTATE '22003' SET MESSAGE_TEXT = 'De waarde valt boven de max value'; "
-            + "end if; " +
-            "end;";
+    private String template =
+            "CREATE OR REPLACE FUNCTION %s"
+                    +   "RETURNS TRIGGER AS"
+                    + "$BODY$"
+                    +   "BEGIN"
+                    +       "IF (OLD.housenr IS DISTINCT FROM NEW.housenr AND NEW.housenr BETWEEN 1 AND 10) THEN"
+                    +       "RAISE EXCEPTION 'De waarde valt niet buiten 1 en 10'"
+                    +       "USING ERRCODE = 22000;"
+                    +       "END IF;"
+
+                    +       "IF (OLD.%s IS DISTINCT FROM NEW.%s AND NEW.%s %s %s) THEN"
+                    +       "RAISE EXCEPTION %s"
+                    +       "USING ERRCODE = 22000;"
+                    +       "END IF;"
+
+                    +       "RETURN NEW;"
+                    +   "END"
+                    + "$BODY$"
+                    + "LANGUAGE plpgsql SECURITY INVOKER;";
 
     public String generateTrigger (BusinessRule businessRule) {
         String message1 = "";

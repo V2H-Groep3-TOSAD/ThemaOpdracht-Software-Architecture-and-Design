@@ -2,13 +2,22 @@ package org.generatemodule.businesslogic.triggerGenerators;
 
 import org.domain.BusinessRule;
 
-public class ACMPGenerator {
-    private String template = "create or replace trigger %s "
-            + "before insert on %s "
-            + "for each row begin if :new.%s == %s "
-            + "then SQLSTATE '22000' SET MESSAGE_TEXT = %s; "
-            + " end if; "
-            + "end;";
+public class ACMPGenerator extends GenericTriggerGenerator {
+
+    private String template =
+        "CREATE OR REPLACE FUNCTION %s "
+        +   "RETURNS TRIGGER AS "
+        + "$BODY$ "
+        +   "BEGIN "
+        +       "IF (OLD.%s IS DISTINCT FROM NEW.%s AND NEW.%s %s '%s') THEN "
+        +       "RAISE EXCEPTION '%s' "
+        +       "USING ERRCODE = 22000; "
+        +       "END IF; "
+
+        +       "RETURN NEW; "
+        +   "END "
+        + "$BODY$ "
+        + "LANGUAGE plpgsql SECURITY INVOKER; ";
 
     public String generateTrigger (BusinessRule businessRule) {
         String message = "";
@@ -27,11 +36,19 @@ public class ACMPGenerator {
             message = "De waarde is niet groter";
         }
 
-        template = String.format(template,  "'" + businessRule.getName() + "'",
-                "'" + businessRule.getColumns().get(0).getTable().getName() + "'",
-                "'" + businessRule.getColumns().get(0).getName() + "'",
-                "'" + businessRule.getValueDefinition().getLiteralValue() + "'",
-                "'" + message + "'");
+        template = String.format(template,
+                businessRule.getName() + "_function()",
+                businessRule.getColumns().get(0).getName(),
+                businessRule.getColumns().get(0).getName(),
+                businessRule.getColumns().get(0).getName(),
+                businessRule.getOperator().getName(),
+                businessRule.getValueDefinition().getLiteralValue(),
+                message,
+                businessRule.getName());
+
+        String genericTriggerTemplate = generateGenericTrigger(businessRule);
+
+        template += genericTriggerTemplate;
 
         return template;
     }

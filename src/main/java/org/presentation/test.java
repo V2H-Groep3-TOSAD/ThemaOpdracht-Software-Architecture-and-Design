@@ -20,7 +20,10 @@ public class test {
             System.out.println(businessRule.getName());
             System.out.println(businessRule.getBusinessRuleType().getName());
             System.out.println(businessRule.getOperator().getName());
+
+            System.out.println("----------------------------");
             System.out.println(generateBusinessRuleController.generate(businessRule));
+            System.out.println("----------------------------");
         }
 
 
