@@ -7,7 +7,10 @@ import org.domain.Operator;
 import org.definemodule.businesslogic.services.postgresservice.PostgresServiceProvider;
 import org.generatemodule.businesslogic.controllers.GenerateBusinessRuleController;
 import org.generatemodule.businesslogic.services.GenerateBusinessRuleService;
+import org.generatemodule.persistence.PostgresImpl.PostgresDaoImplProvider;
+import org.generatemodule.persistence.PostgresImpl.TriggerDaoPostgresImpl;
 
+import javax.persistence.EntityManager;
 import java.util.List;
 
 public class test {
@@ -23,15 +26,18 @@ public class test {
 
         BusinessRule businessRuleAdd = postgresServiceProvider.getBusinessRulePostgresService().getBusinessRuleById(3);
         Column column2 = postgresServiceProvider.getColumnPostgresService().getColumnById(5);
-        businessRuleAdd.addColumn(column2);
-        column2.addBusinessRules(businessRuleAdd);
-        postgresServiceProvider.getColumnPostgresService().saveOrUpdate(column2);
+        businessRuleAdd.getColumns().add(column2);
+        postgresServiceProvider.getBusinessRulePostgresService().saveOrUpdate(businessRuleAdd);
         List<BusinessRule> businessRules = defineBusinessRuleController.giveAllBusinessRules();
+
+        PostgresDaoImplProvider postgresDaoImplProvider = new PostgresDaoImplProvider();
 
 
         for (BusinessRule businessRule : businessRules) {
             System.out.println(businessRule.getColumns());
         }
+
+        TriggerDaoPostgresImpl tdao = postgresDaoImplProvider.getTriggerDao();
 //
 //
 //
