@@ -8,7 +8,9 @@ import lombok.Setter;
 import javax.persistence.*;
 import javax.persistence.Column;
 import javax.persistence.Table;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @AllArgsConstructor
 @Getter
@@ -35,8 +37,13 @@ public class BusinessRule {
     @JoinColumn(name = "businessruletype_id", referencedColumnName = "id")
     private BusinessRuleType businessRuleType;
 
-    @OneToMany
-    private List<org.domain.Column> columns;
+    @ManyToMany(cascade = { CascadeType.MERGE})
+    @JoinTable(
+            name = "businessrule_table_column",
+            joinColumns = {@JoinColumn(name = "businessrule_id",referencedColumnName = "id")},
+            inverseJoinColumns = {@JoinColumn(name = "columns_id", referencedColumnName = "id")}
+    )
+    List<org.domain.Column> columns;
 
     @OneToOne
     @JoinColumn(name = "operator_id", referencedColumnName = "id")
@@ -86,5 +93,9 @@ public class BusinessRule {
 
     public ValueDefinition getValueDefinition() {
         return valueDefinition;
+    }
+
+    public void addColumn(org.domain.Column column){
+        getColumns().add(column);
     }
 }

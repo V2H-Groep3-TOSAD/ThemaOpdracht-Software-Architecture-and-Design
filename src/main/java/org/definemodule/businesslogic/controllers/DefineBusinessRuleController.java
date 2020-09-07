@@ -31,6 +31,10 @@ public class DefineBusinessRuleController {
         return postgresServiceProvider.getBusinessRuleTypePostgresService().getAllBusinessRuleTypes();
     }
 
+    public List<BusinessRule> giveAllBusinessRules(){
+        return postgresServiceProvider.getBusinessRulePostgresService().getAllBusinessRules();
+    }
+
     public List<Operator> giveAllOperators(){
        return postgresServiceProvider.getOperatorPostgresService().getAllOperators();
     }
