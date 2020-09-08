@@ -20,7 +20,7 @@ public class PrimaryController {
     @FXML
     private void switchToDefine(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("database.fxml"));
+        loader.setLocation(getClass().getResource("businessRuleType.fxml"));
         Parent databaseViewParent = loader.load();
 
         Scene databaseViewScene = new Scene(databaseViewParent);
