@@ -6,7 +6,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "businessruletype_operators")
-public class BusinessRuleTypeOperators {
+public class BusinessRuleTypeOperator {
 
     @Id
     @GeneratedValue

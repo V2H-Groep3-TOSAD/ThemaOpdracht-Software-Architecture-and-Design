@@ -12,7 +12,7 @@ public class ColumnDaoPostgresImpl extends AbstractDaoPostgresImpl<Column> imple
     public List<Column> findByTableId(int id){
         @SuppressWarnings("unchecked")
         List<Column> Columns = (List<Column>) em
-                .createQuery("from Column where database_id=" + id).getResultList();
+                .createQuery("from Column where table_id=" + id).getResultList();
         if (!Columns.isEmpty()) {
             return Columns;
         }

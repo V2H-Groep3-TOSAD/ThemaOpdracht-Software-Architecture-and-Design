@@ -25,9 +25,6 @@ public class PersonDaoPostgresImpl extends AbstractDaoPostgresImpl<Person> imple
         return null;
     }
 
-    public void executeTrigger (String triggerQuery) {
-        em.createQuery(triggerQuery);
-    }
 
 
 }

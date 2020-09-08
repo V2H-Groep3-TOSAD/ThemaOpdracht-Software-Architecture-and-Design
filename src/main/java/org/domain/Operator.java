@@ -27,7 +27,7 @@ public class Operator {
     private BusinessRule businessRule;
 
     @OneToMany(mappedBy = "operator")
-    private List<BusinessRuleTypeOperators> businessRuleType;
+    private List<BusinessRuleTypeOperator> businessRuleType;
 
     public int getId() {
         return id;
@@ -41,7 +41,7 @@ public class Operator {
         return businessRule;
     }
 
-    public List<BusinessRuleTypeOperators> getBusinessRuleType() {
+    public List<BusinessRuleTypeOperator> getBusinessRuleType() {
         return businessRuleType;
     }
 }

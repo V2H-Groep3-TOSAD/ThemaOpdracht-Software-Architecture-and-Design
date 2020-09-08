@@ -47,16 +47,40 @@ public class DefineBusinessRuleController {
         businessRuleBuilder.setOperator(operator);
     }
 
+    public void setTable(Table table){
+        businessRuleBuilder.setTable(table);
+    }
+
     public void setValueDefinition(ValueDefinition valueDefinition){
         businessRuleBuilder.setValueDefinition(valueDefinition);
     }
 
+    public void generateBusinessRuleName(){
+        //input applicatie name
+        //volgnummer
+        String name = "BRG_APPNAME_" +  businessRuleBuilder.getTable().getName() + "_CNS_"
+                + businessRuleBuilder.getBusinessRuleType().getName() + "_1";
+        setName(name);
+    }
     public void setName(String name){
         businessRuleBuilder.setName(name);
     }
 
     public BusinessRule buildBusinessRule(){
        return businessRuleBuilder.build();
+    }
+
+    public BusinessRuleBuilder getBusinessRuleBuilder() {
+        return businessRuleBuilder;
+    }
+
+    public BusinessRuleType geBusinessRuleType(){
+        return businessRuleBuilder.getBusinessRuleType();
+    }
+
+    public void saveBusinessRule(){
+        BusinessRule businessRule = buildBusinessRule();
+        postgresServiceProvider.getBusinessRulePostgresService().saveOrUpdate(businessRule);
     }
 
 

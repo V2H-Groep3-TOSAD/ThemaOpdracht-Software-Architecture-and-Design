@@ -4,10 +4,42 @@ public class BusinessRuleBuilder {
 
     private String name;
     private String description;
+
+
+    public String getName() {
+        return name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public int getVolgNummer() {
+        return volgNummer;
+    }
+
+    public Operator getOperator() {
+        return operator;
+    }
+
+    public ValueDefinition getValueDefinition() {
+        return valueDefinition;
+    }
+
     private int volgNummer;
     private BusinessRuleType businessRuleType;
     private Operator operator;
     private ValueDefinition valueDefinition;
+
+    public Table getTable() {
+        return table;
+    }
+
+    public void setTable(Table table) {
+        this.table = table;
+    }
+
+    private Table table;
 
 
     public void setName(String name) {
@@ -38,4 +70,7 @@ public class BusinessRuleBuilder {
         return new BusinessRule(this.name, this.description, this.volgNummer, this.businessRuleType, this.operator, this.valueDefinition);
     }
 
+    public BusinessRuleType getBusinessRuleType() {
+        return businessRuleType;
+    }
 }
