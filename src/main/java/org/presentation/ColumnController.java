@@ -42,7 +42,7 @@ public class ColumnController implements Initializable{
         businessRuleBuilder.setTable(table);
         System.out.println(businessRuleBuilder);
         List<Column> allCollumns = defineBusinessRuleController.giveAllColumnsByTable(table);
-        columnBox.getItems().addAll((Column) allCollumns);
+        columnBox.getItems().addAll(allCollumns);
     }
 
 

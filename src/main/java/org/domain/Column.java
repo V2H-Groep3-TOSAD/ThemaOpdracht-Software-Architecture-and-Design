@@ -46,9 +46,10 @@ public class Column {
 
     @Override
     public String toString() {
-        return "Column{" +
-                "id=" + id +
-                ", name='" + name + '\'' + ", table=" + table.getId() +
-                '}';
+        return name;
+//        return "Column{" +
+//                "id=" + id +
+//                ", name='" + name + '\'' + ", table=" + table.getId() +
+//                '}';
     }
 }
