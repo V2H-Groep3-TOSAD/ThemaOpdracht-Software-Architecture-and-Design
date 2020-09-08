@@ -7,8 +7,7 @@ import org.domain.*;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.List;
-import java.util.ResourceBundle;
+import java.util.*;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -59,7 +58,12 @@ public class ColumnController implements Initializable{
         Parent columnViewParent = loader.load();
         Scene columnViewScene = new Scene(columnViewParent);
 
+        //all kolommen toevoegen aan businessrulebuilder
         Column selectedColumn = columnBox.getSelectionModel().getSelectedItem();
+        List<Column> allColumns = new ArrayList<Column>() {
+        };
+        allColumns.add(selectedColumn);
+        businessRuleBuilder.setAllColumns(allColumns);
         ValueController valueController = loader.getController();
         valueController.setBusinessRuleBuilder(businessRuleBuilder);
 

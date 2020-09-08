@@ -10,6 +10,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.ChoiceBox;
 import javafx.stage.Stage;
 import org.definemodule.businesslogic.controllers.DefineBusinessRuleController;
+import org.domain.BusinessRuleBuilder;
 import org.domain.BusinessRuleType;
 import org.domain.Database;
 
@@ -22,6 +23,8 @@ import java.util.ResourceBundle;
 public class BusinessRuleTypeController implements Initializable {
 
     private DefineBusinessRuleController defineController = new DefineBusinessRuleController();
+    private static BusinessRuleBuilder businessRuleBuilder = new BusinessRuleBuilder();
+
 
     @FXML
     private ChoiceBox<BusinessRuleType> businessRuleBox;
@@ -38,6 +41,10 @@ public class BusinessRuleTypeController implements Initializable {
         Parent tableViewParent = loader.load();
         Scene tableViewScene = new Scene(tableViewParent);
 
+        BusinessRuleType businessRuleType = businessRuleBox.getSelectionModel().getSelectedItem();
+        businessRuleBuilder.setBusinessRuleType(businessRuleType);
+        DatabaseController databaseController = loader.getController();
+        databaseController.fillDatabases(businessRuleBuilder);
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
         window.setScene(tableViewScene);
         window.show();

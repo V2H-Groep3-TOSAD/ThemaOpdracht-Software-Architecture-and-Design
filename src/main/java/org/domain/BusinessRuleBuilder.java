@@ -1,5 +1,7 @@
 package org.domain;
 
+import java.util.List;
+
 public class BusinessRuleBuilder {
 
     private String name;
@@ -40,6 +42,16 @@ public class BusinessRuleBuilder {
     }
 
     private Table table;
+
+    public List<Column> getAllColumns() {
+        return allColumns;
+    }
+
+    public void setAllColumns(List<Column> allColumns) {
+        this.allColumns = allColumns;
+    }
+
+    private List<Column> allColumns;
 
 
     public void setName(String name) {

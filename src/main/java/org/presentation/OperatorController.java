@@ -1,14 +1,20 @@
 package org.presentation;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.ChoiceBox;
+import javafx.stage.Stage;
 import org.definemodule.businesslogic.controllers.DefineBusinessRuleController;
 import org.domain.BusinessRuleBuilder;
 import org.domain.BusinessRuleType;
 import org.domain.BusinessRuleTypeOperator;
 import org.domain.Operator;
 
+import javafx.event.ActionEvent;
 import java.io.IOException;
 import java.net.URL;
 import java.util.List;
@@ -35,7 +41,20 @@ public class OperatorController implements Initializable {
 
 
 
-    private void nextKnopClick() throws IOException {
-        App.setRoot("operator");
+    public void nextKnopClick(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("overzicht.fxml"));
+        Parent tableViewParent = loader.load();
+        Scene tableViewScene = new Scene(tableViewParent);
+
+        BusinessRuleTypeOperator businessRuleTypeOperator = operatorChoiceBox.getSelectionModel().getSelectedItem();
+        businessRuleBuilder.setOperator(businessRuleTypeOperator.getOperator());
+        OverzichtController overzichtController = loader.getController();
+        overzichtController.fillData(businessRuleBuilder);
+
+        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+        window.setScene(tableViewScene);
+        window.show();
+
     }
 }

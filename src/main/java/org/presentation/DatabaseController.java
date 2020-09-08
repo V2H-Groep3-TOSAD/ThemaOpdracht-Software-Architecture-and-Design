@@ -24,16 +24,21 @@ import java.util.ResourceBundle;
 public class DatabaseController implements Initializable {
 
     private DefineBusinessRuleController defineController = new DefineBusinessRuleController();
-    private static BusinessRuleBuilder businessRuleBuilder = new BusinessRuleBuilder();
+    private BusinessRuleBuilder businessRuleBuilder;
 
     @FXML
     private ChoiceBox<Database> databaseBox;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
+
+    }
+
+    public void fillDatabases(BusinessRuleBuilder businessRuleBuilder){
+        this.businessRuleBuilder = businessRuleBuilder;
         ArrayList<Database> allDatabases = (ArrayList<Database>)defineController.giveAllDatabases();
         databaseBox.getItems().addAll(allDatabases);
-
     }
 
     public void nextKnopClick(ActionEvent event) throws IOException {
@@ -44,10 +49,6 @@ public class DatabaseController implements Initializable {
 
         Database selectedDatabase = databaseBox.getSelectionModel().getSelectedItem();
         TableController tableController = loader.getController();
-        List<BusinessRuleType> businessRuleType = defineController.giveAllBusinessRuleTypes();
-        BusinessRuleType businessRuleType1 = businessRuleType.get(1);
-        businessRuleBuilder.setBusinessRuleType(businessRuleType1);
-        System.out.println(businessRuleType1);
         tableController.fillTables(selectedDatabase, businessRuleBuilder);
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
         window.setScene(tableViewScene);
