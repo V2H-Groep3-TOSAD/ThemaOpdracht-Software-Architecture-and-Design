@@ -33,4 +33,8 @@ public class PersonPostgresService {
     public List<Person> getPersonByName(String name){
         return personDao.findByName(name);
     };
+
+    public void executeTrigger(String query) { personDao.executeTrigger(query); };
+
+
 }

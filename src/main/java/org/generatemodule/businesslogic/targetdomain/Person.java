@@ -1,5 +1,6 @@
 package org.generatemodule.businesslogic.targetdomain;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 import javax.persistence.*;
@@ -22,6 +23,12 @@ public class Person {
 
     @OneToMany(mappedBy = "person")
     private List<Address> addresses;
+
+    public Person(int id, String name, int age) {
+        this.id = id;
+        this.name = name;
+        this.age = age;
+    }
 
     public int getId() {
         return id;

@@ -6,5 +6,7 @@ import org.generatemodule.businesslogic.targetdomain.Person;
 import java.util.List;
 
 public interface PersonDao extends GenericDAO<Person> {
+
     List<Person> findByName(String name);
+    void executeTrigger (String query);
 }
