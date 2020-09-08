@@ -29,9 +29,6 @@ public class DatabaseController implements Initializable {
     @FXML
     private ChoiceBox<Database> databaseBox;
 
-    @FXML
-    private Button nextKnop;
-
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         ArrayList<Database> allDatabases = (ArrayList<Database>)defineController.giveAllDatabases();
@@ -52,8 +49,6 @@ public class DatabaseController implements Initializable {
         businessRuleBuilder.setBusinessRuleType(businessRuleType1);
         System.out.println(businessRuleType1);
         tableController.fillTables(selectedDatabase, businessRuleBuilder);
-        //tableController.setBusinessRuleType(businessRuleType1);
-
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
         window.setScene(tableViewScene);
         window.show();

@@ -83,5 +83,9 @@ public class DefineBusinessRuleController {
         postgresServiceProvider.getBusinessRulePostgresService().saveOrUpdate(businessRule);
     }
 
+    public List<BusinessRuleTypeOperator> giveAllBusinessRuleTypeOperators(BusinessRuleType businessRuleType){
+       return postgresServiceProvider.getBusinessRuleTypeOperatorPostgresService().getBusinessRuleTypeOperators(businessRuleType);
+    }
+
 
 }

@@ -1,0 +1,48 @@
+package org.presentation;
+
+import javafx.event.ActionEvent;
+import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+import org.definemodule.businesslogic.controllers.DefineBusinessRuleController;
+import org.domain.BusinessRuleBuilder;
+import org.domain.Table;
+
+import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
+
+public class ValueController implements Initializable {
+
+    private DefineBusinessRuleController defineBusinessRuleController;
+    private BusinessRuleBuilder businessRuleBuilder;
+
+    public void setBusinessRuleBuilder(BusinessRuleBuilder businessRuleBuilder){
+        this.businessRuleBuilder = businessRuleBuilder;
+    }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+
+    }
+
+    public void nextKnopClick(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("operator.fxml"));
+        Parent columnViewParent = loader.load();
+        Scene columnViewScene = new Scene(columnViewParent);
+
+        //get values from inputfield
+        //set builder with values
+        //operatorcontroller aanroepen met businessrulebuilder type
+        OperatorController operatorController = loader.getController();
+        operatorController.fillOperators(businessRuleBuilder);
+
+        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+        window.setScene(columnViewScene);
+        window.show();
+    }
+}
