@@ -25,8 +25,6 @@ public class DatabaseController implements Initializable {
     @FXML
     private ChoiceBox<Database> databaseBox;
 
-    @FXML
-    private Button nextKnop;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {

@@ -38,4 +38,8 @@ public class BusinessRuleType {
     public List<BusinessRuleTypeOperators> getOperators() {
         return operators;
     }
+
+    public String toString(){
+        return name;
+    }
 }
