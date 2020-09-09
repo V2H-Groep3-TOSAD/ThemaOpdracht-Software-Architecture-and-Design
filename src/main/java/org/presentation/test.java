@@ -30,7 +30,7 @@ public class test {
         postgresServiceProvider.getBusinessRulePostgresService().saveOrUpdate(businessRuleAdd);
         List<BusinessRule> businessRules = defineBusinessRuleController.giveAllBusinessRules();
 
-        PostgresDaoImplProvider postgresDaoImplProvider = new PostgresDaoImplProvider();
+        //PostgresDaoImplProvider postgresDaoImplProvider = new PostgresDaoImplProvider();
 
 
         for (BusinessRule businessRule : businessRules) {

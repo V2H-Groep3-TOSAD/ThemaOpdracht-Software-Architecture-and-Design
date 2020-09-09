@@ -47,6 +47,16 @@ public class BusinessRuleBuilder {
         return allColumns;
     }
 
+    public Database getDatabase() {
+        return database;
+    }
+
+    public void setDatabase(Database database) {
+        this.database = database;
+    }
+
+    private Database database;
+
     public void setAllColumns(List<Column> allColumns) {
         this.allColumns = allColumns;
     }
