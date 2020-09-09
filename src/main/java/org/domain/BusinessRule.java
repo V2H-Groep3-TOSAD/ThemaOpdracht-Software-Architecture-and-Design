@@ -98,4 +98,8 @@ public class BusinessRule {
     public void addColumn(org.domain.Column column){
         getColumns().add(column);
     }
+
+    public String toString(){
+        return name + description + getId();
+    }
 }

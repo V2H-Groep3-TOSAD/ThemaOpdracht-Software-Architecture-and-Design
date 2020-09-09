@@ -28,6 +28,6 @@ public class OverzichtController {
     }
 
     public void nextKnopClick(ActionEvent event) throws IOException {
-        //terug naar hoofdmenu 
+        //terug naar hoofdmenu
     }
 }
