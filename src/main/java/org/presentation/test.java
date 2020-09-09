@@ -3,12 +3,10 @@ package org.presentation;
 import org.definemodule.businesslogic.controllers.DefineBusinessRuleController;
 import org.domain.BusinessRule;
 import org.domain.Column;
-import org.domain.Operator;
 import org.definemodule.businesslogic.services.postgresservice.PostgresServiceProvider;
 import org.generatemodule.businesslogic.controllers.GenerateBusinessRuleController;
-import org.generatemodule.businesslogic.services.GenerateBusinessRuleService;
-import org.generatemodule.businesslogic.targetdomain.Address;
-import org.generatemodule.businesslogic.targetdomain.Person;
+import org.generatemodule.businesslogic.domain.Address;
+import org.generatemodule.businesslogic.domain.Person;
 
 import java.util.ArrayList;
 import java.util.List;

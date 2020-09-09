@@ -1,6 +1,6 @@
 package org.generatemodule.businesslogic.services.postgresserviceimpl;
 
-import org.generatemodule.businesslogic.targetdomain.Address;
+import org.generatemodule.businesslogic.domain.Address;
 import org.generatemodule.persistence.PostgresDao.AddressDao;
 import org.generatemodule.persistence.PostgresImpl.PostgresDaoImplProvider;
 

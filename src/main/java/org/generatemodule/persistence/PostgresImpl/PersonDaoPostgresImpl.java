@@ -1,17 +1,11 @@
 package org.generatemodule.persistence.PostgresImpl;
 
 import org.definemodule.persistence.PostgresImpl.AbstractDaoPostgresImpl;
-import org.definemodule.persistence.postgresdao.HibernateUtil;
-import org.generatemodule.businesslogic.targetdomain.Person;
+import org.generatemodule.businesslogic.domain.Person;
 import org.generatemodule.persistence.PostgresDao.PersonDao;
-import org.hibernate.Hibernate;
-import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
-import org.hibernate.cfg.Configuration;
 
 import javax.persistence.EntityManager;
-import javax.persistence.Query;
 import java.util.List;
 
 public class PersonDaoPostgresImpl extends AbstractDaoPostgresImpl<Person> implements PersonDao {

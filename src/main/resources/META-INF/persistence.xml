@@ -27,8 +27,8 @@
         </properties>
     </persistence-unit>
     <persistence-unit name="hibernate.postgres.target">
-        <class>org.generatemodule.businesslogic.targetdomain.Person</class>
-        <class>org.generatemodule.businesslogic.targetdomain.Address</class>
+        <class>org.generatemodule.businesslogic.domain.Person</class>
+        <class>org.generatemodule.businesslogic.domain.Address</class>
         <exclude-unlisted-classes>true</exclude-unlisted-classes>
         <properties>
             <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver" />

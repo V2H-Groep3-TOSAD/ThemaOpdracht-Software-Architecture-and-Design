@@ -1,7 +1,7 @@
 package org.generatemodule.persistence.PostgresImpl;
 
 import org.definemodule.persistence.PostgresImpl.AbstractDaoPostgresImpl;
-import org.generatemodule.businesslogic.targetdomain.Address;
+import org.generatemodule.businesslogic.domain.Address;
 import org.generatemodule.persistence.PostgresDao.AddressDao;
 
 import javax.persistence.EntityManager;
