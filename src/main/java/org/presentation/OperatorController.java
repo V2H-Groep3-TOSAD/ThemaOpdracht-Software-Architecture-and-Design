@@ -29,9 +29,15 @@ public class OperatorController implements Initializable {
     public ChoiceBox<BusinessRuleTypeOperator> operatorChoiceBox;
 
     public void fillOperators(BusinessRuleBuilder businessRuleBuilder){
-        List<BusinessRuleTypeOperator> businessRuleTypeOperators = defineBusinessRuleController.giveAllBusinessRuleTypeOperators(businessRuleBuilder.getBusinessRuleType());
-        operatorChoiceBox.getItems().addAll(businessRuleTypeOperators);
         this.businessRuleBuilder = businessRuleBuilder;
+
+        List<BusinessRuleTypeOperator> businessRuleTypeOperators = defineBusinessRuleController.giveAllBusinessRuleTypeOperators(businessRuleBuilder.getBusinessRuleType());
+        System.out.println(businessRuleTypeOperators);
+        System.out.println(businessRuleBuilder.getBusinessRuleType());
+
+
+        operatorChoiceBox.getItems().addAll(businessRuleTypeOperators);
+
     }
 
     @Override

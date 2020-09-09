@@ -32,16 +32,33 @@ public class ColumnController implements Initializable{
 
     private DefineBusinessRuleController defineBusinessRuleController = new DefineBusinessRuleController();
     private BusinessRuleBuilder businessRuleBuilder;
+    private Boolean meedereColumns;
 
     @FXML
-    public ChoiceBox<Column> columnBox;
+    public ChoiceBox<Column> columnBox1;
+
+    @FXML
+    public ChoiceBox<Column> columnBox2;
 
     public void fillColumns(Table table, BusinessRuleBuilder businessRuleBuilder){
         this.businessRuleBuilder = businessRuleBuilder;
         businessRuleBuilder.setTable(table);
-        System.out.println(businessRuleBuilder);
+        System.out.println(businessRuleBuilder.getBusinessRuleType().toString());
+
         List<Column> allCollumns = defineBusinessRuleController.giveAllColumnsByTable(table);
-        columnBox.getItems().addAll(allCollumns);
+        columnBox1.getItems().addAll(allCollumns);
+
+
+        if (businessRuleBuilder.getBusinessRuleType().toString().equals("TCMP")) {
+            columnBox2.setVisible(true);
+            columnBox2.getItems().addAll(allCollumns);
+            meedereColumns = true;
+        } else {
+            meedereColumns = false;
+        }
+
+
+
     }
 
 
@@ -54,21 +71,44 @@ public class ColumnController implements Initializable{
         FXMLLoader loader = new FXMLLoader();
         //if type is dan value fxml voor businessrule met meerdere inputvelden
         //else 1 inputveld
-        loader.setLocation(getClass().getResource("value.fxml"));
-        Parent columnViewParent = loader.load();
-        Scene columnViewScene = new Scene(columnViewParent);
-
         //all kolommen toevoegen aan businessrulebuilder
-        Column selectedColumn = columnBox.getSelectionModel().getSelectedItem();
-        List<Column> allColumns = new ArrayList<Column>() {
-        };
-        allColumns.add(selectedColumn);
-        businessRuleBuilder.setAllColumns(allColumns);
-        ValueController valueController = loader.getController();
-        valueController.setBusinessRuleBuilder(businessRuleBuilder);
 
-        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
-        window.setScene(columnViewScene);
-        window.show();
+        List<Column> allColumns = new ArrayList<Column>() {};
+        System.out.println(meedereColumns);
+        Column selectedColumn1 = columnBox1.getSelectionModel().getSelectedItem();
+        if (meedereColumns) {
+            Column selectedColumn2 = columnBox2.getSelectionModel().getSelectedItem();
+            allColumns.add(selectedColumn1);
+            allColumns.add(selectedColumn2);
+        } else {
+            allColumns.add(selectedColumn1);
+        }
+        businessRuleBuilder.setAllColumns(allColumns);
+
+        if (businessRuleBuilder.getBusinessRuleType().toString().equals("TCMP")) {
+            loader.setLocation(getClass().getResource("value.fxml"));
+            Parent columnViewParent = loader.load();
+            Scene columnViewScene = new Scene(columnViewParent);
+            ValueController valueController = loader.getController();
+            valueController.setBusinessRuleBuilder(businessRuleBuilder);
+
+            Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+            window.setScene(columnViewScene);
+            window.show();
+        } else {
+            loader.setLocation(getClass().getResource("operator.fxml"));
+            Parent columnViewParent = loader.load();
+            Scene columnViewScene = new Scene(columnViewParent);
+            OperatorController OperatorController = loader.getController();
+            OperatorController.fillOperators(businessRuleBuilder);
+
+            Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+            window.setScene(columnViewScene);
+            window.show();
+        }
+
+
+
+
     }
 }

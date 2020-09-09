@@ -13,7 +13,7 @@ public class BusinessRuleTypeOperatorDaoPostgresImpl extends AbstractDaoPostgres
 
     @Override
     public List<BusinessRuleTypeOperator> getAllOperatorsByBusinessRuleType(BusinessRuleType businessRuleType) {
-        List<BusinessRuleTypeOperator> businessRuleTypeOperators = (List<BusinessRuleTypeOperator>) em.createQuery("from BusinessRuleTypeOperator where businessruletype_id" + businessRuleType.getId()).getResultList();
+        List<BusinessRuleTypeOperator> businessRuleTypeOperators = (List<BusinessRuleTypeOperator>) em.createQuery("from BusinessRuleTypeOperator where businessruletype_id = " + businessRuleType.getId()).getResultList();
         if(!businessRuleTypeOperators.isEmpty()){
             System.out.println(businessRuleTypeOperators);
             return businessRuleTypeOperators;
