@@ -43,4 +43,8 @@ public class BusinessRuleTypeOperator {
     public void setOperator(Operator operator) {
         this.operator = operator;
     }
+
+    public String toString(){
+        return operator.getName();
+    }
 }

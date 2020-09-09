@@ -1,6 +1,5 @@
-package org.generatemodule.businesslogic.targetdomain;
+package org.generatemodule.businesslogic.domain;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 import javax.persistence.*;

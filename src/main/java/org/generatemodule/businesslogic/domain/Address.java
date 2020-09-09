@@ -1,4 +1,4 @@
-package org.generatemodule.businesslogic.targetdomain;
+package org.generatemodule.businesslogic.domain;
 
 import javax.persistence.*;
 
