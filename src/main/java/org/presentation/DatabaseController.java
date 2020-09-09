@@ -48,6 +48,7 @@ public class DatabaseController implements Initializable {
         Scene tableViewScene = new Scene(tableViewParent);
 
         Database selectedDatabase = databaseBox.getSelectionModel().getSelectedItem();
+        businessRuleBuilder.setDatabase(selectedDatabase);
         TableController tableController = loader.getController();
         tableController.fillTables(selectedDatabase, businessRuleBuilder);
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();

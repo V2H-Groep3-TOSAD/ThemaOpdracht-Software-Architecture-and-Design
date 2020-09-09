@@ -52,6 +52,7 @@ public class TableController implements Initializable {
         Scene columnViewScene = new Scene(columnViewParent);
 
         Table selectedTable = tablesBox.getSelectionModel().getSelectedItem();
+        businessRuleBuilder.setTable(selectedTable);
         ColumnController columnController = loader.getController();
         System.out.println(selectedTable.getId());
         columnController.fillColumns(selectedTable, businessRuleBuilder);
