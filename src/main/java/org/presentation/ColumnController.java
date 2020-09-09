@@ -85,7 +85,7 @@ public class ColumnController implements Initializable{
         }
         businessRuleBuilder.setAllColumns(allColumns);
 
-        if (businessRuleBuilder.getBusinessRuleType().toString().equals("TCMP")) {
+        if (businessRuleBuilder.getBusinessRuleType().toString().equals("ARNG") || businessRuleBuilder.getBusinessRuleType().toString().equals("ACMP")) {
             loader.setLocation(getClass().getResource("value.fxml"));
             Parent columnViewParent = loader.load();
             Scene columnViewScene = new Scene(columnViewParent);
@@ -106,9 +106,6 @@ public class ColumnController implements Initializable{
             window.setScene(columnViewScene);
             window.show();
         }
-
-
-
 
     }
 }

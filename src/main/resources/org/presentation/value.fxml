@@ -16,6 +16,6 @@
       </Label>
       <Button layoutX="307.0" layoutY="194.0" mnemonicParsing="false" onAction="#nextKnopClick" prefHeight="35.0" prefWidth="67.0" text="Next" />
       <TextField fx:id="valueText1" layoutX="184.0" layoutY="138.0" />
-      <TextField fx:id="valueText2" layoutX="354.0" layoutY="138.0" />
+      <TextField fx:id="valueText2" layoutX="354.0" layoutY="138.0" visible="false" />
    </children>
 </AnchorPane>

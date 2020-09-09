@@ -31,7 +31,9 @@ public class ValueController implements Initializable {
     public void setBusinessRuleBuilder(BusinessRuleBuilder businessRuleBuilder){
         this.businessRuleBuilder = businessRuleBuilder;
 
-
+        if (businessRuleBuilder.getBusinessRuleType().toString().equals("ARNG")) {
+            valueText2.setVisible(true);
+        }
     }
 
     @Override
