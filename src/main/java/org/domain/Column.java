@@ -2,6 +2,9 @@ package org.domain;
 
 import javax.persistence.*;
 import javax.persistence.Table;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "table_column")
@@ -18,6 +21,9 @@ public class Column {
     @JoinColumn(name = "table_id", referencedColumnName = "id")
     private org.domain.Table table;
 
+    @ManyToMany(mappedBy = "columns")
+    private List<BusinessRule> businessRules;
+
     public int getId() {
         return id;
     }
@@ -30,11 +36,20 @@ public class Column {
         return table;
     }
 
+    public List<BusinessRule> getBusinessRules() {
+        return businessRules;
+    }
+
+    public void addBusinessRules(BusinessRule businessRule) {
+        this.businessRules.add(businessRule);
+    }
+
     @Override
     public String toString() {
-        return "Column{" +
-                "id=" + id +
-                ", name='" + name + '\'' + ", table=" + table.getId() +
-                '}';
+        return name;
+//        return "Column{" +
+//                "id=" + id +
+//                ", name='" + name + '\'' + ", table=" + table.getId() +
+//                '}';
     }
 }

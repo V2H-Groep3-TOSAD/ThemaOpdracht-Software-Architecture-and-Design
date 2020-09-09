@@ -10,26 +10,33 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.stage.Stage;
 import org.definemodule.businesslogic.controllers.DefineBusinessRuleController;
+import org.domain.BusinessRuleBuilder;
+import org.domain.BusinessRuleType;
 import org.domain.Database;
 
 import javafx.event.ActionEvent;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class DatabaseController implements Initializable {
 
     private DefineBusinessRuleController defineController = new DefineBusinessRuleController();
+    private BusinessRuleBuilder businessRuleBuilder;
 
     @FXML
     private ChoiceBox<Database> databaseBox;
 
-    @FXML
-    private Button nextKnop;
-
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
+
+    }
+
+    public void fillDatabases(BusinessRuleBuilder businessRuleBuilder){
+        this.businessRuleBuilder = businessRuleBuilder;
         ArrayList<Database> allDatabases = (ArrayList<Database>)defineController.giveAllDatabases();
         databaseBox.getItems().addAll(allDatabases);
     }
@@ -42,8 +49,7 @@ public class DatabaseController implements Initializable {
 
         Database selectedDatabase = databaseBox.getSelectionModel().getSelectedItem();
         TableController tableController = loader.getController();
-        tableController.fillTables(selectedDatabase);
-
+        tableController.fillTables(selectedDatabase, businessRuleBuilder);
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
         window.setScene(tableViewScene);
         window.show();

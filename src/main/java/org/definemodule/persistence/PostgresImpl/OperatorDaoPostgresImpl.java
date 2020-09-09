@@ -23,4 +23,5 @@ public class OperatorDaoPostgresImpl extends AbstractDaoPostgresImpl<Operator> i
         }
         return null;
     }
+
 }

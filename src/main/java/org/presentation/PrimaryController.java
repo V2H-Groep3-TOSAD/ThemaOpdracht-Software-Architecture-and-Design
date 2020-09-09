@@ -20,7 +20,7 @@ public class PrimaryController {
     @FXML
     private void switchToDefine(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("database.fxml"));
+        loader.setLocation(getClass().getResource("businessRuleType.fxml"));
         Parent databaseViewParent = loader.load();
 
         Scene databaseViewScene = new Scene(databaseViewParent);
@@ -30,8 +30,15 @@ public class PrimaryController {
     }
 
     @FXML
-    private void switchToGenerate() throws IOException {
-        App.setRoot("generate");
+    private void switchToGenerate(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("generate.fxml"));
+        Parent databaseViewParent = loader.load();
+
+        Scene databaseViewScene = new Scene(databaseViewParent);
+        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+        window.setScene(databaseViewScene);
+        window.show();
     }
 
     private void switchToTable() throws IOException {

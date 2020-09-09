@@ -1,5 +1,6 @@
 package org.presentation;
 
+import org.definemodule.businesslogic.controllers.DefineBusinessRuleController;
 import org.domain.BusinessRule;
 import org.domain.Column;
 import org.domain.Operator;
@@ -17,22 +18,23 @@ public class test {
         PostgresServiceProvider postgresServiceProvider = new PostgresServiceProvider();
 
         GenerateBusinessRuleController generateBusinessRuleController = new GenerateBusinessRuleController();
+        DefineBusinessRuleController defineBusinessRuleController = new DefineBusinessRuleController();
 
-        List<BusinessRule> businessRules = postgresServiceProvider.getBusinessRulePostgresService().getAllBusinessRules();
 
-        for (BusinessRule businessRule : businessRules){
+        //List<BusinessRule> businessRules = postgresServiceProvider.getBusinessRulePostgresService().getAllBusinessRules();
 
-            System.out.println("----------------------------");
-            System.out.println(businessRule.getName());
-//            System.out.println(businessRule.getColumns().get(0).getName());
 
-            for (Column column : businessRule.getColumns()) {
-                System.out.println(column.toString());
-            }
+        BusinessRule businessRuleAdd = postgresServiceProvider.getBusinessRulePostgresService().getBusinessRuleById(3);
+        Column column2 = postgresServiceProvider.getColumnPostgresService().getColumnById(5);
+        businessRuleAdd.getColumns().add(column2);
+        postgresServiceProvider.getBusinessRulePostgresService().saveOrUpdate(businessRuleAdd);
+        List<BusinessRule> businessRules = defineBusinessRuleController.giveAllBusinessRules();
 
-            System.out.println("");
-            System.out.println(generateBusinessRuleController.generate(businessRule));
-            System.out.println("----------------------------");
+        PostgresDaoImplProvider postgresDaoImplProvider = new PostgresDaoImplProvider();
+
+
+        for (BusinessRule businessRule : businessRules) {
+            System.out.println(businessRule.getColumns());
         }
 
         String triggerQuery = generateBusinessRuleController.generate(businessRules.get(0));
