@@ -33,17 +33,7 @@ public class OverzichtController {
 
     @FXML
     private Label operatorLabel;
-    //labels vullen
-    @FXML
-    public Label databaseLabel;
-    @FXML
-    public Label tableLabel;
-    @FXML
-    public Label columnLabel;
-    @FXML
-    public Label valueLabel;
-    @FXML
-    public Label operatorLabel;
+
 
     public void fillData(BusinessRuleBuilder businessRuleBuilder){
         this.businessRuleBuilder = businessRuleBuilder;

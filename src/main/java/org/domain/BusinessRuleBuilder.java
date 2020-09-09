@@ -43,17 +43,6 @@ public class BusinessRuleBuilder {
 
     private Table table;
 
-    public Database getDatabase() {
-        return database;
-    }
-
-    public void setDatabase(Database database) {
-        this.database = database;
-    }
-
-    private Database database;
-
-
     public List<Column> getAllColumns() {
         return allColumns;
     }
