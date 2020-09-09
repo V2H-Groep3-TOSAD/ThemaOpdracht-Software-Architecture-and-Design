@@ -43,7 +43,7 @@ public class test {
 
         String triggerQuery = generateBusinessRuleController.generate(businessRules.get(0));
 
-        EntityManagerFactory entityManagerFactory = HibernateUtil.getEntityManagerFactory();
+        EntityManagerFactory entityManagerFactory = HibernateUtil.getEntityManagerFactoryTarget();
         EntityManager entityManager = entityManagerFactory.createEntityManager();
         entityManager.getTransaction().begin();
         org.generatemodule.businesslogic.services.postgresservice.PostgresServiceProvider postgresServiceProviderTarget = new org.generatemodule.businesslogic.services.postgresservice.PostgresServiceProvider();
@@ -51,17 +51,21 @@ public class test {
         entityManager.getTransaction().commit();
 
 
-        List list = new ArrayList();
+        //List list = new ArrayList();
 
 
         // int id, String postal, int housenr, int rent, int deposit, Person person
 
 
-        Person person = new Person(999, "Sanne", 54);
+        Person person = new Person("Sanne", 54);
+        Address address = new Address("HG8934", 143, 800, 500, person);
 
-        Address address = new Address(99, "HG8934", 143, 800, 500, person);
+        //Database database = new Database("hallo");
 
-        Database database = new Database("hallo");
+        postgresServiceProviderTarget.getPersonPostgresService().saveOrUpdate(person);
+        postgresServiceProviderTarget.getAddressPostgresService().saveOrUpdate(address);
+
+
         //postgresServiceProvider.getDatabasePostgresService().saveOrUpdate(database);
 
         //WentityManager.persist(database);
