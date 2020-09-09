@@ -44,4 +44,8 @@ public class Operator {
     public List<BusinessRuleTypeOperator> getBusinessRuleType() {
         return businessRuleType;
     }
+
+    public String toString(){
+        return name;
+    }
 }

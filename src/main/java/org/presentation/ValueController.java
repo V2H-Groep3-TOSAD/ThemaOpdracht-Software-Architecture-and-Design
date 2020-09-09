@@ -1,11 +1,13 @@
 package org.presentation;
 
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import org.definemodule.businesslogic.controllers.DefineBusinessRuleController;
 import org.domain.BusinessRuleBuilder;
@@ -20,8 +22,16 @@ public class ValueController implements Initializable {
     private DefineBusinessRuleController defineBusinessRuleController;
     private BusinessRuleBuilder businessRuleBuilder;
 
+    @FXML
+    public TextField valueText1;
+
+    @FXML
+    public TextField valueText2;
+
     public void setBusinessRuleBuilder(BusinessRuleBuilder businessRuleBuilder){
         this.businessRuleBuilder = businessRuleBuilder;
+
+
     }
 
     @Override
