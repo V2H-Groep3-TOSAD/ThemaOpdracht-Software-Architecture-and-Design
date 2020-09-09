@@ -39,7 +39,7 @@ public class OverzichtController {
         this.businessRuleBuilder = businessRuleBuilder;
         databaseLabel.setText(businessRuleBuilder.getDatabase().getName());
         operatorLabel.setText(businessRuleBuilder.getOperator().getName());
-        valueLabel.setText(businessRuleBuilder.getValueDefinition().getLiteralValue());
+//        valueLabel.setText(businessRuleBuilder.getValueDefinition().getLiteralValue());
         String colums = "";
         for(Column column : businessRuleBuilder.getAllColumns()){
             colums += column + " ";
