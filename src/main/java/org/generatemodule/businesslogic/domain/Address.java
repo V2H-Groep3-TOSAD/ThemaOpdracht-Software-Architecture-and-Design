@@ -25,8 +25,7 @@ public class Address {
     @JoinColumn(name = "person_id")
     private Person person;
 
-    public Address(int id, String postal, int housenr, int rent, int deposit, Person person) {
-        this.id = id;
+    public Address(String postal, int housenr, int rent, int deposit, Person person ) {  //int id,
         this.postal = postal;
         this.housenr = housenr;
         this.rent = rent;

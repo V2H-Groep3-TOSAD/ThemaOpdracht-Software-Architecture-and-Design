@@ -1,11 +1,14 @@
 package org.generatemodule.businesslogic.domain;
 
 import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Getter
+@Setter
 @Entity
 @Table(name = "person")
 public class Person {
@@ -20,13 +23,16 @@ public class Person {
     @Column(name = "age")
     private int age;
 
-    @OneToMany(mappedBy = "person")
-    private List<Address> addresses;
+    @OneToMany(mappedBy = "person", cascade = CascadeType.ALL)
+    private List<Address> addresses = new ArrayList<>();
 
-    public Person(int id, String name, int age) {
-        this.id = id;
+    public Person(String name, int age) {
         this.name = name;
         this.age = age;
+    }
+
+    public void addAddress(Address address){
+        this.addresses.add(address);
     }
 
     public int getId() {
