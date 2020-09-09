@@ -18,9 +18,10 @@ public class TriggerDaoPostgresImpl {
 
     public void executeTrigger (String triggerQuery) {
 
+        entityManager.getTransaction().begin();
         entityManager.createNativeQuery(triggerQuery);
         entityManager.getTransaction().commit();
-        entityManager.createQuery(triggerQuery);
+        entityManager.close();
     }
 
 
