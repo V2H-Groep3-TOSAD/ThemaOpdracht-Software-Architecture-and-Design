@@ -1,13 +1,18 @@
 package org.presentation;
 
 import org.definemodule.businesslogic.controllers.DefineBusinessRuleController;
+import org.definemodule.persistence.postgresdao.HibernateUtil;
 import org.domain.BusinessRule;
 import org.domain.Column;
 import org.definemodule.businesslogic.services.postgresservice.PostgresServiceProvider;
+import org.domain.Database;
+import org.domain.Operator;
 import org.generatemodule.businesslogic.controllers.GenerateBusinessRuleController;
 import org.generatemodule.businesslogic.domain.Address;
 import org.generatemodule.businesslogic.domain.Person;
 
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -35,9 +40,16 @@ public class test {
             System.out.println(businessRule.getColumns());
         }
 
+
         String triggerQuery = generateBusinessRuleController.generate(businessRules.get(0));
 
+        EntityManagerFactory entityManagerFactory = HibernateUtil.getEntityManagerFactory();
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+        entityManager.getTransaction().begin();
         org.generatemodule.businesslogic.services.postgresservice.PostgresServiceProvider postgresServiceProviderTarget = new org.generatemodule.businesslogic.services.postgresservice.PostgresServiceProvider();
+        postgresServiceProviderTarget.getPersonPostgresService().executeTrigger(triggerQuery);
+        entityManager.getTransaction().commit();
+
 
         List list = new ArrayList();
 
@@ -49,11 +61,20 @@ public class test {
 
         Address address = new Address(99, "HG8934", 143, 800, 500, person);
 
-        postgresServiceProviderTarget.getAddressPostgresService().saveOrUpdate(address);
+        Database database = new Database("hallo");
+        //postgresServiceProvider.getDatabasePostgresService().saveOrUpdate(database);
+
+        //WentityManager.persist(database);
+
+
+        //postgresServiceProviderTarget.getAddressPostgresService().saveOrUpdate(address);
+        //postgresServiceProviderTarget.getPersonPostgresService().saveOrUpdate(person);
 
 
 //        String query = "INSERT INTO person VALUES (999, 'Sanne')";
 //        postgresServiceProviderTarget.getPersonPostgresService().executeTrigger(query);
+
+
 
 
 
