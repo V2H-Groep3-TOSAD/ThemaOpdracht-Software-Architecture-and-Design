@@ -18,15 +18,6 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-
-        PostgresServiceProvider postgresServiceProvider = new PostgresServiceProvider();
-        TableController tableController = new TableController();
-        String message = "dniudnjldndl";
-        //List<Database> databases = postgresServiceProvider.getDatabasePostgresService().getDatabaseByName(message);
-        //Database database = databases.get(0);
-
-        //System.out.println(database.getName());
-
         scene = new Scene(loadFXML("primary"));
         stage.setScene(scene);
         stage.show();

@@ -1,6 +1,9 @@
 package org.generatemodule.businesslogic.triggerGenerators;
 
 import org.domain.BusinessRule;
+import org.generatemodule.businesslogic.services.postgresservice.PostgresServiceProvider;
+import org.generatemodule.persistence.PostgresImpl.PersonDaoPostgresImpl;
+import org.hibernate.collection.internal.PersistentSortedMap;
 
 public class ACMPGenerator extends GenericTriggerGenerator {
 

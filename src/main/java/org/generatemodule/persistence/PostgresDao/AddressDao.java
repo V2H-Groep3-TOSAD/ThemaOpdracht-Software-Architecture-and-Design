@@ -1,7 +1,7 @@
 package org.generatemodule.persistence.PostgresDao;
 
 import org.definemodule.persistence.postgresdao.GenericDAO;
-import org.generatemodule.businesslogic.targetdomain.Address;
+import org.generatemodule.businesslogic.domain.Address;
 
 import java.util.List;
 

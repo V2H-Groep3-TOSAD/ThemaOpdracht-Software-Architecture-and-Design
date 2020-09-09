@@ -11,6 +11,7 @@ import javafx.stage.Stage;
 import org.definemodule.businesslogic.controllers.DefineBusinessRuleController;
 import org.domain.BusinessRuleBuilder;
 import org.domain.BusinessRuleType;
+import org.domain.Column;
 
 import java.io.IOException;
 
@@ -18,6 +19,20 @@ public class OverzichtController {
     private BusinessRuleBuilder businessRuleBuilder;
     private DefineBusinessRuleController defineBusinessRuleController;
 
+    @FXML
+    private Label databaseLabel;
+
+    @FXML
+    private Label tableLabel;
+
+    @FXML
+    private Label columnLabel;
+
+    @FXML
+    private Label valueLabel;
+
+    @FXML
+    private Label operatorLabel;
     //labels vullen
     @FXML
     public Label databaseLabel;
@@ -32,12 +47,15 @@ public class OverzichtController {
 
     public void fillData(BusinessRuleBuilder businessRuleBuilder){
         this.businessRuleBuilder = businessRuleBuilder;
-        //labels vullen data
-        databaseLabel.setText(businessRuleBuilder.getDatabase().toString());
-        tableLabel.setText(businessRuleBuilder.getTable().toString());
-        columnLabel.setText(businessRuleBuilder.getAllColumns().toString());
-
-        operatorLabel.setText(businessRuleBuilder.getOperator().toString());
+        databaseLabel.setText(businessRuleBuilder.getDatabase().getName());
+        operatorLabel.setText(businessRuleBuilder.getOperator().getName());
+//        valueLabel.setText(businessRuleBuilder.getValueDefinition().getLiteralValue());
+        String colums = "";
+        for(Column column : businessRuleBuilder.getAllColumns()){
+            colums += column + " ";
+        }
+        columnLabel.setText(colums);
+        tableLabel.setText(businessRuleBuilder.getTable().getName());
     }
 
     public void save(ActionEvent event) throws IOException{
@@ -45,6 +63,13 @@ public class OverzichtController {
     }
 
     public void nextKnopClick(ActionEvent event) throws IOException {
-        //terug naar hoofdmenu 
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("primary.fxml"));
+        Parent tableViewParent = loader.load();
+        Scene tableViewScene = new Scene(tableViewParent);
+
+        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+        window.setScene(tableViewScene);
+        window.show();
     }
 }

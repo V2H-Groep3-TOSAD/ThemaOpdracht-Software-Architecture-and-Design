@@ -8,6 +8,9 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import org.definemodule.businesslogic.controllers.DefineBusinessRuleController;
 import org.domain.BusinessRule;
@@ -19,32 +22,35 @@ import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
 
-public class GenerateController implements Initializable {
+public class QueryController implements Initializable {
 
-    private DefineBusinessRuleController defineBusinessRuleController = new DefineBusinessRuleController();
+    private GenerateBusinessRuleController generateBusinessRuleController = new GenerateBusinessRuleController();
+    private BusinessRule businessRule;
 
     @FXML
-    private ChoiceBox<BusinessRule> businessRulesBox;
+    private Text queryBox;
 
     @Override
     public void initialize(URL location, ResourceBundle resources){
-        List<BusinessRule> allBusinessRules = defineBusinessRuleController.giveAllBusinessRules();
-        businessRulesBox.getItems().addAll(allBusinessRules);
+
+    }
+
+    public void fillQueryArea(BusinessRule businessRule){
+        String templateCode = generateBusinessRuleController.generate(businessRule);
+        queryBox.setText(templateCode);
+        this.businessRule = businessRule;
     }
 
     public void nextKnopClick(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("query.fxml"));
+        loader.setLocation(getClass().getResource("primary.fxml"));
         Parent tableViewParent = loader.load();
         Scene tableViewScene = new Scene(tableViewParent);
 
-        BusinessRule businessRule = businessRulesBox.getSelectionModel().getSelectedItem();
-        QueryController queryController = loader.getController();
-        queryController.fillQueryArea(businessRule);
+        generateBusinessRuleController.execute(businessRule.getName());
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
         window.setScene(tableViewScene);
         window.show();
     }
-
 
 }

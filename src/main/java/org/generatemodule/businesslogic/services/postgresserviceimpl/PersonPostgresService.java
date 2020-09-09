@@ -1,6 +1,6 @@
 package org.generatemodule.businesslogic.services.postgresserviceimpl;
 import org.generatemodule.persistence.PostgresImpl.PostgresDaoImplProvider;
-import org.generatemodule.businesslogic.targetdomain.Person;
+import org.generatemodule.businesslogic.domain.Person;
 import org.generatemodule.persistence.PostgresDao.PersonDao;
 
 import java.util.List;
@@ -33,4 +33,8 @@ public class PersonPostgresService {
     public List<Person> getPersonByName(String name){
         return personDao.findByName(name);
     };
+
+    public void executeTrigger(String query) { personDao.executeTrigger(query); };
+
+
 }

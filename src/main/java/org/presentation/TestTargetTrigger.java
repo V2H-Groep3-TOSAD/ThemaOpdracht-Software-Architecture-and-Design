@@ -1,15 +1,6 @@
 package org.presentation;
 
-import org.generatemodule.businesslogic.services.postgresservice.PostgresServiceProvider;
-import org.generatemodule.businesslogic.targetdomain.Person;
-import org.generatemodule.persistence.PostgresImpl.PersonDaoPostgresImpl;
-import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
-import org.hibernate.cfg.Configuration;
-
-import javax.persistence.Query;
-import java.util.List;
 
 public class TestTargetTrigger {
     private static SessionFactory factory;
