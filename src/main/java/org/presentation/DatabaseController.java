@@ -6,19 +6,16 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.stage.Stage;
-import org.definemodule.businesslogic.controllers.DefineBusinessRuleController;
-import org.domain.BusinessRuleBuilder;
-import org.domain.BusinessRuleType;
-import org.domain.Database;
+import org.application.definemodule.businesslogic.controllers.DefineBusinessRuleController;
+import org.application.domain.BusinessRuleBuilder;
+import org.application.domain.Database;
 
 import javafx.event.ActionEvent;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.ResourceBundle;
 
 public class DatabaseController implements Initializable {

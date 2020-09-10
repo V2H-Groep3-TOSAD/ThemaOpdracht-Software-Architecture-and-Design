@@ -2,28 +2,24 @@ package org.presentation;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.ChoiceBox;
-import org.definemodule.businesslogic.controllers.DefineBusinessRuleController;
-import org.domain.*;
+import org.application.definemodule.businesslogic.controllers.DefineBusinessRuleController;
+import org.application.domain.*;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.*;
 
-import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.ChoiceBox;
 
 import javafx.stage.Stage;
-import org.definemodule.businesslogic.controllers.DefineBusinessRuleController;
-import org.domain.Table;
+import org.application.domain.Table;
 
 import javafx.event.ActionEvent;
-import java.io.IOException;
-import java.net.URL;
+
 import java.util.List;
 import java.util.ResourceBundle;
 

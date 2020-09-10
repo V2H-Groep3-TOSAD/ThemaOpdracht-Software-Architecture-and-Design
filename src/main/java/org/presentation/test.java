@@ -1,19 +1,16 @@
 package org.presentation;
 
-import org.definemodule.businesslogic.controllers.DefineBusinessRuleController;
-import org.definemodule.persistence.postgresdao.HibernateUtil;
-import org.domain.BusinessRule;
-import org.domain.Column;
-import org.definemodule.businesslogic.services.postgresservice.PostgresServiceProvider;
-import org.domain.Database;
-import org.domain.Operator;
-import org.generatemodule.businesslogic.controllers.GenerateBusinessRuleController;
-import org.generatemodule.businesslogic.domain.Address;
-import org.generatemodule.businesslogic.domain.Person;
+import org.application.definemodule.businesslogic.controllers.DefineBusinessRuleController;
+import org.application.definemodule.persistence.postgresdao.HibernateUtil;
+import org.application.domain.BusinessRule;
+import org.application.domain.Column;
+import org.application.definemodule.businesslogic.services.postgresservice.PostgresServiceProvider;
+import org.application.generatemodule.businesslogic.controllers.GenerateBusinessRuleController;
+import org.application.generatemodule.businesslogic.domain.Address;
+import org.application.generatemodule.businesslogic.domain.Person;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
-import java.util.ArrayList;
 import java.util.List;
 
 public class test {
@@ -46,7 +43,7 @@ public class test {
         EntityManagerFactory entityManagerFactory = HibernateUtil.getEntityManagerFactoryTarget();
         EntityManager entityManager = entityManagerFactory.createEntityManager();
         entityManager.getTransaction().begin();
-        org.generatemodule.businesslogic.services.postgresservice.PostgresServiceProvider postgresServiceProviderTarget = new org.generatemodule.businesslogic.services.postgresservice.PostgresServiceProvider();
+        org.application.generatemodule.businesslogic.services.postgresservice.PostgresServiceProvider postgresServiceProviderTarget = new org.application.generatemodule.businesslogic.services.postgresservice.PostgresServiceProvider();
         postgresServiceProviderTarget.getPersonPostgresService().executeTrigger(triggerQuery);
         entityManager.getTransaction().commit();
 

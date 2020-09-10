@@ -9,10 +9,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.ChoiceBox;
 import javafx.stage.Stage;
-import org.definemodule.businesslogic.controllers.DefineBusinessRuleController;
-import org.domain.BusinessRule;
-import org.domain.BusinessRuleType;
-import org.generatemodule.businesslogic.controllers.GenerateBusinessRuleController;
+import org.application.definemodule.businesslogic.controllers.DefineBusinessRuleController;
+import org.application.domain.BusinessRule;
 
 import java.io.IOException;
 import java.net.URL;

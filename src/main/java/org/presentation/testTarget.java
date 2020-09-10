@@ -1,7 +1,7 @@
 package org.presentation;
 
-import org.generatemodule.businesslogic.domain.Person;
-import org.generatemodule.businesslogic.services.postgresservice.PostgresServiceProvider;
+import org.application.generatemodule.businesslogic.domain.Person;
+import org.application.generatemodule.businesslogic.services.postgresservice.PostgresServiceProvider;
 
 import java.util.List;
 

@@ -9,9 +9,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-import org.definemodule.businesslogic.controllers.DefineBusinessRuleController;
-import org.domain.BusinessRuleBuilder;
-import org.domain.Table;
+import org.application.definemodule.businesslogic.controllers.DefineBusinessRuleController;
+import org.application.domain.BusinessRuleBuilder;
 
 import java.io.IOException;
 import java.net.URL;
