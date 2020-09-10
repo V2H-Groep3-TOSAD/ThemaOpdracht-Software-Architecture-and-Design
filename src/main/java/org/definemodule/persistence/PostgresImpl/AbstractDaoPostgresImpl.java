@@ -21,17 +21,26 @@ public abstract class AbstractDaoPostgresImpl<T> implements GenericDAO<T> {
 
     @Override
     public void insert(T entity){
+        em.getTransaction().begin();
         em.persist(entity);
+        em.getTransaction().commit();
+        em.close();
     }
 
     @Override
     public void update(T entity){
+        em.getTransaction().begin();
         em.persist(entity);
+        em.getTransaction().commit();
+        em.close();
     }
 
     @Override
     public void delete(T entity){
+        em.getTransaction().begin();
         em.remove(entity);
+        em.getTransaction().commit();
+        em.close();
     }
 
     @Override
