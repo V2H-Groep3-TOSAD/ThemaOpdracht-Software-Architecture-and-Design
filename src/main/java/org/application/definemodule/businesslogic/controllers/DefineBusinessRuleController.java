@@ -1,6 +1,7 @@
 package org.application.definemodule.businesslogic.controllers;
 
 import org.application.definemodule.businesslogic.services.postgresserviceimpl.*;
+import org.application.definemodule.persistence.PostgresImpl.BusinessRuleDaoPostgresImpl;
 import org.application.definemodule.persistence.PostgresImpl.DaoProvider;
 import org.application.definemodule.persistence.PostgresImpl.PostgresDaoImplProvider;
 import org.application.domain.*;
@@ -34,6 +35,13 @@ public class DefineBusinessRuleController {
         databasePostgresService = new DatabasePostgresService();
         valueDefinitionPostgresService = new ValueDefinitionPostgresService();
         businessRuleTypeOperatorPostgresService = new BusinessRuleTypeOperatorPostgresService();
+
+        BusinessRule.BusinessRuleBuilder ruleBuilder = BusinessRule.builder();
+
+        // Voorbeeld
+        ruleBuilder.name("")
+                .description("")
+                .build();
     }
 
     public List<Database> giveAllDatabases(){
@@ -101,14 +109,6 @@ public class DefineBusinessRuleController {
 
     public BusinessRuleType geBusinessRuleType(){
         return businessRuleBuilder.getBusinessRuleType();
-    }
-
-    public void saveBusinessRule(BusinessRuleBuilder businessRuleBuilder){
-        postgresServiceProvider.getBusinessRulePostgresService().saveOrUpdate(businessRuleBuilder.build());
-    }
-
-    public List<BusinessRuleTypeOperator> giveAllBusinessRuleTypeOperators(BusinessRuleType businessRuleType){
-       return postgresServiceProvider.getBusinessRuleTypeOperatorPostgresService().getBusinessRuleTypeOperators(businessRuleType);
     }
 
 

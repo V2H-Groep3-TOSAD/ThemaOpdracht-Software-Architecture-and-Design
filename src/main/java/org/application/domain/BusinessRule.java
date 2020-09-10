@@ -16,7 +16,7 @@ import java.util.List;
 @NoArgsConstructor
 @Entity
 @Table(name = "businessrule")
-public class BusinessRule {
+public class BusinessRule implements Buildable {
 
     @Id
     @GeneratedValue
@@ -52,7 +52,6 @@ public class BusinessRule {
     private ValueDefinition valueDefinition;
 
     public BusinessRule( String name, String description, int serialNumber, BusinessRuleType businessRuleType, Operator operator, ValueDefinition valueDefinition) {
-
         this.name = name;
         this.description = description;
         this.serialNumber = serialNumber;
@@ -99,5 +98,56 @@ public class BusinessRule {
 
     public String toString(){
         return name + description + getId();
+    }
+
+    public static BusinessRuleBuilder builder() {
+        return new BusinessRuleBuilder();
+    }
+
+    public static class BusinessRuleBuilder implements IBuilder {
+        private String name;
+        private String description;
+        private int serialNumber;
+        private BusinessRuleType businessRuleType;
+        private Operator operator;
+        private ValueDefinition valueDefinition;
+
+        BusinessRuleBuilder(){
+        }
+
+        public BusinessRuleBuilder name(String name) {
+            this.name = name;
+            return this;
+        }
+
+        public BusinessRuleBuilder description(String description) {
+            this.description = description;
+            return this;
+        }
+
+        public BusinessRuleBuilder serialNumber(int serialNumber) {
+            this.serialNumber = serialNumber;
+            return this;
+        }
+
+        public BusinessRuleBuilder businessRuleType(BusinessRuleType businessRuleType) {
+            this.businessRuleType = businessRuleType;
+            return this;
+        }
+
+        public BusinessRuleBuilder operator(Operator operator) {
+            this.operator = operator;
+            return this;
+        }
+
+        public BusinessRuleBuilder valueDefinition(ValueDefinition valueDefinition) {
+            this.valueDefinition = valueDefinition;
+            return this;
+        }
+
+        public BusinessRule build() {
+            // Check if all required fields are there
+            return new BusinessRule(name, description, serialNumber, businessRuleType, operator, valueDefinition);
+        }
     }
 }
