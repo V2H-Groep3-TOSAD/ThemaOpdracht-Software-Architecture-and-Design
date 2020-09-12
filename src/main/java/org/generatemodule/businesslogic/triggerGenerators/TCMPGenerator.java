@@ -22,18 +22,18 @@ public class TCMPGenerator extends GenericTriggerGenerator {
     public String generateTrigger (BusinessRule businessRule) {
         String message = "";
 
-        if (businessRule.getOperator().getName().equals("==")) {
-            message = "De waarde is niet anders";
+        if (businessRule.getOperator().getName().equals("=")) {
+            message = "De waarde is niet anders dan: '" + businessRule.getColumns().get(1).getName() + "'";
         } if (businessRule.getOperator().getName().equals("!=")) {
-            message = "De waarde is niet gelijk";
+            message = "De waarde is niet gelijk dan: '" + businessRule.getColumns().get(1).getName() + "'";
         } if (businessRule.getOperator().getName().equals(">")) {
-            message = "De waarde is niet kleiner of gelijk";
+            message = "De waarde is niet kleiner of gelijk aan: '" + businessRule.getColumns().get(1).getName() + "'";
         } if (businessRule.getOperator().getName().equals("<")) {
-            message = "De waarde is niet groter of gelijk";
+            message = "De waarde is niet groter of gelijk aan: '" + businessRule.getColumns().get(1).getName() + "'";
         } if (businessRule.getOperator().getName().equals("<=")) {
-            message = "De waarde is niet kleiner";
+            message = "De waarde is niet kleiner dan '" + businessRule.getColumns().get(1).getName() + "'";
         } if (businessRule.getOperator().getName().equals(">=")) {
-            message = "De waarde is niet groter";
+            message = "De waarde is niet groter dan '" + businessRule.getColumns().get(1).getName() + "'";
         }
 
         template = String.format(template,
@@ -47,7 +47,7 @@ public class TCMPGenerator extends GenericTriggerGenerator {
 
         String genericTriggerTemplate = generateGenericTrigger(businessRule);
 
-        template += " " + genericTriggerTemplate;
+        template += genericTriggerTemplate;
 
         return template;
     }
