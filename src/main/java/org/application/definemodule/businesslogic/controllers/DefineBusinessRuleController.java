@@ -2,11 +2,20 @@ package org.application.definemodule.businesslogic.controllers;
 
 import org.application.definemodule.businesslogic.services.*;
 
-import org.application.definemodule.persistence.PostgresImpl.DaoImplProvider;
 import org.application.definemodule.persistence.PostgresImpl.DaoProvider;
+import org.application.definemodule.persistence.PostgresImpl.PostgresDaoImplProvider;
 import org.application.domain.*;
+import org.application.domain.Column;
+import org.application.domain.Table;
 
+import javax.persistence.*;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaDelete;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.CriteriaUpdate;
+import javax.persistence.metamodel.Metamodel;
 import java.util.List;
+import java.util.Map;
 
 public class DefineBusinessRuleController {
     private final OperatorService operatorService;
@@ -20,9 +29,7 @@ public class DefineBusinessRuleController {
     private final BusinessRuleTypeOperatorService businessRuleTypeOperatorService;
 
     // hardcoded for now
-    private final DaoProvider daoProvider = new DaoImplProvider();
-
-
+    private final DaoProvider daoProvider = new PostgresDaoImplProvider();
     private BusinessRuleBuilder businessRuleBuilder = new BusinessRuleBuilder();
 
     public DefineBusinessRuleController(){
@@ -45,7 +52,8 @@ public class DefineBusinessRuleController {
     }
 
     public List<Database> giveAllDatabases(){
-        return databaseService.getAll();
+        //return databaseService.getAll();
+        return databaseService.getAllDatabases();
     }
 
     public List<Table> giveAllTablesByDatabase(Database database){
@@ -57,19 +65,28 @@ public class DefineBusinessRuleController {
     }
 
     public List<Category> giveAllCategories(){
-        return categoryService.getAll();
+        //return categoryService.getAll();
+        return categoryService.getAllCategorys();
     }
 
     public List<BusinessRuleType> giveAllBusinessRuleTypes(){
-        return businessRuleTypeService.getAll();
+        return businessRuleTypeService.getAllBusinessRuleTypes();
+        //return businessRuleTypeService.getAll();
+    }
+
+    public List<BusinessRuleTypeOperator> giveAllOperatorsByBusinessRuleType(BusinessRuleType businessRuleType){
+        return businessRuleTypeOperatorService.getBusinessRuleTypeOperators(businessRuleType);
     }
 
     public List<BusinessRule> giveAllBusinessRules(){
-        return businessRuleService.getAll();
+        return businessRuleService.getAllBusinessRules();
+        //return businessRuleService.getAll();
     }
 
     public List<Operator> giveAllOperators(){
-       return operatorService.getAll();
+
+        return operatorService.getAllOperators();
+        //return operatorService.getAll();
     }
 
     public void setBusinessRuleType(BusinessRuleType businessRuleType){
@@ -112,7 +129,7 @@ public class DefineBusinessRuleController {
     }
 
     public void saveBusinessRule(BusinessRule businessRule){
-        businessRuleService.insert(businessRule);
+        businessRuleService.saveOrUpdate(businessRule);
     }
 
 

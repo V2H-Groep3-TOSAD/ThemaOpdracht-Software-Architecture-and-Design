@@ -29,7 +29,7 @@ public class OperatorController implements Initializable {
     public void fillOperators(BusinessRuleBuilder businessRuleBuilder){
         this.businessRuleBuilder = businessRuleBuilder;
 
-        List<BusinessRuleTypeOperator> businessRuleTypeOperators = defineBusinessRuleController.giveAllBusinessRuleTypeOperators(businessRuleBuilder.getBusinessRuleType());
+        List<BusinessRuleTypeOperator> businessRuleTypeOperators = defineBusinessRuleController.giveAllOperatorsByBusinessRuleType(businessRuleBuilder.getBusinessRuleType());
         System.out.println(businessRuleTypeOperators);
         System.out.println(businessRuleBuilder.getBusinessRuleType());
 

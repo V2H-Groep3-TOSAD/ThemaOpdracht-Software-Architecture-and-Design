@@ -3,11 +3,13 @@ package org.application.generatemodule.businesslogic.controllers;
 import org.application.domain.BusinessRule;
 import org.application.generatemodule.businesslogic.services.GenerateBusinessRuleService;
 import org.application.generatemodule.businesslogic.triggerGenerators.*;
-import org.application.generatemodule.persistence.PostgresImpl.PostgresDaoImplProvider;
+import org.application.generatemodule.persistence.PostgresImpl.TriggerDaoPostgresImpl;
 
 public class GenerateBusinessRuleController implements GenerateBusinessRuleService {
 
-    private PostgresDaoImplProvider postgresDaoImplProvider = new PostgresDaoImplProvider();
+    //add services layers als bij define
+    //private DaoProvider daoProvider = new DaoImplProvider();
+    private TriggerDaoPostgresImpl triggerDaoPostgres;
 
     @Override
     public String generate(BusinessRule businessRule) {
@@ -32,7 +34,6 @@ public class GenerateBusinessRuleController implements GenerateBusinessRuleServi
 
     @Override
     public void execute(String businessRuleCode) {
-        postgresDaoImplProvider.getTriggerDao().executeTrigger(businessRuleCode);
-
+        triggerDaoPostgres.executeTrigger(businessRuleCode);
     }
 }

@@ -22,7 +22,7 @@ public class PostgresDaoImplProvider extends HibernateUtil implements DaoProvide
     private ValueDefinitionDao valueDefinitionDao;
     private PersonDao personDao;
 
-    public PostgresDaoImplProvider(){
+    public PostgresDaoImplProvider() {
         EntityManager entityManager = null;
         EntityManager entityManagerTarget = null;
         try {

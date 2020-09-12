@@ -3,18 +3,17 @@ package org.application.definemodule.businesslogic.services;
 import org.application.domain.ValueDefinition;
 import org.application.definemodule.persistence.postgresdao.ValueDefinitionDao;
 
-public class ValueDefinitionService extends AbstractService<ValueDefinition> {
+public class ValueDefinitionService  {
 
-    public ValueDefinitionService(ValueDefinitionDao valueDefinitionDao) {
-        super(valueDefinitionDao);
-    }
-//private ValueDefinitionDao valueDefinitionDao;
+//    public ValueDefinitionService(ValueDefinitionDao valueDefinitionDao) {
+//        super(valueDefinitionDao);
+//    }
+    private final ValueDefinitionDao valueDefinitionDao;
 //    private PostgresDaoImplProvider postgresDaoImplProvider;
 //
-//    public ValueDefinitionPostgresService(){
-//        postgresDaoImplProvider = new PostgresDaoImplProvider();
-//        valueDefinitionDao = postgresDaoImplProvider.getValueDefinitionDao();
-//    };
+    public ValueDefinitionService(ValueDefinitionDao valueDefinitionDao){
+        this.valueDefinitionDao = valueDefinitionDao;
+    };
 //
 //
 //    public void saveOrUpdate(ValueDefinition valueDefinition){
