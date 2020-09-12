@@ -1,4 +1,4 @@
-package org.application.definemodule.businesslogic.services.postgresserviceimpl;
+package org.application.definemodule.businesslogic.services;
 
 import org.application.definemodule.persistence.postgresdao.GenericDAO;
 import org.application.definemodule.businesslogic.services.postgresservice.GenericService;
@@ -7,11 +7,11 @@ import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 import java.util.List;
 
-public abstract class AbstractPostgresServiceImpl<T> implements GenericService<T> {
+public abstract class AbstractService<T> implements GenericService<T> {
     protected Class<T> type;
     protected GenericDAO<T> dao;
 
-    public AbstractPostgresServiceImpl(GenericDAO<T> dao){
+    public AbstractService(GenericDAO<T> dao){
         this.dao = dao;
         Type t = dao.getClass().getGenericSuperclass();
         ParameterizedType pt = (ParameterizedType) t;

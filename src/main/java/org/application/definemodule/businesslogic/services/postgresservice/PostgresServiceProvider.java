@@ -1,7 +1,7 @@
 //package org.application.definemodule.businesslogic.services.postgresservice;
 //
 //import org.application.definemodule.businesslogic.services.postgresserviceimpl.*;
-//import org.application.definemodule.businesslogic.services.postgresserviceimpl.ColumnService;
+//import ColumnService;
 //
 //public class PostgresServiceProvider {
 //    private OperatorPostgresService operatorPostgresService;

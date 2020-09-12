@@ -9,6 +9,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
 import org.application.definemodule.businesslogic.controllers.DefineBusinessRuleController;
+import org.application.domain.BusinessRule;
 import org.application.domain.BusinessRuleBuilder;
 import org.application.domain.Column;
 
@@ -48,7 +49,8 @@ public class OverzichtController {
     }
 
     public void save(ActionEvent event) throws IOException{
-        defineBusinessRuleController.saveBusinessRule(businessRuleBuilder);
+        BusinessRule businessRule = businessRuleBuilder.build();
+        defineBusinessRuleController.saveBusinessRule(businessRule);
     }
 
     public void nextKnopClick(ActionEvent event) throws IOException {

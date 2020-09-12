@@ -1,40 +1,40 @@
 package org.application.definemodule.businesslogic.controllers;
 
-import org.application.definemodule.businesslogic.services.postgresserviceimpl.*;
-import org.application.definemodule.persistence.PostgresImpl.BusinessRuleDaoPostgresImpl;
+import org.application.definemodule.businesslogic.services.*;
+
+import org.application.definemodule.persistence.PostgresImpl.DaoImplProvider;
 import org.application.definemodule.persistence.PostgresImpl.DaoProvider;
-import org.application.definemodule.persistence.PostgresImpl.PostgresDaoImplProvider;
 import org.application.domain.*;
 
 import java.util.List;
 
 public class DefineBusinessRuleController {
-    private final OperatorPostgresService operatorPostgresService;
-    private final TablePostgresService tablePostgresService;
-    private final BusinessRulePostgresService businessRulePostgresService;
-    private final BusinessRuleTypePostgresService businessRuleTypePostgresService;
-    private final CategoryPostgresService categoryPostgresService;
+    private final OperatorService operatorService;
+    private final TableService tableService;
+    private final BusinessRuleService businessRuleService;
+    private final BusinessRuleTypeService businessRuleTypeService;
+    private final CategoryService categoryService;
     private final ColumnService columnService;
-    private final DatabasePostgresService databasePostgresService;
-    private final ValueDefinitionPostgresService valueDefinitionPostgresService;
-    private final BusinessRuleTypeOperatorPostgresService businessRuleTypeOperatorPostgresService;
+    private final DatabaseService databaseService;
+    private final ValueDefinitionService valueDefinitionService;
+    private final BusinessRuleTypeOperatorService businessRuleTypeOperatorService;
 
     // hardcoded for now
-    private final DaoProvider daoProvider = new PostgresDaoImplProvider();
+    private final DaoProvider daoProvider = new DaoImplProvider();
 
 
     private BusinessRuleBuilder businessRuleBuilder = new BusinessRuleBuilder();
 
     public DefineBusinessRuleController(){
-        operatorPostgresService = new OperatorPostgresService();
-        tablePostgresService = new TablePostgresService();
-        businessRulePostgresService = new BusinessRulePostgresService();
-        businessRuleTypePostgresService = new BusinessRuleTypePostgresService();
-        categoryPostgresService = new CategoryPostgresService();
+        operatorService = new OperatorService(daoProvider.getOperatorDao());
+        tableService = new TableService(daoProvider.getTableDao());
+        businessRuleService = new BusinessRuleService(daoProvider.getBusinessRuleDao());
+        businessRuleTypeService = new BusinessRuleTypeService(daoProvider.getBusinessRuleTypeDao());
+        categoryService = new CategoryService(daoProvider.getCategoryDao());
         columnService = new ColumnService(daoProvider.getColumnDao());
-        databasePostgresService = new DatabasePostgresService();
-        valueDefinitionPostgresService = new ValueDefinitionPostgresService();
-        businessRuleTypeOperatorPostgresService = new BusinessRuleTypeOperatorPostgresService();
+        databaseService = new DatabaseService(daoProvider.getDatabaseDao());
+        valueDefinitionService = new ValueDefinitionService(daoProvider.getValueDefinitionDao());
+        businessRuleTypeOperatorService = new BusinessRuleTypeOperatorService(daoProvider.getBusinessRuleTypeOperatorDao());
 
         BusinessRule.BusinessRuleBuilder ruleBuilder = BusinessRule.builder();
 
@@ -45,31 +45,31 @@ public class DefineBusinessRuleController {
     }
 
     public List<Database> giveAllDatabases(){
-        return postgresServiceProvider.getDatabasePostgresService().getAllDatabases();
+        return databaseService.getAll();
     }
 
     public List<Table> giveAllTablesByDatabase(Database database){
-        return postgresServiceProvider.getTablePostgresService().getTablesByDatabaseId(database.getId());
+        return tableService.getTablesByDatabaseId(database.getId());
     }
 
     public List<Column> giveAllColumnsByTable(Table table){
-        return postgresServiceProvider.getColumnPostgresService().getColumnsByTableID(table.getId());
+        return columnService.getColumnsByTableID(table.getId());
     }
 
     public List<Category> giveAllCategories(){
-        return postgresServiceProvider.getCategoryPostgresService().getAllCategorys();
+        return categoryService.getAll();
     }
 
     public List<BusinessRuleType> giveAllBusinessRuleTypes(){
-        return postgresServiceProvider.getBusinessRuleTypePostgresService().getAllBusinessRuleTypes();
+        return businessRuleTypeService.getAll();
     }
 
     public List<BusinessRule> giveAllBusinessRules(){
-        return postgresServiceProvider.getBusinessRulePostgresService().getAllBusinessRules();
+        return businessRuleService.getAll();
     }
 
     public List<Operator> giveAllOperators(){
-       return postgresServiceProvider.getOperatorPostgresService().getAllOperators();
+       return operatorService.getAll();
     }
 
     public void setBusinessRuleType(BusinessRuleType businessRuleType){
@@ -109,6 +109,10 @@ public class DefineBusinessRuleController {
 
     public BusinessRuleType geBusinessRuleType(){
         return businessRuleBuilder.getBusinessRuleType();
+    }
+
+    public void saveBusinessRule(BusinessRule businessRule){
+        businessRuleService.insert(businessRule);
     }
 
 
