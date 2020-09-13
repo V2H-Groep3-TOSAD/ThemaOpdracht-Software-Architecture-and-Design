@@ -39,6 +39,30 @@ public class ValueDefinition {
         return maxValue;
     }
 
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setMinValue(int minValue) {
+        this.minValue = minValue;
+    }
+
+    public void setMaxValue(int maxValue) {
+        this.maxValue = maxValue;
+    }
+
+    public void setLiteralValue(String literalValue) {
+        this.literalValue = literalValue;
+    }
+
+    public void setDataType(String dataType) {
+        this.dataType = dataType;
+    }
+
+    public void setBusinessRule(BusinessRule businessRule) {
+        this.businessRule = businessRule;
+    }
+
     public String getLiteralValue() {
         return literalValue;
     }

@@ -11,6 +11,7 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import org.application.definemodule.businesslogic.controllers.DefineBusinessRuleController;
 import org.application.domain.BusinessRuleBuilder;
+import org.application.domain.ValueDefinition;
 
 import java.io.IOException;
 import java.net.URL;
@@ -45,6 +46,11 @@ public class ValueController implements Initializable {
         Scene columnViewScene = new Scene(columnViewParent);
 
         //get values from inputfield
+        ValueDefinition valueDefinition = new ValueDefinition();
+        valueDefinition.setLiteralValue(valueText1.getText());
+        //set andere waardes
+        defineBusinessRuleController.saveValueDef(valueDefinition);
+        businessRuleBuilder.setValueDefinition(valueDefinition);
         //set builder with values
         //operatorcontroller aanroepen met businessrulebuilder type
         OperatorController operatorController = loader.getController();

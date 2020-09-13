@@ -132,5 +132,12 @@ public class DefineBusinessRuleController {
         businessRuleService.saveOrUpdate(businessRule);
     }
 
+    public List<ValueDefinition> getValueDefinitions(){
+        return valueDefinitionService.getAllValueDefinitions();
+    }
+
+    public void saveValueDef(ValueDefinition valueDefinition){
+        valueDefinitionService.saveOrUpdate(valueDefinition);
+    }
 
 }
