@@ -8,8 +8,7 @@ public class TCMPGenerator extends GenericTriggerGenerator {
                     +   "RETURNS TRIGGER AS "
                     + "$BODY$ "
                     +   "BEGIN "
-                    +       "IF (OLD.%s IS DISTINCT FROM NEW.%s "
-                    +           "AND NEW.%s %s OLD.%s) THEN "
+                    +       "IF (NEW.%s %s OLD.%s) THEN "
                     +           "RAISE EXCEPTION '%s' "
                     +           "USING ERRCODE = 22000; "
                     +       "END IF; "
@@ -23,23 +22,21 @@ public class TCMPGenerator extends GenericTriggerGenerator {
         String message = "";
 
         if (businessRule.getOperator().getName().equals("=")) {
-            message = "De waarde is niet anders dan: '" + businessRule.getColumns().get(1).getName() + "'";
+            message = "De waarde is niet anders dan: " + businessRule.getColumns().get(1).getName();
         } if (businessRule.getOperator().getName().equals("!=")) {
-            message = "De waarde is niet gelijk dan: '" + businessRule.getColumns().get(1).getName() + "'";
+            message = "De waarde is niet gelijk dan: " + businessRule.getColumns().get(1).getName();
         } if (businessRule.getOperator().getName().equals(">")) {
-            message = "De waarde is niet kleiner of gelijk aan: '" + businessRule.getColumns().get(1).getName() + "'";
+            message = "De waarde is niet kleiner of gelijk aan: " + businessRule.getColumns().get(1).getName();
         } if (businessRule.getOperator().getName().equals("<")) {
-            message = "De waarde is niet groter of gelijk aan: '" + businessRule.getColumns().get(1).getName() + "'";
+            message = "De waarde is niet groter of gelijk aan: " + businessRule.getColumns().get(1).getName();
         } if (businessRule.getOperator().getName().equals("<=")) {
-            message = "De waarde is niet kleiner dan '" + businessRule.getColumns().get(1).getName() + "'";
+            message = "De waarde is niet kleiner dan " + businessRule.getColumns().get(1).getName();
         } if (businessRule.getOperator().getName().equals(">=")) {
-            message = "De waarde is niet groter dan '" + businessRule.getColumns().get(1).getName() + "'";
+            message = "De waarde is niet groter dan " + businessRule.getColumns().get(1).getName();
         }
 
         template = String.format(template,
                 businessRule.getName(),
-                businessRule.getColumns().get(0).getName(),
-                businessRule.getColumns().get(0).getName(),
                 businessRule.getColumns().get(0).getName(),
                 businessRule.getOperator().getName(),
                 businessRule.getColumns().get(1).getName(),

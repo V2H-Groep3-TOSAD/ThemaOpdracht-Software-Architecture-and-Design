@@ -9,7 +9,7 @@ public class ARNGGenerator extends GenericTriggerGenerator {
                     +   "RETURNS TRIGGER AS "
                     + "$BODY$ "
                     +   "BEGIN "
-                    +       "IF (OLD.%s IS DISTINCT FROM NEW.%s AND NEW.%s %s %s AND %s) THEN "
+                    +       "IF (NEW.%s %s %s AND %s) THEN "
                     +           "RAISE EXCEPTION '%s' "
                     +           "USING ERRCODE = 22000; "
                     +       "END IF; "
@@ -32,8 +32,6 @@ public class ARNGGenerator extends GenericTriggerGenerator {
 
         template = String.format(template,
                 businessRule.getName(),
-                businessRule.getColumns().get(0).getName(),
-                businessRule.getColumns().get(0).getName(),
                 businessRule.getColumns().get(0).getName(),
                 businessRule.getOperator().getName(),
                 businessRule.getValueDefinition().getMinValue(),
