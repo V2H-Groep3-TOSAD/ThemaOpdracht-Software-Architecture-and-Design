@@ -1,30 +1,24 @@
 package org.presentation;
 
-import org.definemodule.businesslogic.controllers.DefineBusinessRuleController;
-import org.definemodule.persistence.postgresdao.HibernateUtil;
-import org.domain.BusinessRule;
-import org.domain.Column;
-import org.definemodule.businesslogic.services.postgresservice.PostgresServiceProvider;
-import org.domain.Database;
-import org.domain.Operator;
-import org.generatemodule.businesslogic.controllers.GenerateBusinessRuleController;
-import org.generatemodule.businesslogic.domain.Address;
-import org.generatemodule.businesslogic.domain.Person;
-import org.generatemodule.persistence.PostgresImpl.PostgresDaoImplProvider;
+
+
+import org.application.definemodule.businesslogic.controllers.DefineBusinessRuleController;
+
+import org.application.domain.BusinessRule;
+import org.application.generatemodule.businesslogic.controllers.GenerateBusinessRuleController;
+import org.application.generatemodule.persistence.PostgresImpl.PostgresDaoImplProvider;
+import org.application.generatemodule.persistence.PostgresImpl.TriggerDaoPostgresImpl;
 
 import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import java.util.ArrayList;
 import java.util.List;
 
 public class test {
     public static void main(String[] args){
-        PostgresServiceProvider postgresServiceProvider = new PostgresServiceProvider();
 
         GenerateBusinessRuleController generateBusinessRuleController = new GenerateBusinessRuleController();
 
 
-        List<BusinessRule> businessRules = postgresServiceProvider.getBusinessRulePostgresService().getAllBusinessRules();
+        List<BusinessRule> businessRules = defineBusinessRuleController.giveAllBusinessRules();
 
         for (BusinessRule businessRule : businessRules) {
 

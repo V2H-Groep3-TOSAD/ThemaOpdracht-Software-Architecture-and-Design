@@ -8,11 +8,9 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.ChoiceBox;
 import javafx.stage.Stage;
-import org.definemodule.businesslogic.controllers.DefineBusinessRuleController;
-import org.domain.BusinessRuleBuilder;
-import org.domain.BusinessRuleType;
-import org.domain.BusinessRuleTypeOperator;
-import org.domain.Operator;
+import org.application.definemodule.businesslogic.controllers.DefineBusinessRuleController;
+import org.application.domain.BusinessRuleBuilder;
+import org.application.domain.BusinessRuleTypeOperator;
 
 import javafx.event.ActionEvent;
 import java.io.IOException;
@@ -31,7 +29,7 @@ public class OperatorController implements Initializable {
     public void fillOperators(BusinessRuleBuilder businessRuleBuilder){
         this.businessRuleBuilder = businessRuleBuilder;
 
-        List<BusinessRuleTypeOperator> businessRuleTypeOperators = defineBusinessRuleController.giveAllBusinessRuleTypeOperators(businessRuleBuilder.getBusinessRuleType());
+        List<BusinessRuleTypeOperator> businessRuleTypeOperators = defineBusinessRuleController.giveAllOperatorsByBusinessRuleType(businessRuleBuilder.getBusinessRuleType());
         System.out.println(businessRuleTypeOperators);
         System.out.println(businessRuleBuilder.getBusinessRuleType());
 

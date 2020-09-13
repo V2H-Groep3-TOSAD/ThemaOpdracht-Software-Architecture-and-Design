@@ -8,10 +8,10 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
-import org.definemodule.businesslogic.controllers.DefineBusinessRuleController;
-import org.domain.BusinessRuleBuilder;
-import org.domain.BusinessRuleType;
-import org.domain.Column;
+import org.application.definemodule.businesslogic.controllers.DefineBusinessRuleController;
+import org.application.domain.BusinessRule;
+import org.application.domain.BusinessRuleBuilder;
+import org.application.domain.Column;
 
 import java.io.IOException;
 
@@ -49,7 +49,8 @@ public class OverzichtController {
     }
 
     public void save(ActionEvent event) throws IOException{
-        defineBusinessRuleController.saveBusinessRule(businessRuleBuilder);
+        BusinessRule businessRule = businessRuleBuilder.build();
+        defineBusinessRuleController.saveBusinessRule(businessRule);
     }
 
     public void nextKnopClick(ActionEvent event) throws IOException {

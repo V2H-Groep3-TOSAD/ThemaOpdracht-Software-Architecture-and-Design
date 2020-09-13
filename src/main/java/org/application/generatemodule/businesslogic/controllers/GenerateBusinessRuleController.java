@@ -1,0 +1,26 @@
+package org.application.generatemodule.businesslogic.controllers;
+
+import org.application.domain.BusinessRule;
+import org.application.generatemodule.businesslogic.services.GenerateBusinessRuleService;
+import org.application.generatemodule.businesslogic.triggerGenerators.*;
+import org.application.generatemodule.persistence.PostgresImpl.TriggerDaoPostgresImpl;
+
+public class GenerateBusinessRuleController implements GenerateBusinessRuleService {
+
+    //add services layers als bij define
+    //private DaoProvider daoProvider = new DaoImplProvider();
+    private TriggerDaoPostgresImpl triggerDaoPostgres;
+
+    @Override
+    public String generate(BusinessRule businessRule) {
+        GeneratorFacade generatorFacade = new GeneratorFacade();
+        String queryCode = generatorFacade.generateQueryTemplate(businessRule);
+
+        return queryCode;
+    }
+
+    @Override
+    public void execute(String businessRuleCode) {
+        triggerDaoPostgres.executeTrigger(businessRuleCode);
+    }
+}

@@ -8,14 +8,14 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import org.definemodule.businesslogic.services.postgresservice.PostgresServiceProvider;
-import org.definemodule.businesslogic.controllers.DefineBusinessRuleController;
+import org.application.definemodule.businesslogic.controllers.DefineBusinessRuleController;
+import org.application.generatemodule.businesslogic.services.postgresservice.PostgresServiceProvider;
 
 
 public class PrimaryController {
 
-    private DefineBusinessRuleController defineController = new DefineBusinessRuleController();
-    private PostgresServiceProvider postgresServiceProvider = new PostgresServiceProvider();
+    //private DefineBusinessRuleController defineController = new DefineBusinessRuleController();
+    //private PostgresServiceProvider postgresServiceProvider = new PostgresServiceProvider();
 
     @FXML
     private void switchToDefine(ActionEvent event) throws IOException {

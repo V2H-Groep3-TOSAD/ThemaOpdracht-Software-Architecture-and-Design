@@ -10,12 +10,10 @@ import javafx.scene.Scene;
 import javafx.scene.control.ChoiceBox;
 
 import javafx.stage.Stage;
-import org.definemodule.businesslogic.controllers.DefineBusinessRuleController;
-import org.domain.BusinessRuleBuilder;
-import org.domain.BusinessRuleType;
-import org.domain.Database;
-import org.domain.Table;
-import org.w3c.dom.events.Event;
+import org.application.definemodule.businesslogic.controllers.DefineBusinessRuleController;
+import org.application.domain.BusinessRuleBuilder;
+import org.application.domain.Database;
+import org.application.domain.Table;
 
 
 import java.io.IOException;
