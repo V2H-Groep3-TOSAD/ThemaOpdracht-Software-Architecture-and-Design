@@ -12,7 +12,7 @@ public class ACMPGenerator extends GenericTriggerGenerator {
         +   "RETURNS TRIGGER AS "
         + "$BODY$ "
         +   "BEGIN "
-        +       "IF (OLD.%s IS DISTINCT FROM NEW.%s AND NEW.%s %s '%s') THEN "
+        +       "IF (NEW.%s %s '%s') THEN "
         +           "RAISE EXCEPTION '%s' "
         +           "USING ERRCODE = 22000; "
         +       "END IF; "
@@ -25,24 +25,22 @@ public class ACMPGenerator extends GenericTriggerGenerator {
     public String generateTrigger (BusinessRule businessRule) {
         String message = "";
 
-        if (businessRule.getOperator().getName().equals("==")) {
-            message = "De waarde is niet anders";
+        if (businessRule.getOperator().getName().equals("=")) {
+            message = "De waarde is niet anders dan: " + businessRule.getValueDefinition().getLiteralValue();
         } if (businessRule.getOperator().getName().equals("!=")) {
-            message = "De waarde is niet gelijk";
+            message = "De waarde is niet gelijk dan: " + businessRule.getValueDefinition().getLiteralValue();
         } if (businessRule.getOperator().getName().equals(">")) {
-            message = "De waarde is niet kleiner of gelijk";
+            message = "De waarde is niet kleiner of gelijk aan: " + businessRule.getValueDefinition().getLiteralValue();
         } if (businessRule.getOperator().getName().equals("<")) {
-            message = "De waarde is niet groter of gelijk";
+            message = "De waarde is niet groter of gelijk aan: " + businessRule.getValueDefinition().getLiteralValue();
         } if (businessRule.getOperator().getName().equals("<=")) {
-            message = "De waarde is niet kleiner";
+            message = "De waarde is niet kleiner dan: " + businessRule.getValueDefinition().getLiteralValue();
         } if (businessRule.getOperator().getName().equals(">=")) {
-            message = "De waarde is niet groter";
+            message = "De waarde is niet groter dan: " + businessRule.getValueDefinition().getLiteralValue();
         }
 
         template = String.format(template,
                 businessRule.getName(),
-                businessRule.getColumns().get(0).getName(),
-                businessRule.getColumns().get(0).getName(),
                 businessRule.getColumns().get(0).getName(),
                 businessRule.getOperator().getName(),
                 businessRule.getValueDefinition().getLiteralValue(),

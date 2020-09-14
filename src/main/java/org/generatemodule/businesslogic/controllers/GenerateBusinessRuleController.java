@@ -14,23 +14,10 @@ public class GenerateBusinessRuleController implements GenerateBusinessRuleServi
 
     @Override
     public String generate(BusinessRule businessRule) {
-        String templateCode = null;
+        GeneratorFacade generatorFacade = new GeneratorFacade();
+        String queryCode = generatorFacade.generateQueryTemplate(businessRule);
 
-        if (businessRule.getBusinessRuleType().getName().equals("ACMP")) {
-            ACMPGenerator acmpGenerator = new ACMPGenerator();
-            templateCode = acmpGenerator.generateTrigger(businessRule);
-        } if (businessRule.getBusinessRuleType().getName().equals("TCMP")) {
-            TCMPGenerator tcmpGenerator = new TCMPGenerator();
-            templateCode = tcmpGenerator.generateTrigger(businessRule);
-        } if (businessRule.getBusinessRuleType().getName().equals("ARNG")) {
-            ARNGGenerator arngGenerator = new ARNGGenerator();
-            templateCode = arngGenerator.generateTrigger(businessRule);
-        } if (businessRule.getBusinessRuleType().getName().equals("ICMP")) {
-            ICMPGenerator icmpGenerator = new ICMPGenerator();
-            templateCode = icmpGenerator.generateTrigger(businessRule);
-        }
-
-        return templateCode;
+        return queryCode;
     }
 
     @Override

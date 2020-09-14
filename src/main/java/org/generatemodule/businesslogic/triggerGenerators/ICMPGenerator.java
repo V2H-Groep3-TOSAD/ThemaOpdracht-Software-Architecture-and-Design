@@ -8,15 +8,14 @@ public class ICMPGenerator extends GenericTriggerGenerator {
                     +   "RETURNS TRIGGER AS "
                     + "$BODY$ "
                     +   "DECLARE "
-                    +       "%s_%s integer; " //2, 3 //integer evt variabel maken met attribute "dataType"
+                    +       "%s_%s integer; " //2, 3 //integer evt variabel maken met attribute "dataType" in column
                     +   "BEGIN "
                     +       "SELECT %s.%s INTO %s_%s " //4, 5, 6, 7
                     +       "FROM %s, %s " //8, 9
                     +       "WHERE %s.id = %s.%s_id " //10, 11, 12
                     +       "AND %s.id = NEW.id; " //13
 
-                    +       "IF (OLD.%s IS DISTINCT FROM NEW.%s " //14, 15
-                    +       "AND NEW.%s %s %s_%s) THEN " //16, 17, 18, 19
+                    +       "IF (NEW.%s %s %s_%s) THEN " //16, 17, 18, 19
                     +           "RAISE EXCEPTION '%s' " //20
                     +           "USING ERRCODE = 22000; "
                     +       "END IF; "
@@ -50,20 +49,17 @@ public class ICMPGenerator extends GenericTriggerGenerator {
                 businessRule.getColumns().get(1).getTable().getName(),
                 businessRule.getColumns().get(1).getName(),
                 businessRule.getColumns().get(1).getTable().getName(),
-                businessRule.getColumns().get(0).getTable().getName(),
+                businessRule.getColumns().get(1).getName(),
                 businessRule.getColumns().get(1).getTable().getName(),
-                businessRule.getColumns().get(1).getTable().getName(),
-                businessRule.getColumns().get(1).getTable().getName(),
-                businessRule.getColumns().get(0).getTable().getName(),
-                businessRule.getColumns().get(1).getTable().getName(),
-                businessRule.getColumns().get(1).getTable().getName(), //13
-                businessRule.getColumns().get(0).getName(), //14
-                businessRule.getColumns().get(0).getName(), //15
+                businessRule.getColumns().get(0).getTable().getName(), //9
+                businessRule.getColumns().get(1).getTable().getName(), //10
+                businessRule.getColumns().get(0).getTable().getName(), //11
+                businessRule.getColumns().get(1).getTable().getName(), //12
+                businessRule.getColumns().get(0).getTable().getName(), //13
                 businessRule.getColumns().get(0).getName(), //16
-                businessRule.getColumns().get(1).getTable().getName(), //17
-                businessRule.getColumns().get(1).getName(), //18
-                businessRule.getOperator().getName(), //19
-                businessRule.getColumns().get(1).getTable().getName(), //20
+                businessRule.getOperator().getName(), //17
+                businessRule.getColumns().get(1).getTable().getName(), //18
+                businessRule.getColumns().get(1).getName(), //19
                 message);
 
 
