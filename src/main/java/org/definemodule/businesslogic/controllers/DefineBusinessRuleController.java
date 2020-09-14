@@ -47,7 +47,7 @@ public class DefineBusinessRuleController {
         businessRuleBuilder.setOperator(operator);
     }
 
-    public void setTable(Table table){
+    public void setTable(List<Table> table){
         businessRuleBuilder.setTable(table);
     }
 
@@ -58,7 +58,7 @@ public class DefineBusinessRuleController {
     public void generateBusinessRuleName(){
         //input applicatie name
         //volgnummer
-        String name = "BRG_APPNAME_" +  businessRuleBuilder.getTable().getName() + "_CNS_"
+        String name = "BRG_APPNAME_" +  businessRuleBuilder.getTable().get(0).getName() + "_CNS_"
                 + businessRuleBuilder.getBusinessRuleType().getName() + "_1";
         setName(name);
     }

@@ -11,15 +11,13 @@ import javafx.scene.control.ChoiceBox;
 
 import javafx.stage.Stage;
 import org.definemodule.businesslogic.controllers.DefineBusinessRuleController;
-import org.domain.BusinessRuleBuilder;
-import org.domain.BusinessRuleType;
-import org.domain.Database;
-import org.domain.Table;
+import org.domain.*;
 import org.w3c.dom.events.Event;
 
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -29,11 +27,20 @@ public class TableController implements Initializable {
     private BusinessRuleBuilder businessRuleBuilder;
 
     @FXML
-    public ChoiceBox<Table> tablesBox;
+    public ChoiceBox<Table> tablesBox1;
+
+    @FXML
+    public ChoiceBox<Table> tablesBox2;
 
     public void fillTables(Database database, BusinessRuleBuilder businessRuleBuilder){
         List<Table>allTables = defineBusinessRuleController.giveAllTablesByDatabase(database);
-        tablesBox.getItems().addAll(allTables);
+        tablesBox1.getItems().addAll(allTables);
+        if (businessRuleBuilder.getBusinessRuleType().toString().equals("ICMP")) {
+            tablesBox2.getItems().addAll(allTables);
+            tablesBox2.setVisible(true);
+        }
+
+
         System.out.println(businessRuleBuilder.getBusinessRuleType());
         this.businessRuleBuilder = businessRuleBuilder;
 
@@ -50,12 +57,18 @@ public class TableController implements Initializable {
         loader.setLocation(getClass().getResource("column.fxml"));
         Parent columnViewParent = loader.load();
         Scene columnViewScene = new Scene(columnViewParent);
+        List<Table> allTables = new ArrayList<Table>() {};
 
-        Table selectedTable = tablesBox.getSelectionModel().getSelectedItem();
-        businessRuleBuilder.setTable(selectedTable);
+        allTables.add(tablesBox1.getSelectionModel().getSelectedItem());
+
+        if (businessRuleBuilder.getBusinessRuleType().toString().equals("ICMP")) {
+            allTables.add(tablesBox2.getSelectionModel().getSelectedItem());
+        }
+
+        businessRuleBuilder.setTable(allTables);
         ColumnController columnController = loader.getController();
-        System.out.println(selectedTable.getId());
-        columnController.fillColumns(selectedTable, businessRuleBuilder);
+
+        columnController.fillColumns(allTables, businessRuleBuilder);
 
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
         window.setScene(columnViewScene);

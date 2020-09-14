@@ -12,6 +12,7 @@ import org.definemodule.businesslogic.controllers.DefineBusinessRuleController;
 import org.domain.BusinessRuleBuilder;
 import org.domain.BusinessRuleType;
 import org.domain.Column;
+import org.domain.Table;
 
 import java.io.IOException;
 
@@ -45,14 +46,21 @@ public class OverzichtController {
             colums += column + " ";
         }
         columnLabel.setText(colums);
-        tableLabel.setText(businessRuleBuilder.getTable().getName());
+        String table = "";
+        for(Table t : businessRuleBuilder.getTable()){
+            table += t + " ";
+        }
+        tableLabel.setText(table);
     }
 
     public void save(ActionEvent event) throws IOException{
-        defineBusinessRuleController.saveBusinessRule(businessRuleBuilder);
+
     }
 
     public void nextKnopClick(ActionEvent event) throws IOException {
+        System.out.println(businessRuleBuilder);
+        System.out.println(businessRuleBuilder.getValueDefinition());
+        defineBusinessRuleController.saveBusinessRule(businessRuleBuilder);
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("primary.fxml"));
         Parent tableViewParent = loader.load();

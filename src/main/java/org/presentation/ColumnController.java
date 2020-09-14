@@ -40,18 +40,23 @@ public class ColumnController implements Initializable{
     @FXML
     public ChoiceBox<Column> columnBox2;
 
-    public void fillColumns(Table table, BusinessRuleBuilder businessRuleBuilder){
+    public void fillColumns(List<Table> table, BusinessRuleBuilder businessRuleBuilder){
         this.businessRuleBuilder = businessRuleBuilder;
         businessRuleBuilder.setTable(table);
         System.out.println(businessRuleBuilder.getBusinessRuleType().toString());
 
-        List<Column> allCollumns = defineBusinessRuleController.giveAllColumnsByTable(table);
+        List<Column> allCollumns = defineBusinessRuleController.giveAllColumnsByTable(table.get(0));
         columnBox1.getItems().addAll(allCollumns);
 
 
         if (businessRuleBuilder.getBusinessRuleType().toString().equals("TCMP")) {
             columnBox2.setVisible(true);
             columnBox2.getItems().addAll(allCollumns);
+            meedereColumns = true;
+        } else if (businessRuleBuilder.getBusinessRuleType().toString().equals("ICMP")) {
+            columnBox2.setVisible(true);
+            List<Column> allCollumns2 = defineBusinessRuleController.giveAllColumnsByTable(table.get(1));
+            columnBox2.getItems().addAll(allCollumns2);
             meedereColumns = true;
         } else {
             meedereColumns = false;

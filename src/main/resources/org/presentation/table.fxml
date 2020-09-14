@@ -12,7 +12,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.presentation.TableController">
    <children>
       <Label layoutX="271.0" layoutY="20.0" text="Table">
@@ -21,7 +20,8 @@
          </font>
       </Label>
       <Button layoutX="267.0" layoutY="154.0" mnemonicParsing="false" onAction="#nextKnopClick" prefHeight="35.0" prefWidth="67.0" text="Next" />
-      <ChoiceBox fx:id="tablesBox" layoutX="225.0" layoutY="104.0" prefWidth="150.0">
+      <ChoiceBox fx:id="tablesBox1" layoutX="226.0" layoutY="73.0" prefWidth="150.0">
       </ChoiceBox>
+      <ChoiceBox fx:id="tablesBox2" layoutX="226.0" layoutY="113.0" prefWidth="150.0" visible="false" />
    </children>
 </AnchorPane>

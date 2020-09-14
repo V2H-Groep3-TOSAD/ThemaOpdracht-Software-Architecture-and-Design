@@ -33,15 +33,15 @@ public class BusinessRuleBuilder {
     private Operator operator;
     private ValueDefinition valueDefinition;
 
-    public Table getTable() {
+    public List<Table> getTable() {
         return table;
     }
 
-    public void setTable(Table table) {
+    public void setTable(List<Table> table) {
         this.table = table;
     }
 
-    private Table table;
+    private List<Table> table;
 
     public List<Column> getAllColumns() {
         return allColumns;
