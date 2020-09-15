@@ -41,7 +41,7 @@ public class DatabaseController implements Initializable {
         loader.setLocation(getClass().getResource("table.fxml"));
         Parent tableViewParent = loader.load();
         Scene tableViewScene = new Scene(tableViewParent);
-
+        // TODO: 15-9-2020  foutmelding geen selectie
         Database selectedDatabase = databaseBox.getSelectionModel().getSelectedItem();
         defineBusinessRuleController.setDatabase(selectedDatabase);
         TableController tableController = loader.getController();

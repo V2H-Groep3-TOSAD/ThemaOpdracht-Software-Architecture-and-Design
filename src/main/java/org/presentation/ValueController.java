@@ -48,6 +48,9 @@ public class ValueController implements Initializable {
         Scene columnViewScene = new Scene(columnViewParent);
 
         if (defineBusinessRuleController.getBusinessRuleBuilder().getBusinessRuleType().toString().equals("ARNG")) {
+            //TODO input waardes zijn nummers
+            //TODO foutmelding geen input
+            //TODO label arng
             ValueDefinition value = new ValueDefinition(Integer.parseInt(valueText1.getText()),Integer.parseInt(valueText2.getText()),null);
             defineBusinessRuleController.saveValueDef(value);
             List<ValueDefinition> valueDefinitions = defineBusinessRuleController.getValueDefinitions();
@@ -56,6 +59,9 @@ public class ValueController implements Initializable {
         }
 
         if (defineBusinessRuleController.getBusinessRuleBuilder().getBusinessRuleType().toString().equals("ACMP")) {
+            //TODO fourmelding geen input
+            //TODO label acmp
+            //todo input waarde afhankelijk van datatype kolom
             ValueDefinition value = new ValueDefinition(valueText1.getText());
             //System.out.println( defineBusinessRuleController.getValueDefinitions());
             defineBusinessRuleController.saveValueDef(value);

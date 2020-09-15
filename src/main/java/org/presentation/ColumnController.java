@@ -63,14 +63,13 @@ public class ColumnController implements Initializable{
     @FXML
     private void nextKnopClick(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader();
-        //if type is dan value fxml voor businessrule met meerdere inputvelden
-        //else 1 inputveld
-        //all kolommen toevoegen aan businessrulebuilder
-
         List<Column> allColumns = new ArrayList<Column>() {};
         System.out.println(meedereColumns);
+        // TODO foutmelding geen waarde geselecteerd
         Column selectedColumn1 = columnBox1.getSelectionModel().getSelectedItem();
         if (meedereColumns) {
+            // TODO foutmelding geen waarde geselecteerd
+            // TODO foutmelding zelfde kolom
             Column selectedColumn2 = columnBox2.getSelectionModel().getSelectedItem();
             allColumns.add(selectedColumn1);
             allColumns.add(selectedColumn2);

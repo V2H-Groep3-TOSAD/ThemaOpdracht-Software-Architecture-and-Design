@@ -57,10 +57,12 @@ public class TableController implements Initializable {
         Parent columnViewParent = loader.load();
         Scene columnViewScene = new Scene(columnViewParent);
         List<Table> allTablesSelected = new ArrayList<Table>() {};
-
+        // TODO: foutmelding geen selectie
         allTablesSelected.add(tablesBox1.getSelectionModel().getSelectedItem());
 
         if (defineBusinessRuleController.getBusinessRuleBuilder().getBusinessRuleType().toString().equals("ICMP")) {
+            // TODO: foutmelding geen selectie
+            // TODO: foutmelding zelfde tabel gekozen
             allTablesSelected.add(tablesBox2.getSelectionModel().getSelectedItem());
         }
 

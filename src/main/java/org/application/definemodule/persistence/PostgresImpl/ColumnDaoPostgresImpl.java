@@ -18,4 +18,6 @@ public class ColumnDaoPostgresImpl extends AbstractDaoPostgresImpl<Column> imple
         }
         return null;
     }
+
+    //todo findbydatatype
 }
