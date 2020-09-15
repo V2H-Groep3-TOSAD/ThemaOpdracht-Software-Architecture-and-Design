@@ -16,6 +16,7 @@ public class test {
     public static void main(String[] args){
 
         GenerateBusinessRuleController generateBusinessRuleController = new GenerateBusinessRuleController();
+        DefineBusinessRuleController defineBusinessRuleController = new DefineBusinessRuleController();
 
 
         List<BusinessRule> businessRules = defineBusinessRuleController.giveAllBusinessRules();

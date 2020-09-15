@@ -30,4 +30,9 @@ public class ValueDefinitionService  {
         return valueDefinitionDao.findById(id);
     };
 
+//    public List<ValueDefinition> getValueDefinitionsByValue(ValueDefinition valueDefinition){
+//        return valueDefinitionDao.findByValueDefinition(valueDefinition);
+//    }
+
+
 }

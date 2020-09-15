@@ -4,6 +4,7 @@ import org.application.domain.BusinessRule;
 import org.application.generatemodule.businesslogic.services.GenerateBusinessRuleService;
 import org.application.generatemodule.businesslogic.triggerGenerators.*;
 import org.application.generatemodule.persistence.PostgresImpl.TriggerDaoPostgresImpl;
+import org.generatemodule.businesslogic.triggerGenerators.GeneratorFacade;
 
 public class GenerateBusinessRuleController implements GenerateBusinessRuleService {
 

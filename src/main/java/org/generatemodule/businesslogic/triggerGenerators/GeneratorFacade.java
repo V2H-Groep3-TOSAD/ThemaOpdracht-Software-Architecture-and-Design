@@ -1,6 +1,11 @@
 package org.generatemodule.businesslogic.triggerGenerators;
 
-import org.domain.BusinessRule;
+
+import org.application.domain.BusinessRule;
+import org.application.generatemodule.businesslogic.triggerGenerators.ACMPGenerator;
+import org.application.generatemodule.businesslogic.triggerGenerators.ARNGGenerator;
+import org.application.generatemodule.businesslogic.triggerGenerators.ICMPGenerator;
+import org.application.generatemodule.businesslogic.triggerGenerators.TCMPGenerator;
 
 public class GeneratorFacade {
 

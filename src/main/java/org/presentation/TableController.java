@@ -10,8 +10,9 @@ import javafx.scene.Scene;
 import javafx.scene.control.ChoiceBox;
 
 import javafx.stage.Stage;
-import org.definemodule.businesslogic.controllers.DefineBusinessRuleController;
-import org.domain.*;
+import org.application.definemodule.businesslogic.controllers.DefineBusinessRuleController;
+import org.application.domain.Database;
+import org.application.domain.Table;
 import org.w3c.dom.events.Event;
 
 
@@ -23,8 +24,7 @@ import java.util.ResourceBundle;
 
 public class TableController implements Initializable {
 
-    private DefineBusinessRuleController defineBusinessRuleController = new DefineBusinessRuleController();
-    private BusinessRuleBuilder businessRuleBuilder;
+    private DefineBusinessRuleController defineBusinessRuleController;
 
     @FXML
     public ChoiceBox<Table> tablesBox1;
@@ -32,17 +32,16 @@ public class TableController implements Initializable {
     @FXML
     public ChoiceBox<Table> tablesBox2;
 
-    public void fillTables(Database database, BusinessRuleBuilder businessRuleBuilder){
+    public void fillTables(Database database, DefineBusinessRuleController defineBusinessRuleController){
+        this.defineBusinessRuleController = defineBusinessRuleController;
         List<Table>allTables = defineBusinessRuleController.giveAllTablesByDatabase(database);
+        System.out.println("db tables" + allTables);
         tablesBox1.getItems().addAll(allTables);
-        if (businessRuleBuilder.getBusinessRuleType().toString().equals("ICMP")) {
+        if (defineBusinessRuleController.getBusinessRuleBuilder().getBusinessRuleType().toString().equals("ICMP")) {
             tablesBox2.getItems().addAll(allTables);
             tablesBox2.setVisible(true);
         }
-
-
-        System.out.println(businessRuleBuilder.getBusinessRuleType());
-        this.businessRuleBuilder = businessRuleBuilder;
+        System.out.println(defineBusinessRuleController.getBusinessRuleBuilder().getBusinessRuleType());
 
     }
 
@@ -57,19 +56,19 @@ public class TableController implements Initializable {
         loader.setLocation(getClass().getResource("column.fxml"));
         Parent columnViewParent = loader.load();
         Scene columnViewScene = new Scene(columnViewParent);
-        List<Table> allTables = new ArrayList<Table>() {};
+        List<Table> allTablesSelected = new ArrayList<Table>() {};
 
-        allTables.add(tablesBox1.getSelectionModel().getSelectedItem());
+        allTablesSelected.add(tablesBox1.getSelectionModel().getSelectedItem());
 
-        if (businessRuleBuilder.getBusinessRuleType().toString().equals("ICMP")) {
-            allTables.add(tablesBox2.getSelectionModel().getSelectedItem());
+        if (defineBusinessRuleController.getBusinessRuleBuilder().getBusinessRuleType().toString().equals("ICMP")) {
+            allTablesSelected.add(tablesBox2.getSelectionModel().getSelectedItem());
         }
 
-        businessRuleBuilder.setTable(allTables);
+        System.out.println("all select" + allTablesSelected);
+        defineBusinessRuleController.setTables(allTablesSelected);
         ColumnController columnController = loader.getController();
 
-        columnController.fillColumns(allTables, businessRuleBuilder);
-
+        columnController.fillColumns(allTablesSelected, defineBusinessRuleController);
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
         window.setScene(columnViewScene);
         window.show();
@@ -78,3 +77,61 @@ public class TableController implements Initializable {
 
 
 }
+
+//public class TableController implements Initializable {
+//
+//    private DefineBusinessRuleController defineBusinessRuleController = new DefineBusinessRuleController();
+//    private BusinessRuleBuilder businessRuleBuilder;
+//
+//    @FXML
+//    public ChoiceBox<Table> tablesBox1;
+//
+//    @FXML
+//    public ChoiceBox<Table> tablesBox2;
+//
+//    public void fillTables(Database database, BusinessRuleBuilder businessRuleBuilder){
+//        List<Table>allTables = defineBusinessRuleController.giveAllTablesByDatabase(database);
+//        tablesBox1.getItems().addAll(allTables);
+//        if (businessRuleBuilder.getBusinessRuleType().toString().equals("ICMP")) {
+//            tablesBox2.getItems().addAll(allTables);
+//            tablesBox2.setVisible(true);
+//        }
+//
+//
+//        System.out.println(businessRuleBuilder.getBusinessRuleType());
+//        this.businessRuleBuilder = businessRuleBuilder;
+//
+//    }
+//
+//    @Override
+//    public void initialize(URL location, ResourceBundle resources) {
+//        // TODO: 1-9-2020
+//    }
+//
+//
+//    public void nextKnopClick(ActionEvent event) throws IOException {
+//        FXMLLoader loader = new FXMLLoader();
+//        loader.setLocation(getClass().getResource("column.fxml"));
+//        Parent columnViewParent = loader.load();
+//        Scene columnViewScene = new Scene(columnViewParent);
+//        List<Table> allTables = new ArrayList<Table>() {};
+//
+//        allTables.add(tablesBox1.getSelectionModel().getSelectedItem());
+//
+//        if (businessRuleBuilder.getBusinessRuleType().toString().equals("ICMP")) {
+//            allTables.add(tablesBox2.getSelectionModel().getSelectedItem());
+//        }
+//
+//        businessRuleBuilder.setTable(allTables);
+//        ColumnController columnController = loader.getController();
+//
+//        columnController.fillColumns(allTables, businessRuleBuilder);
+//
+//        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+//        window.setScene(columnViewScene);
+//        window.show();
+//    }
+//
+//
+//
+//}
