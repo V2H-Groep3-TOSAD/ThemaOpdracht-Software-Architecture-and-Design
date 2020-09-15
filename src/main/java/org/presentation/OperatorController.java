@@ -34,7 +34,7 @@ public class OperatorController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        
+
     }
 
     public void nextKnopClick(ActionEvent event) throws IOException {
