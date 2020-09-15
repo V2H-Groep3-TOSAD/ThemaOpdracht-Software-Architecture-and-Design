@@ -37,7 +37,7 @@ public class BusinessRuleTypeController implements Initializable {
         loader.setLocation(getClass().getResource("database.fxml"));
         Parent tableViewParent = loader.load();
         Scene tableViewScene = new Scene(tableViewParent);
-
+        // TODO: 15-9-2020 foutmelding geen selectie
         BusinessRuleType businessRuleType = businessRuleBox.getSelectionModel().getSelectedItem();
         defineController.setBusinessRuleType(businessRuleType);
         DatabaseController databaseController = loader.getController();

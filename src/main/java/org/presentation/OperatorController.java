@@ -34,7 +34,7 @@ public class OperatorController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        // TODO: 1-9-2020
+
     }
 
     public void nextKnopClick(ActionEvent event) throws IOException {
@@ -42,7 +42,7 @@ public class OperatorController implements Initializable {
         loader.setLocation(getClass().getResource("overzicht.fxml"));
         Parent tableViewParent = loader.load();
         Scene tableViewScene = new Scene(tableViewParent);
-
+        //todo foutmelding geen waarde geselecteerd
         BusinessRuleTypeOperator businessRuleTypeOperator = operatorChoiceBox.getSelectionModel().getSelectedItem();
         defineBusinessRuleController.setOperator(businessRuleTypeOperator.getOperator());
         OverzichtController overzichtController = loader.getController();

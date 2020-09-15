@@ -104,8 +104,8 @@ public class DefineBusinessRuleController {
     }
 
     public void generateBusinessRuleName(){
-        //input applicatie name
-        //volgnummer
+        //todo input applicatie name
+        //todo volgnummer
         String name = "BRG_APPNAME_" +  businessRuleBuilder.getTables().indexOf(0) + "_CNS_"
                 + businessRuleBuilder.getBusinessRuleType().getName() + "_1";
         businessRuleBuilder.name(name);
