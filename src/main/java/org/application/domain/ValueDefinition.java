@@ -27,6 +27,8 @@ public class ValueDefinition {
     @OneToOne(mappedBy = "valueDefinition")
     private BusinessRule businessRule;
 
+
+
     public int getId() {
         return id;
     }
@@ -73,5 +75,22 @@ public class ValueDefinition {
 
     public BusinessRule getBusinessRule() {
         return businessRule;
+    }
+
+    public ValueDefinition(int min, int max, String literalValue) {
+        this.minValue = min;
+        this.maxValue = max;
+        this.literalValue = literalValue;
+
+    }
+
+    public ValueDefinition(String literalValue) {
+        this.literalValue = literalValue;
+    }
+
+    public ValueDefinition(){}
+
+    public String toString(){
+        return "Min: " + minValue + " Max: " + maxValue + " Literal Value: " + literalValue;
     }
 }

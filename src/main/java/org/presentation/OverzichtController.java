@@ -8,10 +8,11 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
-import org.application.definemodule.businesslogic.controllers.DefineBusinessRuleController;
-import org.application.domain.BusinessRule;
-import org.application.domain.BusinessRuleBuilder;
-import org.application.domain.Column;
+import org.definemodule.businesslogic.controllers.DefineBusinessRuleController;
+import org.domain.BusinessRuleBuilder;
+import org.domain.BusinessRuleType;
+import org.domain.Column;
+import org.domain.Table;
 
 import java.io.IOException;
 
@@ -33,7 +34,7 @@ public class OverzichtController {
 
     @FXML
     private Label operatorLabel;
-    //labels vullen
+
 
     public void fillData(BusinessRuleBuilder businessRuleBuilder){
         this.businessRuleBuilder = businessRuleBuilder;
@@ -45,15 +46,23 @@ public class OverzichtController {
             colums += column + " ";
         }
         columnLabel.setText(colums);
-        tableLabel.setText(businessRuleBuilder.getTable().getName());
+        String table = "";
+        for(Table t : businessRuleBuilder.getTable()){
+            table += t + " ";
+        }
+        tableLabel.setText(table);
     }
 
     public void save(ActionEvent event) throws IOException{
-        BusinessRule businessRule = businessRuleBuilder.build();
-        defineBusinessRuleController.saveBusinessRule(businessRule);
+
     }
 
     public void nextKnopClick(ActionEvent event) throws IOException {
+        System.out.println(businessRuleBuilder);
+        System.out.println(businessRuleBuilder.getValueDefinition());
+        BusinessRule businessRule = businessRuleBuilder.build();
+        defineBusinessRuleController.saveBusinessRule(businessRule);
+        defineBusinessRuleController.saveBusinessRule(businessRuleBuilder);
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("primary.fxml"));
         Parent tableViewParent = loader.load();
