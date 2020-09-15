@@ -1,11 +1,20 @@
 package org.domain;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 import javax.persistence.*;
 import javax.persistence.Column;
 import javax.persistence.Table;
 import java.util.List;
 
 @Entity
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 @Table(name = "businessruletype")
 public class BusinessRuleType {
 
@@ -20,24 +29,15 @@ public class BusinessRuleType {
     @JoinColumn(name = "category_id", referencedColumnName = "id")
     private Category category;
 
-    @OneToMany(mappedBy = "businessRuleType")
-    private List<BusinessRuleTypeOperator> operators;
+    @ManyToMany(mappedBy = "businessruletypes")
+    private List<Operator> operators;
 
-    public int getId() {
-        return id;
-    }
+//    @OneToMany(mappedBy = "businessRuleType")
+//    private List<BusinessRuleTypeOperator> operators;
 
-    public String getName() {
-        return name;
-    }
-
-    public Category getCategory() {
-        return category;
-    }
-
-    public List<BusinessRuleTypeOperator> getOperators() {
-        return operators;
-    }
+//    public List<BusinessRuleTypeOperator> getOperators() {
+//        return operators;
+//    }
 
     public String toString(){
         return name;

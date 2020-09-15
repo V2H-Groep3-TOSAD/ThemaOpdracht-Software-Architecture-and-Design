@@ -1,11 +1,20 @@
 package org.domain;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 import javax.persistence.*;
 import javax.persistence.Column;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "valuedefinition")
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
 public class ValueDefinition {
 
     @Id
@@ -27,27 +36,4 @@ public class ValueDefinition {
     @OneToOne(mappedBy = "valueDefinition")
     private BusinessRule businessRule;
 
-    public int getId() {
-        return id;
-    }
-
-    public int getMinValue() {
-        return minValue;
-    }
-
-    public int getMaxValue() {
-        return maxValue;
-    }
-
-    public String getLiteralValue() {
-        return literalValue;
-    }
-
-    public String getDataType() {
-        return dataType;
-    }
-
-    public BusinessRule getBusinessRule() {
-        return businessRule;
-    }
 }

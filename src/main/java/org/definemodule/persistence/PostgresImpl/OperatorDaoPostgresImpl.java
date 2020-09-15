@@ -24,4 +24,13 @@ public class OperatorDaoPostgresImpl extends AbstractDaoPostgresImpl<Operator> i
         return null;
     }
 
+//    List<Operator> getAllByBusinessRuleTypeId(int businessRuleTypeId) {
+//        List<Operator> operators = (List<Operator>) em
+//                .createQuery("from Operator where name=" + name).getResultList();
+//        if (!operators.isEmpty()) {
+//            System.out.println(operators);
+//            return operators;
+//        }
+//        return null;
+//    }
 }

@@ -6,4 +6,5 @@ import java.util.List;
 
 public interface OperatorDao extends GenericDAO<Operator> {
     List<Operator> findByName(String name);
+//    List<Operator> getAllByBusinessRuleTypeId(int businessRuleTypeId);
 }

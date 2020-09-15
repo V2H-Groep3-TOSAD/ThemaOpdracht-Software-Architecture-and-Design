@@ -11,7 +11,7 @@ public class PostgresServiceProvider {
     private ColumnPostgresService columnPostgresService;
     private DatabasePostgresService databasePostgresService;
     private ValueDefinitionPostgresService valueDefinitionPostgresService;
-    private BusinessRuleTypeOperatorPostgresService businessRuleTypeOperatorPostgresService;
+//    private BusinessRuleTypeOperatorPostgresService businessRuleTypeOperatorPostgresService;
 //    private BusinessRuleDao businessRuleDao;
 //    private OperatorDao operatorDao;
 //    private BusinessRuleTypeDao businessRuleTypeDao;
@@ -61,7 +61,7 @@ public class PostgresServiceProvider {
         columnPostgresService = new ColumnPostgresService();
         databasePostgresService = new DatabasePostgresService();
         valueDefinitionPostgresService = new ValueDefinitionPostgresService();
-        businessRuleTypeOperatorPostgresService = new BusinessRuleTypeOperatorPostgresService();
+//        businessRuleTypeOperatorPostgresService = new BusinessRuleTypeOperatorPostgresService();
 //        tablePostgresService = new TablePostgresService(tableDao);
 //        businessRulePostgresService = new BusinessRulePostgresService(businessRuleDao);
 //        businessRuleTypePostgresService = new BusinessRuleTypePostgresService(businessRuleTypeDao);
@@ -103,7 +103,7 @@ public class PostgresServiceProvider {
         return valueDefinitionPostgresService;
     }
 
-    public BusinessRuleTypeOperatorPostgresService getBusinessRuleTypeOperatorPostgresService() {
-        return businessRuleTypeOperatorPostgresService;
-    }
+//    public BusinessRuleTypeOperatorPostgresService getBusinessRuleTypeOperatorPostgresService() {
+//        return businessRuleTypeOperatorPostgresService;
+//    }
 }

@@ -1,5 +1,6 @@
 package org.domain;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -12,6 +13,7 @@ import java.util.List;
 @Getter
 @Setter
 @NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @Table(name = "operator")
 public class Operator {
@@ -26,24 +28,16 @@ public class Operator {
     @OneToOne(mappedBy = "operator")
     private BusinessRule businessRule;
 
-    @OneToMany(mappedBy = "operator")
-    private List<BusinessRuleTypeOperator> businessRuleType;
+    @ManyToMany
+    @JoinTable (name = "operator_businessruletype",
+                joinColumns = { @JoinColumn(name = "operator_id", referencedColumnName = "id")},
+                inverseJoinColumns = { @JoinColumn(name = "businessruletype_id", referencedColumnName = "id")}
+    )
+    List<BusinessRuleType> businessRuleTypes;
 
-    public int getId() {
-        return id;
-    }
+//    @OneToMany(mappedBy = "operator")
+//    private List<BusinessRuleTypeOperator> businessRuleType;
 
-    public String getName() {
-        return name;
-    }
-
-    public BusinessRule getBusinessRule() {
-        return businessRule;
-    }
-
-    public List<BusinessRuleTypeOperator> getBusinessRuleType() {
-        return businessRuleType;
-    }
 
     public String toString(){
         return name;

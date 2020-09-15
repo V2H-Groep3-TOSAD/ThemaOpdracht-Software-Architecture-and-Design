@@ -19,6 +19,7 @@ public class OperatorPostgresService {
         operatorDao = postgresDaoImplProvider.getOperatorDao();
     };
 
+//    public List<Operator> getAllOperatorsByBusinessRuleTypeId(int businessRuleTypeId) { return operatorDao.getAllByBusinessRuleTypeId(businessRuleTypeId); };
 
     public void saveOrUpdate(Operator operator){
         operatorDao.insert(operator);

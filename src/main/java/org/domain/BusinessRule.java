@@ -12,10 +12,10 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-@AllArgsConstructor
 @Getter
 @Setter
 @NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @Table(name = "businessrule")
 public class BusinessRule {
@@ -38,10 +38,10 @@ public class BusinessRule {
     private BusinessRuleType businessRuleType;
 
     @ManyToMany(cascade = { CascadeType.MERGE})
-    @JoinTable(
-            name = "businessrule_table_column",
+    @JoinTable (
+            name = "businessrule_column",
             joinColumns = {@JoinColumn(name = "businessrule_id",referencedColumnName = "id")},
-            inverseJoinColumns = {@JoinColumn(name = "columns_id", referencedColumnName = "id")}
+            inverseJoinColumns = {@JoinColumn(name = "column_id", referencedColumnName = "id")}
     )
     List<org.domain.Column> columns;
 

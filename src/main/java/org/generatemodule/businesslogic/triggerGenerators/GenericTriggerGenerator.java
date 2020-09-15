@@ -15,13 +15,13 @@ public abstract class GenericTriggerGenerator {
 
         template = String.format(template,
                 businessRule.getName(),
-                businessRule.getColumns().get(0).getTable().getName(),
+                businessRule.getColumns().get(0).getTables().get(0).getName(),
 
                 businessRule.getName(),
                 businessRule.getColumns().get(0).getName(),
-                businessRule.getColumns().get(0).getTable().getName(),
+                businessRule.getColumns().get(0).getTables().get(0).getName(),
                 businessRule.getName(),
-                businessRule.getColumns().get(0).getTable().getName(),
+                businessRule.getColumns().get(0).getTables().get(0).getName(),
                 businessRule.getName());
 
         return template;

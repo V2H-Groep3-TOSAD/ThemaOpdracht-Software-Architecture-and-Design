@@ -11,6 +11,10 @@ public class DefineBusinessRuleController {
 
     public DefineBusinessRuleController(){ }
 
+//    public List<Operator> getOperatorByBusinessruleType() {
+//        return postgresServiceProvider.getOperatorPostgresService().getAllOperatorsByBusinessRuleTypeName();
+//    }
+
     public List<Database> giveAllDatabases(){
         return postgresServiceProvider.getDatabasePostgresService().getAllDatabases();
     }
@@ -82,9 +86,9 @@ public class DefineBusinessRuleController {
         postgresServiceProvider.getBusinessRulePostgresService().saveOrUpdate(businessRuleBuilder.build());
     }
 
-    public List<BusinessRuleTypeOperator> giveAllBusinessRuleTypeOperators(BusinessRuleType businessRuleType){
-       return postgresServiceProvider.getBusinessRuleTypeOperatorPostgresService().getBusinessRuleTypeOperators(businessRuleType);
-    }
+//    public List<BusinessRuleTypeOperator> giveAllBusinessRuleTypeOperators(BusinessRuleType businessRuleType){
+//       return postgresServiceProvider.getBusinessRuleTypeOperatorPostgresService().getBusinessRuleTypeOperators(businessRuleType);
+//    }
 
 
 }

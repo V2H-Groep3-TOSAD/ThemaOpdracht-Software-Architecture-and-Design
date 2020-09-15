@@ -1,5 +1,10 @@
 package org.domain;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 import javax.persistence.*;
 import javax.persistence.Table;
 import java.util.HashSet;
@@ -7,7 +12,11 @@ import java.util.List;
 import java.util.Set;
 
 @Entity
-@Table(name = "table_column")
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@Table(name = "_column")
 public class Column {
 
     @Id
@@ -17,32 +26,23 @@ public class Column {
     @javax.persistence.Column(name = "name")
     private String name;
 
-    @ManyToOne
-    @JoinColumn(name = "table_id", referencedColumnName = "id")
-    private org.domain.Table table;
+    @javax.persistence.Column(name = "datatype")
+    private String dataType;
 
     @ManyToMany(mappedBy = "columns")
     private List<BusinessRule> businessRules;
 
-    public int getId() {
-        return id;
-    }
+//    @JoinColumn(name = "table_id", referencedColumnName = "id")
+//    private org.domain.Table table;
 
-    public String getName() {
-        return name;
-    }
 
-    public org.domain.Table getTable() {
-        return table;
-    }
-
-    public List<BusinessRule> getBusinessRules() {
-        return businessRules;
-    }
-
-    public void addBusinessRules(BusinessRule businessRule) {
-        this.businessRules.add(businessRule);
-    }
+    @ManyToMany
+    @JoinTable (
+            name = "column_table",
+            joinColumns = {@JoinColumn(name = "column_id",referencedColumnName = "id")},
+            inverseJoinColumns = {@JoinColumn(name = "table_id", referencedColumnName = "id")}
+    )
+    private List<org.domain.Table> tables;
 
     @Override
     public String toString() {
