@@ -28,9 +28,8 @@ public class DefineBusinessRuleController {
     private final ValueDefinitionService valueDefinitionService;
     private final BusinessRuleTypeOperatorService businessRuleTypeOperatorService;
 
-    // hardcoded for now
     private final DaoProvider daoProvider = new PostgresDaoImplProvider();
-    private BusinessRuleBuilder businessRuleBuilder = new BusinessRuleBuilder();
+    private final BusinessRule.BusinessRuleBuilder businessRuleBuilder;
 
     public DefineBusinessRuleController(){
         operatorService = new OperatorService(daoProvider.getOperatorDao());
@@ -43,16 +42,10 @@ public class DefineBusinessRuleController {
         valueDefinitionService = new ValueDefinitionService(daoProvider.getValueDefinitionDao());
         businessRuleTypeOperatorService = new BusinessRuleTypeOperatorService(daoProvider.getBusinessRuleTypeOperatorDao());
 
-        BusinessRule.BusinessRuleBuilder ruleBuilder = BusinessRule.builder();
-
-        // Voorbeeld
-        ruleBuilder.name("")
-                .description("")
-                .build();
+        this.businessRuleBuilder  = BusinessRule.builder();
     }
 
     public List<Database> giveAllDatabases(){
-        //return databaseService.getAll();
         return databaseService.getAllDatabases();
     }
 
@@ -90,38 +83,45 @@ public class DefineBusinessRuleController {
     }
 
     public void setBusinessRuleType(BusinessRuleType businessRuleType){
-        businessRuleBuilder.setBusinessRuleType(businessRuleType);
+        businessRuleBuilder.businessRuleType(businessRuleType);
     }
 
     public void setOperator(Operator operator){
-        businessRuleBuilder.setOperator(operator);
+
+        businessRuleBuilder.operator(operator);
     }
 
-    public void setTable(Table table){
-        businessRuleBuilder.setTable(table);
+    public void setTables(List<Table> allTables){
+        businessRuleBuilder.setTable(allTables);
     }
 
     public void setValueDefinition(ValueDefinition valueDefinition){
-        businessRuleBuilder.setValueDefinition(valueDefinition);
+        businessRuleBuilder.valueDefinition(valueDefinition);
+    }
+
+    public void setDatabase(Database database){
+        businessRuleBuilder.setDatabase(database);
     }
 
     public void generateBusinessRuleName(){
         //input applicatie name
         //volgnummer
-        String name = "BRG_APPNAME_" +  businessRuleBuilder.getTable().getName() + "_CNS_"
+        String name = "BRG_APPNAME_" +  businessRuleBuilder.getTables().indexOf(0) + "_CNS_"
                 + businessRuleBuilder.getBusinessRuleType().getName() + "_1";
-        setName(name);
+        businessRuleBuilder.name(name);
+        businessRuleBuilder.description(name);
     }
     public void setName(String name){
-        businessRuleBuilder.setName(name);
+        businessRuleBuilder.name(name);
     }
 
     public BusinessRule buildBusinessRule(){
        return businessRuleBuilder.build();
     }
 
-    public BusinessRuleBuilder getBusinessRuleBuilder() {
-        return businessRuleBuilder;
+    public BusinessRule.BusinessRuleBuilder getBusinessRuleBuilder() {
+        return this.businessRuleBuilder;
+
     }
 
     public BusinessRuleType geBusinessRuleType(){
@@ -129,6 +129,7 @@ public class DefineBusinessRuleController {
     }
 
     public void saveBusinessRule(BusinessRule businessRule){
+
         businessRuleService.saveOrUpdate(businessRule);
     }
 
@@ -138,6 +139,38 @@ public class DefineBusinessRuleController {
 
     public void saveValueDef(ValueDefinition valueDefinition){
         valueDefinitionService.saveOrUpdate(valueDefinition);
+    }
+
+    public ValueDefinition findValueDefinition(ValueDefinition valueDefinition){
+        List<ValueDefinition> allValueDefinitions = getValueDefinitions();
+        System.out.println(allValueDefinitions);
+        for (ValueDefinition valueDefinition1 : allValueDefinitions){
+            if(valueDefinition1.equals(valueDefinition)){
+                return valueDefinition1;
+            }
+        }
+        return null;
+    }
+
+//    public List<ValueDefinition> findValueDefinitionByValue(ValueDefinition valueDefinition){
+//        return valueDefinitionService.getValueDefinitionsByValue(valueDefinition);
+////        List<ValueDefinition> allValueDefinitions = valueDefinitionService.getValueDefinitionsByValue(valueDefinition);
+////        System.out.println(allValueDefinitions);
+////        for (ValueDefinition valueDefinition1 : allValueDefinitions){
+////            if(valueDefinition1.equals(valueDefinition)){
+////                return valueDefinition1;
+////            }
+////        }
+////        return null;
+//    }
+
+
+    public void setColumns(List<Column> allColumns){
+        businessRuleBuilder.setColumns(allColumns);
+    }
+
+    public List<Column> getColumns(){
+        return businessRuleBuilder.getColumns();
     }
 
 }

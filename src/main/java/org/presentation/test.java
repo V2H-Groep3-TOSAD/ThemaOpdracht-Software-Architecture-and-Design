@@ -16,6 +16,7 @@ public class test {
     public static void main(String[] args){
 
         GenerateBusinessRuleController generateBusinessRuleController = new GenerateBusinessRuleController();
+        DefineBusinessRuleController defineBusinessRuleController = new DefineBusinessRuleController();
 
 
         List<BusinessRule> businessRules = defineBusinessRuleController.giveAllBusinessRules();
@@ -25,10 +26,14 @@ public class test {
             String triggerQuery = generateBusinessRuleController.generate(businessRule);
 
             System.out.println(triggerQuery);
+
+            PostgresDaoImplProvider postgresDaoImplProvider = new PostgresDaoImplProvider();
+            postgresDaoImplProvider.getTriggerDao().executeTrigger(triggerQuery);
         }
 
 
-//        String triggerQuery = generateBusinessRuleController.generate(businessRules.get(2));
+
+//        String triggerQuery = generateBusinessRuleController.generate(businessRules.get(0));
 //
 //        System.out.println(triggerQuery);
 

@@ -111,6 +111,36 @@ public class BusinessRule implements Buildable {
         private BusinessRuleType businessRuleType;
         private Operator operator;
         private ValueDefinition valueDefinition;
+        private List<org.application.domain.Table> tables;
+        private List<org.application.domain.Column> allColumns;
+
+        public List<org.application.domain.Column> getColumns() {
+            return allColumns;
+        }
+
+        public void setColumns(List<org.application.domain.Column> columns) {
+            this.allColumns = columns;
+        }
+
+
+
+        public List<org.application.domain.Table> getTables() {
+            return tables;
+        }
+
+        public void setTable(List<org.application.domain.Table> tables) {
+            this.tables = tables;
+        }
+
+        public Database getDatabase() {
+            return database;
+        }
+
+        public void setDatabase(Database database) {
+            this.database = database;
+        }
+
+        private Database database;
 
         BusinessRuleBuilder(){
         }
@@ -143,6 +173,30 @@ public class BusinessRule implements Buildable {
         public BusinessRuleBuilder valueDefinition(ValueDefinition valueDefinition) {
             this.valueDefinition = valueDefinition;
             return this;
+        }
+
+        public String getName() {
+            return name;
+        }
+
+        public String getDescription() {
+            return description;
+        }
+
+        public int getSerialNumber() {
+            return serialNumber;
+        }
+
+        public BusinessRuleType getBusinessRuleType() {
+            return businessRuleType;
+        }
+
+        public Operator getOperator() {
+            return operator;
+        }
+
+        public ValueDefinition getValueDefinition() {
+            return valueDefinition;
         }
 
         public BusinessRule build() {
