@@ -8,7 +8,6 @@
         <class>org.domain.Table</class>
         <class>org.domain.BusinessRule</class>
         <class>org.domain.BusinessRuleType</class>
-        <class>org.domain.BusinessRuleTypeOperator</class>
         <class>org.domain.Category</class>
         <class>org.domain.Column</class>
         <class>org.domain.Database</class>
@@ -16,15 +15,27 @@
         <exclude-unlisted-classes>true</exclude-unlisted-classes>
         <properties>
             <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver" />
-            <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://ec2-3-248-4-172.eu-west-1.compute.amazonaws.com:5432/d235kbg08orcfi?sslmode=require" />
-            <property name="javax.persistence.jdbc.user" value="ydehmjvlgsjzlj" />
-            <property name="javax.persistence.jdbc.password" value="3f2d5139c978809b9dd90b43b5fc6184b552301c5e4487a5a7aaaac66e0542de" />
+            <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/tosad_local" />
+            <property name="javax.persistence.jdbc.user" value="lennart" />
+            <property name="javax.persistence.jdbc.password" value="StevenSeagal" />
 
             <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQL10Dialect" />
             <property name="hibernate.show_sql" value="true" />
-            <property name="hibernate.hbm2ddl.auto" value="validate" />
+<!--            <property name="hibernate.hbm2ddl.auto" value="validate" />-->
+            <property name="hibernate.hbm2ddl.auto" value="update" />
             <property name="hibernate.temp.use_jdbc_metadata_defaults" value="false" />
         </properties>
+<!--        <properties>-->
+<!--            <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver" />-->
+<!--            <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://ec2-3-248-4-172.eu-west-1.compute.amazonaws.com:5432/d235kbg08orcfi?sslmode=require" />-->
+<!--            <property name="javax.persistence.jdbc.user" value="ydehmjvlgsjzlj" />-->
+<!--            <property name="javax.persistence.jdbc.password" value="3f2d5139c978809b9dd90b43b5fc6184b552301c5e4487a5a7aaaac66e0542de" />-->
+
+<!--            <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQL10Dialect" />-->
+<!--            <property name="hibernate.show_sql" value="true" />-->
+<!--            <property name="hibernate.hbm2ddl.auto" value="validate" />-->
+<!--            <property name="hibernate.temp.use_jdbc_metadata_defaults" value="false" />-->
+<!--        </properties>-->
     </persistence-unit>
     <persistence-unit name="hibernate.postgres.target">
         <class>org.generatemodule.businesslogic.domain.Person</class>

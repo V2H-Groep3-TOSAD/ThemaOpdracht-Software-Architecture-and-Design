@@ -45,8 +45,12 @@ public class BusinessRule {
     )
     List<org.domain.Column> columns;
 
-    @OneToOne
-    @JoinColumn(name = "operator_id", referencedColumnName = "id")
+//    @OneToOne
+//    @JoinColumn(name = "operator_id", referencedColumnName = "id")
+//    private Operator operator;
+
+    @ManyToOne
+    @JoinColumn(name = "operator_id")
     private Operator operator;
 
     @OneToOne

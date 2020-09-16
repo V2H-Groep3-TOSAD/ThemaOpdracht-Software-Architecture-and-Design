@@ -27,7 +27,7 @@ public class test {
         List<BusinessRule> businessRules = postgresServiceProvider.getBusinessRulePostgresService().getAllBusinessRules();
 
         for (BusinessRule businessRule : businessRules) {
-
+            System.out.println(businessRule.getName());
             String triggerQuery = generateBusinessRuleController.generate(businessRule);
 
             System.out.println(triggerQuery);

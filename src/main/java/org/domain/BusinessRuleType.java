@@ -29,7 +29,7 @@ public class BusinessRuleType {
     @JoinColumn(name = "category_id", referencedColumnName = "id")
     private Category category;
 
-    @ManyToMany(mappedBy = "businessruletypes")
+    @ManyToMany(mappedBy = "businessRuleTypes")
     private List<Operator> operators;
 
 //    @OneToMany(mappedBy = "businessRuleType")

@@ -24,16 +24,19 @@ public class Operator {
 
     @Column(name = "name")
     private String name;
+//
+//    @OneToOne(mappedBy = "operator")
+//    private BusinessRule businessRule;
 
-    @OneToOne(mappedBy = "operator")
-    private BusinessRule businessRule;
+    @OneToMany(mappedBy = "operator")
+    private List<BusinessRule> businessRules;
 
     @ManyToMany
     @JoinTable (name = "operator_businessruletype",
                 joinColumns = { @JoinColumn(name = "operator_id", referencedColumnName = "id")},
                 inverseJoinColumns = { @JoinColumn(name = "businessruletype_id", referencedColumnName = "id")}
     )
-    List<BusinessRuleType> businessRuleTypes;
+    private List<BusinessRuleType> businessRuleTypes;
 
 //    @OneToMany(mappedBy = "operator")
 //    private List<BusinessRuleTypeOperator> businessRuleType;

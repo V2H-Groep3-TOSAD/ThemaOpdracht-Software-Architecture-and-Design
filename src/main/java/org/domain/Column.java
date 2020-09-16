@@ -16,7 +16,7 @@ import java.util.Set;
 @NoArgsConstructor
 @Getter
 @Setter
-@Table(name = "_column")
+@Table(name = "column_")
 public class Column {
 
     @Id
@@ -36,13 +36,17 @@ public class Column {
 //    private org.domain.Table table;
 
 
-    @ManyToMany
-    @JoinTable (
-            name = "column_table",
-            joinColumns = {@JoinColumn(name = "column_id",referencedColumnName = "id")},
-            inverseJoinColumns = {@JoinColumn(name = "table_id", referencedColumnName = "id")}
-    )
-    private List<org.domain.Table> tables;
+//    @ManyToMany
+//    @JoinTable (
+//            name = "column_table",
+//            joinColumns = {@JoinColumn(name = "column_id",referencedColumnName = "id")},
+//            inverseJoinColumns = {@JoinColumn(name = "table_id", referencedColumnName = "id")}
+//    )
+//    private List<org.domain.Table> tables;
+
+    @ManyToOne
+    @JoinColumn(name = "table_id")
+    private org.domain.Table table;
 
     @Override
     public String toString() {

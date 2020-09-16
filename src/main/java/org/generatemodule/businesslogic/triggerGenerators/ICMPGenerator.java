@@ -44,21 +44,21 @@ public class ICMPGenerator extends GenericTriggerGenerator {
 
         template = String.format(template,
                 businessRule.getName(),
-                businessRule.getColumns().get(1).getTables().get(0).getName(),
+                businessRule.getColumns().get(1).getTable().getName(),
                 businessRule.getColumns().get(1).getName(),
-                businessRule.getColumns().get(1).getTables().get(0).getName(),
+                businessRule.getColumns().get(1).getTable().getName(),
                 businessRule.getColumns().get(1).getName(),
-                businessRule.getColumns().get(1).getTables().get(0).getName(),
+                businessRule.getColumns().get(1).getTable().getName(),
                 businessRule.getColumns().get(1).getName(),
-                businessRule.getColumns().get(1).getTables().get(0).getName(),
-                businessRule.getColumns().get(0).getTables().get(0).getName(), //9
-                businessRule.getColumns().get(1).getTables().get(0).getName(), //10
-                businessRule.getColumns().get(0).getTables().get(0).getName(), //11
-                businessRule.getColumns().get(1).getTables().get(0).getName(), //12
-                businessRule.getColumns().get(0).getTables().get(0).getName(), //13
+                businessRule.getColumns().get(1).getTable().getName(),
+                businessRule.getColumns().get(0).getTable().getName(), //9
+                businessRule.getColumns().get(1).getTable().getName(), //10
+                businessRule.getColumns().get(0).getTable().getName(), //11
+                businessRule.getColumns().get(1).getTable().getName(), //12
+                businessRule.getColumns().get(0).getTable().getName(), //13
                 businessRule.getColumns().get(0).getName(), //16
                 businessRule.getOperator().getName(), //17
-                businessRule.getColumns().get(1).getTables().get(0).getName(), //18
+                businessRule.getColumns().get(1).getTable().getName(), //18
                 businessRule.getColumns().get(1).getName(), //19
                 message);
 

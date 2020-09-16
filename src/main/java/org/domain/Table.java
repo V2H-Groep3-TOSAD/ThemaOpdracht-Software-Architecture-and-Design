@@ -11,7 +11,7 @@ import java.util.List;
 
 
 @Entity
-@javax.persistence.Table(name = "_table")
+@javax.persistence.Table(name = "table_")
 @Getter
 @Setter
 @AllArgsConstructor
@@ -25,8 +25,11 @@ public class Table {
     @Column(name = "name")
     private String name;
 
-    @ManyToMany(mappedBy = "tables")
+    @OneToMany(mappedBy = "table")
     private List<org.domain.Column> columns;
+
+//    @ManyToMany(mappedBy = "tables")
+//    private List<org.domain.Column> columns;
 
     @ManyToOne
     @JoinColumn(name = "database_id")
