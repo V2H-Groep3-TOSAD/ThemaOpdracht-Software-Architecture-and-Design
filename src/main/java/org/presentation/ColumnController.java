@@ -2,6 +2,7 @@ package org.presentation;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.text.Text;
 import org.application.definemodule.businesslogic.controllers.DefineBusinessRuleController;
 import org.application.domain.*;
 
@@ -28,12 +29,16 @@ public class ColumnController implements Initializable{
 
     private DefineBusinessRuleController defineBusinessRuleController;
     private Boolean meedereColumns;
+    private boolean volgendeScene = true;
 
     @FXML
     public ChoiceBox<Column> columnBox1;
 
     @FXML
     public ChoiceBox<Column> columnBox2;
+
+    @FXML
+    private Text errorBox;
 
     public void fillColumns(List<Table> table, DefineBusinessRuleController defineBusinessRuleController){
         this.defineBusinessRuleController = defineBusinessRuleController;
@@ -66,19 +71,33 @@ public class ColumnController implements Initializable{
         List<Column> allColumns = new ArrayList<Column>() {};
         System.out.println(meedereColumns);
         // TODO foutmelding geen waarde geselecteerd
-        Column selectedColumn1 = columnBox1.getSelectionModel().getSelectedItem();
-        if (meedereColumns) {
-            // TODO foutmelding geen waarde geselecteerd
-            // TODO foutmelding zelfde kolom
-            Column selectedColumn2 = columnBox2.getSelectionModel().getSelectedItem();
-            allColumns.add(selectedColumn1);
-            allColumns.add(selectedColumn2);
+        if (columnBox1.getSelectionModel().getSelectedItem() == null) {
+            volgendeScene = false;
+            errorBox.setText("Er moet een selectie worden gemaakt");
         } else {
-            allColumns.add(selectedColumn1);
-        }
-        defineBusinessRuleController.setColumns(allColumns);
+            volgendeScene = true;
+            Column selectedColumn1 = columnBox1.getSelectionModel().getSelectedItem();
+            if (meedereColumns) {
+                // TODO foutmelding geen waarde geselecteerd
+                if (columnBox2.getSelectionModel().getSelectedItem() == null) {
+                    volgendeScene = false;
+                    errorBox.setText("Er moet een selectie worden gemaakt");
+                }  else {
+                    Column selectedColumn2 = columnBox2.getSelectionModel().getSelectedItem();
+                    allColumns.add(selectedColumn1);
+                    allColumns.add(selectedColumn2);
+                    volgendeScene = true;
+                }
 
-        if (defineBusinessRuleController.getBusinessRuleBuilder().getBusinessRuleType().toString().equals("ARNG") || defineBusinessRuleController.getBusinessRuleBuilder().getBusinessRuleType().toString().equals("ACMP")) {
+
+            } else {
+                allColumns.add(selectedColumn1);
+            }
+            defineBusinessRuleController.setColumns(allColumns);
+        }
+
+
+        if ((defineBusinessRuleController.getBusinessRuleBuilder().getBusinessRuleType().toString().equals("ARNG") || defineBusinessRuleController.getBusinessRuleBuilder().getBusinessRuleType().toString().equals("ACMP")) && volgendeScene) {
             loader.setLocation(getClass().getResource("value.fxml"));
             Parent columnViewParent = loader.load();
             Scene columnViewScene = new Scene(columnViewParent);
@@ -87,7 +106,7 @@ public class ColumnController implements Initializable{
             Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
             window.setScene(columnViewScene);
             window.show();
-        } else {
+        } else if (volgendeScene) {
             loader.setLocation(getClass().getResource("operator.fxml"));
             Parent columnViewParent = loader.load();
             Scene columnViewScene = new Scene(columnViewParent);

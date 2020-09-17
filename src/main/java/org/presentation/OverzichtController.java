@@ -39,7 +39,8 @@ public class OverzichtController {
         this.defineBusinessRuleController = defineBusinessRuleController;
         databaseLabel.setText(defineBusinessRuleController.getBusinessRuleBuilder().getDatabase().getName());
         operatorLabel.setText(defineBusinessRuleController.getBusinessRuleBuilder().getOperator().getName());
-        if(defineBusinessRuleController.getBusinessRuleBuilder().getValueDefinition().toString() != null){
+        System.out.println("dit: " +defineBusinessRuleController.getBusinessRuleBuilder().getValueDefinition());
+        if(defineBusinessRuleController.getBusinessRuleBuilder().getValueDefinition() != null){
             valueLabel.setVisible(true);
             valueLabel.setText(defineBusinessRuleController.getBusinessRuleBuilder().getValueDefinition().toString());
         }
