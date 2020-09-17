@@ -1,5 +1,6 @@
 package org.definemodule.businesslogic.services.postgresserviceimpl;
 
+import org.domain.BusinessRule;
 import org.domain.BusinessRuleType;
 import org.definemodule.persistence.postgresdao.BusinessRuleTypeDao;
 import org.definemodule.persistence.PostgresImpl.PostgresDaoImplProvider;
@@ -33,4 +34,6 @@ public class BusinessRuleTypePostgresService {
     public BusinessRuleType getBusinessRuleTypeById(int id){
         return businessRuleTypeDao.findById(id);
     };
+
+    public BusinessRuleType getBusinessRuleTypeByName(String name) { return businessRuleTypeDao.findByName(name); }
 }

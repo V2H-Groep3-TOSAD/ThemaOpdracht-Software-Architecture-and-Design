@@ -9,7 +9,9 @@ import javafx.scene.Scene;
 import javafx.scene.control.ChoiceBox;
 import javafx.stage.Stage;
 import org.definemodule.businesslogic.controllers.DefineBusinessRuleController;
+import org.domain.BusinessRule;
 import org.domain.BusinessRuleBuilder;
+import org.domain.BusinessRuleType;
 import org.domain.Operator;
 
 import javafx.event.ActionEvent;
@@ -28,27 +30,14 @@ public class OperatorController implements Initializable {
     public void fillOperators(BusinessRuleBuilder businessRuleBuilder){
         this.businessRuleBuilder = businessRuleBuilder;
 
-//        List<BusinessRuleTypeOperator> businessRuleTypeOperators = defineBusinessRuleController.giveAllBusinessRuleTypeOperators(businessRuleBuilder.getBusinessRuleType());
-//        operatorChoiceBox.getItems().addAll(businessRuleTypeOperators);
+        List<Operator> operators = new ArrayList<>();
+        BusinessRuleType businessRuleType = defineBusinessRuleController.giveBusinessRuleTypeByName(businessRuleBuilder.getBusinessRuleType().getName());
 
-        List<Operator> operators = defineBusinessRuleController.giveAllOperators();
-        List<Operator> operators1 = new ArrayList<>();
-
-        for (Operator operator : operators) {
-            if (Arrays.asList(operator.getBusinessRuleTypes()).contains(businessRuleBuilder.getBusinessRuleType())) {
-                operators1.add(operator);
-            }
+        for (Operator operator : businessRuleType.getOperators()) {
+            operators.add(operator);
         }
 
-
-//        System.out.println(businessRuleTypeOperators);
-//        List<Operator> operators = businessRuleBuilder.getBusinessRuleType().getOperators();
-
-        System.out.println("all operators: " + operators);
-        System.out.println("operators of businessruletype: " + operators1);
-        System.out.println(businessRuleBuilder.getBusinessRuleType());
-
-        operatorChoiceBox.getItems().addAll(operators1);
+        operatorChoiceBox.getItems().addAll(operators);
     }
 
     @Override
