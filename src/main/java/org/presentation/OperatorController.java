@@ -7,6 +7,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import org.application.definemodule.businesslogic.controllers.DefineBusinessRuleController;
 import org.application.domain.BusinessRuleTypeOperator;
@@ -23,6 +24,9 @@ public class OperatorController implements Initializable {
 
     @FXML
     public ChoiceBox<BusinessRuleTypeOperator> operatorChoiceBox;
+
+    @FXML
+    private Text errorBox;
 
     public void fillOperators(DefineBusinessRuleController defineBusinessRuleController){
         this.defineBusinessRuleController = defineBusinessRuleController;
@@ -43,14 +47,19 @@ public class OperatorController implements Initializable {
         Parent tableViewParent = loader.load();
         Scene tableViewScene = new Scene(tableViewParent);
         //todo foutmelding geen waarde geselecteerd
-        BusinessRuleTypeOperator businessRuleTypeOperator = operatorChoiceBox.getSelectionModel().getSelectedItem();
-        defineBusinessRuleController.setOperator(businessRuleTypeOperator.getOperator());
-        OverzichtController overzichtController = loader.getController();
-        overzichtController.fillData(defineBusinessRuleController);
+        if (operatorChoiceBox.getSelectionModel().getSelectedItem() == null) {
+            errorBox.setText("Er moet een selectie worden gemaakt");
+        } else {
+            BusinessRuleTypeOperator businessRuleTypeOperator = operatorChoiceBox.getSelectionModel().getSelectedItem();
+            defineBusinessRuleController.setOperator(businessRuleTypeOperator.getOperator());
+            OverzichtController overzichtController = loader.getController();
+            overzichtController.fillData(defineBusinessRuleController);
 
-        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
-        window.setScene(tableViewScene);
-        window.show();
+            Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+            window.setScene(tableViewScene);
+            window.show();
+        }
+
 
     }
 }

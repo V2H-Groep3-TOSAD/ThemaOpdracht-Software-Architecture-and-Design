@@ -16,5 +16,10 @@
       </Label>
       <Button layoutX="307.0" layoutY="194.0" mnemonicParsing="false" onAction="#nextKnopClick" prefHeight="35.0" prefWidth="67.0" text="Next" />
       <ChoiceBox fx:id="operatorChoiceBox" layoutX="266.0" layoutY="128.0" prefWidth="150.0" />
+      <Text fx:id="errorBox" fill="#e40606" layoutX="241.0" layoutY="287.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="198.6708984375">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Text>
    </children>
 </AnchorPane>
