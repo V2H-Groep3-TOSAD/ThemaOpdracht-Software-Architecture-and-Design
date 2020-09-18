@@ -8,6 +8,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import org.application.definemodule.businesslogic.controllers.DefineBusinessRuleController;
 import org.application.domain.BusinessRule;
@@ -25,6 +26,9 @@ public class BusinessRuleTypeController implements Initializable {
     @FXML
     private ChoiceBox<BusinessRuleType> businessRuleBox;
 
+    @FXML
+    private Text errorBox;
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         defineController = new DefineBusinessRuleController();
@@ -37,14 +41,19 @@ public class BusinessRuleTypeController implements Initializable {
         loader.setLocation(getClass().getResource("database.fxml"));
         Parent tableViewParent = loader.load();
         Scene tableViewScene = new Scene(tableViewParent);
-        // TODO: 15-9-2020 foutmelding geen selectie
-        BusinessRuleType businessRuleType = businessRuleBox.getSelectionModel().getSelectedItem();
-        defineController.setBusinessRuleType(businessRuleType);
-        DatabaseController databaseController = loader.getController();
-        databaseController.fillDatabases(defineController);
-        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
-        window.setScene(tableViewScene);
-        window.show();
+
+        if (businessRuleBox.getSelectionModel().getSelectedItem() == null) {
+            errorBox.setText("Er moet een selectie worden gemaakt");
+        } else {
+            BusinessRuleType businessRuleType = businessRuleBox.getSelectionModel().getSelectedItem();
+            defineController.setBusinessRuleType(businessRuleType);
+            DatabaseController databaseController = loader.getController();
+            databaseController.fillDatabases(defineController);
+            Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+            window.setScene(tableViewScene);
+            window.show();
+        }
+
     }
 }
 

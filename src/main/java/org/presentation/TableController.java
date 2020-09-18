@@ -9,6 +9,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.ChoiceBox;
 
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import org.application.definemodule.businesslogic.controllers.DefineBusinessRuleController;
 import org.application.domain.Database;
@@ -31,6 +32,11 @@ public class TableController implements Initializable {
 
     @FXML
     public ChoiceBox<Table> tablesBox2;
+
+    @FXML
+    private Text errorBox;
+
+    private boolean volgendeScene = true;
 
     public void fillTables(Database database, DefineBusinessRuleController defineBusinessRuleController){
         this.defineBusinessRuleController = defineBusinessRuleController;
@@ -58,27 +64,47 @@ public class TableController implements Initializable {
         Scene columnViewScene = new Scene(columnViewParent);
         List<Table> allTablesSelected = new ArrayList<Table>() {};
         // TODO: foutmelding geen selectie
-        allTablesSelected.add(tablesBox1.getSelectionModel().getSelectedItem());
+        if (tablesBox1.getSelectionModel().getSelectedItem() == null) {
+            errorBox.setText("Er moet een selectie worden gemaakt");
+        } else {
+            allTablesSelected.add(tablesBox1.getSelectionModel().getSelectedItem());
 
-        if (defineBusinessRuleController.getBusinessRuleBuilder().getBusinessRuleType().toString().equals("ICMP")) {
-            // TODO: foutmelding geen selectie
-            // TODO: foutmelding zelfde tabel gekozen
-            allTablesSelected.add(tablesBox2.getSelectionModel().getSelectedItem());
+            if (defineBusinessRuleController.getBusinessRuleBuilder().getBusinessRuleType().toString().equals("ICMP")) {
+                // TODO: foutmelding geen selectie
+                // TODO: foutmelding zelfde tabel gekozen
+
+                if (tablesBox1.getSelectionModel().getSelectedItem() == null || tablesBox2.getSelectionModel().getSelectedItem() == null) {
+                    errorBox.setText("Er moet een selectie worden gemaakt");
+                    volgendeScene = false;
+                } else if (tablesBox1.getSelectionModel().getSelectedItem() == tablesBox2.getSelectionModel().getSelectedItem()) {
+                        errorBox.setText("Je kan niet dezelfde tabel kiezen");
+                        volgendeScene = false;
+                    } else {
+                        allTablesSelected.add(tablesBox2.getSelectionModel().getSelectedItem());
+                        volgendeScene = true;
+                    }
+            }
+                if (volgendeScene){
+                    System.out.println("all select" + allTablesSelected);
+                    defineBusinessRuleController.setTables(allTablesSelected);
+                    ColumnController columnController = loader.getController();
+
+                    columnController.fillColumns(allTablesSelected, defineBusinessRuleController);
+                    Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+                    window.setScene(columnViewScene);
+                    window.show();
+                }
+
+            }
+
+
         }
 
-        System.out.println("all select" + allTablesSelected);
-        defineBusinessRuleController.setTables(allTablesSelected);
-        ColumnController columnController = loader.getController();
-
-        columnController.fillColumns(allTablesSelected, defineBusinessRuleController);
-        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
-        window.setScene(columnViewScene);
-        window.show();
     }
 
 
 
-}
+
 
 //public class TableController implements Initializable {
 //

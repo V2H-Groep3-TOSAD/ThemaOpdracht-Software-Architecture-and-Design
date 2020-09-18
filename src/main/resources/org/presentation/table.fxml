@@ -23,5 +23,10 @@
       <ChoiceBox fx:id="tablesBox1" layoutX="226.0" layoutY="73.0" prefWidth="150.0">
       </ChoiceBox>
       <ChoiceBox fx:id="tablesBox2" layoutX="226.0" layoutY="113.0" prefWidth="150.0" visible="false" />
+      <Text fx:id="errorBox" fill="#e40606" layoutX="201.0" layoutY="258.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="198.6708984375">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Text>
    </children>
 </AnchorPane>

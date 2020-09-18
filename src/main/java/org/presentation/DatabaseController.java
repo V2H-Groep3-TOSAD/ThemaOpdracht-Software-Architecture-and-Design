@@ -7,9 +7,11 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import org.application.definemodule.businesslogic.controllers.DefineBusinessRuleController;
 import org.application.domain.BusinessRule;
+import org.application.domain.BusinessRuleType;
 import org.application.domain.Database;
 
 import javafx.event.ActionEvent;
@@ -23,6 +25,9 @@ public class DatabaseController implements Initializable {
 
     @FXML
     private ChoiceBox<Database> databaseBox;
+
+    @FXML
+    private Text errorBox;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -41,14 +46,18 @@ public class DatabaseController implements Initializable {
         loader.setLocation(getClass().getResource("table.fxml"));
         Parent tableViewParent = loader.load();
         Scene tableViewScene = new Scene(tableViewParent);
-        // TODO: 15-9-2020  foutmelding geen selectie
-        Database selectedDatabase = databaseBox.getSelectionModel().getSelectedItem();
-        defineBusinessRuleController.setDatabase(selectedDatabase);
-        TableController tableController = loader.getController();
-        tableController.fillTables(selectedDatabase, defineBusinessRuleController);
-        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
-        window.setScene(tableViewScene);
-        window.show();
+        if (databaseBox.getSelectionModel().getSelectedItem() == null) {
+            errorBox.setText("Er moet een selectie worden gemaakt");
+        } else {
+            Database selectedDatabase = databaseBox.getSelectionModel().getSelectedItem();
+            defineBusinessRuleController.setDatabase(selectedDatabase);
+            TableController tableController = loader.getController();
+            tableController.fillTables(selectedDatabase, defineBusinessRuleController);
+            Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+            window.setScene(tableViewScene);
+            window.show();
+        }
+
     }
 
     }

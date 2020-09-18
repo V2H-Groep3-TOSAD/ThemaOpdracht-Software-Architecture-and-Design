@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.presentation.DatabaseController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.presentation.DatabaseController">
    <children>
       <Label layoutX="251.0" layoutY="31.0" text="Database">
          <font>
@@ -16,5 +20,10 @@
       <Button fx:id="nextKnop" layoutX="262.0" layoutY="178.0" mnemonicParsing="false" onAction="#nextKnopClick" prefHeight="44.0" prefWidth="76.0" text="Next" />
       <ChoiceBox fx:id="databaseBox" layoutX="225.0" layoutY="104.0" prefWidth="150.0">
       </ChoiceBox>
+      <Text fx:id="errorBox" fill="#e40606" layoutX="201.0" layoutY="276.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="198.6708984375">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Text>
    </children>
 </AnchorPane>
