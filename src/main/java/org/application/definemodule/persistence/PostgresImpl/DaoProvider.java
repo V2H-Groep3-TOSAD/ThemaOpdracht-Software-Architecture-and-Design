@@ -20,7 +20,7 @@ public interface DaoProvider {
 
     PersonDao getPersonDao();
 
-    BusinessRuleTypeOperatorDao getBusinessRuleTypeOperatorDao();
+//    BusinessRuleTypeOperatorDao getBusinessRuleTypeOperatorDao();
 
     ValueDefinitionDao getValueDefinitionDao();
 }

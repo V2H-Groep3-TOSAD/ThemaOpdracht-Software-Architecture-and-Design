@@ -18,6 +18,9 @@ public class BusinessRuleTypeService {
         this.businessRuleTypeDao = businessRuleTypeDao;
     };
 
+    public BusinessRuleType getBusinessRuleTypeByName(String name) {
+        return businessRuleTypeDao.findByName(name);
+    };
 
     public void saveOrUpdate(BusinessRuleType businessRuleType){
         businessRuleTypeDao.insert(businessRuleType);

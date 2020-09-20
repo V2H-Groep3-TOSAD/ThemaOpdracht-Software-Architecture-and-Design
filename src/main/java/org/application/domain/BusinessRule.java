@@ -18,6 +18,41 @@ import java.util.List;
 @Table(name = "businessrule")
 public class BusinessRule implements Buildable {
 
+//    @Id
+//    @GeneratedValue
+//    private int id;
+//
+//    @Column(name = "name")
+//    private String name;
+//
+//    @Column(name = "description")
+//    private String description;
+//
+//    @Column(name = "serialnumber")
+//    private int serialNumber;
+//
+//    @ManyToOne
+//    @JoinColumn(name = "businessruletype_id", referencedColumnName = "id")
+//    private BusinessRuleType businessRuleType;
+//
+//    @ManyToMany(cascade = { CascadeType.MERGE})
+//    @JoinTable(
+//            name = "businessrule_table_column",
+//            joinColumns = {@JoinColumn(name = "businessrule_id",referencedColumnName = "id")},
+//            inverseJoinColumns = {@JoinColumn(name = "columns_id", referencedColumnName = "id")}
+//    )
+//    List<org.application.domain.Column> columns;
+//
+//    @OneToOne
+//    @JoinColumn(name = "operator_id", referencedColumnName = "id")
+//    private Operator operator;
+//
+//    @OneToOne
+//    @JoinColumn(name = "valuedefinition_id", referencedColumnName = "id")
+//    private ValueDefinition valueDefinition;
+
+
+
     @Id
     @GeneratedValue
     private int id;
@@ -36,15 +71,15 @@ public class BusinessRule implements Buildable {
     private BusinessRuleType businessRuleType;
 
     @ManyToMany(cascade = { CascadeType.MERGE})
-    @JoinTable(
-            name = "businessrule_table_column",
+    @JoinTable (
+            name = "businessrule_column",
             joinColumns = {@JoinColumn(name = "businessrule_id",referencedColumnName = "id")},
-            inverseJoinColumns = {@JoinColumn(name = "columns_id", referencedColumnName = "id")}
+            inverseJoinColumns = {@JoinColumn(name = "column_id", referencedColumnName = "id")}
     )
     List<org.application.domain.Column> columns;
 
-    @OneToOne
-    @JoinColumn(name = "operator_id", referencedColumnName = "id")
+    @ManyToOne
+    @JoinColumn(name = "operator_id")
     private Operator operator;
 
     @OneToOne

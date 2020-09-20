@@ -26,7 +26,7 @@ public class DefineBusinessRuleController {
     private final ColumnService columnService;
     private final DatabaseService databaseService;
     private final ValueDefinitionService valueDefinitionService;
-    private final BusinessRuleTypeOperatorService businessRuleTypeOperatorService;
+//    private final BusinessRuleTypeOperatorService businessRuleTypeOperatorService;
 
     private final DaoProvider daoProvider = new PostgresDaoImplProvider();
     private final BusinessRule.BusinessRuleBuilder businessRuleBuilder;
@@ -40,10 +40,12 @@ public class DefineBusinessRuleController {
         columnService = new ColumnService(daoProvider.getColumnDao());
         databaseService = new DatabaseService(daoProvider.getDatabaseDao());
         valueDefinitionService = new ValueDefinitionService(daoProvider.getValueDefinitionDao());
-        businessRuleTypeOperatorService = new BusinessRuleTypeOperatorService(daoProvider.getBusinessRuleTypeOperatorDao());
+//        businessRuleTypeOperatorService = new BusinessRuleTypeOperatorService(daoProvider.getBusinessRuleTypeOperatorDao());
 
         this.businessRuleBuilder  = BusinessRule.builder();
     }
+
+    public BusinessRuleType giveBusinessRuleTypeByName (String name) {return businessRuleTypeService.getBusinessRuleTypeByName(name); }
 
     public List<Database> giveAllDatabases(){
         return databaseService.getAllDatabases();
@@ -67,9 +69,9 @@ public class DefineBusinessRuleController {
         //return businessRuleTypeService.getAll();
     }
 
-    public List<BusinessRuleTypeOperator> giveAllOperatorsByBusinessRuleType(BusinessRuleType businessRuleType){
-        return businessRuleTypeOperatorService.getBusinessRuleTypeOperators(businessRuleType);
-    }
+//    public List<BusinessRuleTypeOperator> giveAllOperatorsByBusinessRuleType(BusinessRuleType businessRuleType){
+//        return businessRuleTypeOperatorService.getBusinessRuleTypeOperators(businessRuleType);
+//    }
 
     public List<BusinessRule> giveAllBusinessRules(){
         return businessRuleService.getAllBusinessRules();

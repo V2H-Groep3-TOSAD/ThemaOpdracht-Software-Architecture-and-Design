@@ -15,7 +15,7 @@ public class PostgresDaoImplProvider extends HibernateUtil implements DaoProvide
     private TableDao tableDao;
     private BusinessRuleDao businessRuleDao;
     private BusinessRuleTypeDao businessRuleTypeDao;
-    private BusinessRuleTypeOperatorDao businessRuleTypeOperatorDao;
+//    private BusinessRuleTypeOperatorDao businessRuleTypeOperatorDao;
     private CategoryDao categoryDao;
     private ColumnDao columnDao;
     private DatabaseDao databaseDao;
@@ -38,7 +38,7 @@ public class PostgresDaoImplProvider extends HibernateUtil implements DaoProvide
             databaseDao = new DatabaseDaoPostgresImpl(entityManager);
             valueDefinitionDao = new ValueDefinitionDaoPostgresImpl(entityManager);
             personDao = new PersonDaoPostgresImpl(entityManager);
-            businessRuleTypeOperatorDao = new BusinessRuleTypeOperatorDaoPostgresImpl(entityManager);
+//            businessRuleTypeOperatorDao = new BusinessRuleTypeOperatorDaoPostgresImpl(entityManager);
         }catch (Throwable ex){
             System.err.println("Failed to create entitymanager object." + ex);
             throw new ExceptionInInitializerError(ex);
@@ -84,10 +84,10 @@ public class PostgresDaoImplProvider extends HibernateUtil implements DaoProvide
     @Override
     public PersonDao getPersonDao(){return personDao;}
 
-    @Override
-    public BusinessRuleTypeOperatorDao getBusinessRuleTypeOperatorDao() {
-        return businessRuleTypeOperatorDao;
-    }
+//    @Override
+//    public BusinessRuleTypeOperatorDao getBusinessRuleTypeOperatorDao() {
+//        return businessRuleTypeOperatorDao;
+//    }
 
     @Override
     public ValueDefinitionDao getValueDefinitionDao() {

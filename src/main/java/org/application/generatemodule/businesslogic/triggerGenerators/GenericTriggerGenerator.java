@@ -6,12 +6,12 @@ public abstract class GenericTriggerGenerator {
 
     public String generateGenericTrigger (BusinessRule businessRule) {
         String template =
-            "DROP TRIGGER IF EXISTS %s "
-            +   "ON %s; "
+                "DROP TRIGGER IF EXISTS %s "
+                        +   "ON %s; "
 
-            + "CREATE TRIGGER %s "
-            +   "BEFORE INSERT OR UPDATE OF %s ON %s "
-            +   "FOR EACH ROW EXECUTE PROCEDURE %s_function();";
+                        + "CREATE TRIGGER %s "
+                        +   "BEFORE INSERT OR UPDATE OF %s ON %s "
+                        +   "FOR EACH ROW EXECUTE PROCEDURE %s_function();";
 
         template = String.format(template,
                 businessRule.getName(),

@@ -23,27 +23,44 @@ public class Operator {
     @Column(name = "name")
     private String name;
 
-    @OneToOne(mappedBy = "operator")
-    private BusinessRule businessRule;
-
     @OneToMany(mappedBy = "operator")
-    private List<BusinessRuleTypeOperator> businessRuleType;
+    private List<BusinessRule> businessRules;
 
-    public int getId() {
-        return id;
-    }
+    @ManyToMany
+    @JoinTable (name = "operator_businessruletype",
+            joinColumns = { @JoinColumn(name = "operator_id", referencedColumnName = "id")},
+            inverseJoinColumns = { @JoinColumn(name = "businessruletype_id", referencedColumnName = "id")}
+    )
+    private List<BusinessRuleType> businessRuleTypes;
 
-    public String getName() {
-        return name;
-    }
-
-    public BusinessRule getBusinessRule() {
-        return businessRule;
-    }
-
-    public List<BusinessRuleTypeOperator> getBusinessRuleType() {
-        return businessRuleType;
-    }
+//    @Id
+//    @GeneratedValue
+//    private int id;
+//
+//    @Column(name = "name")
+//    private String name;
+//
+//    @OneToOne(mappedBy = "operator")
+//    private BusinessRule businessRule;
+//
+//    @OneToMany(mappedBy = "operator")
+//    private List<BusinessRuleTypeOperator> businessRuleType;
+//
+//    public int getId() {
+//        return id;
+//    }
+//
+//    public String getName() {
+//        return name;
+//    }
+//
+//    public BusinessRule getBusinessRule() {
+//        return businessRule;
+//    }
+//
+//    public List<BusinessRuleTypeOperator> getBusinessRuleType() {
+//        return businessRuleType;
+//    }
 
     public String toString(){
         return name;
