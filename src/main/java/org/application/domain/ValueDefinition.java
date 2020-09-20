@@ -105,16 +105,16 @@ public class ValueDefinition {
 //        return businessRule;
 //    }
 //
-//    public ValueDefinition(int min, int max, String literalValue) {
-//        this.minValue = min;
-//        this.maxValue = max;
-//        this.literalValue = literalValue;
-//
-//    }
-//
-//    public ValueDefinition(String literalValue) {
-//        this.literalValue = literalValue;
-//    }
+    public ValueDefinition(int min, int max, String literalValue) {
+        this.minValue = min;
+        this.maxValue = max;
+        this.literalValue = literalValue;
+
+    }
+
+    public ValueDefinition(String literalValue) {
+        this.literalValue = literalValue;
+    }
 //
 //    public ValueDefinition(){}
 
