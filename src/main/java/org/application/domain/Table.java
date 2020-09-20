@@ -77,9 +77,9 @@ public class Table {
 //        this.database = database;
 //    }
 //
-//    public String toString(){
-//        return name;
-//    }
+    public String toString(){
+        return name;
+    }
 
 
 }
