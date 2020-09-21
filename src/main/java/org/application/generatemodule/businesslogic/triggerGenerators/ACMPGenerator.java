@@ -36,6 +36,8 @@ public class ACMPGenerator extends GenericTriggerGenerator {
             message = "De waarde is niet groter dan: " + businessRule.getValueDefinition().getLiteralValue();
         }
 
+        System.out.println(businessRule.getColumns());
+
         template = String.format(template,
                 businessRule.getName(),
                 businessRule.getColumns().get(0).getName(),

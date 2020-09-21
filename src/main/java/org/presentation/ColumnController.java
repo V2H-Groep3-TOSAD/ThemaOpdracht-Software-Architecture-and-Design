@@ -96,6 +96,7 @@ public class ColumnController implements Initializable{
             } else {
                 allColumns.add(selectedColumn1);
             }
+            System.out.println(allColumns);
             defineBusinessRuleController.setColumns(allColumns);
         }
 

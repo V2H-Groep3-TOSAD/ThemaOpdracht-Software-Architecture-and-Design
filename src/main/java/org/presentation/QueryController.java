@@ -40,7 +40,6 @@ public class QueryController implements Initializable {
         loader.setLocation(getClass().getResource("primary.fxml"));
         Parent tableViewParent = loader.load();
         Scene tableViewScene = new Scene(tableViewParent);
-
         generateBusinessRuleController.execute(businessRule.getName());
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
         window.setScene(tableViewScene);
