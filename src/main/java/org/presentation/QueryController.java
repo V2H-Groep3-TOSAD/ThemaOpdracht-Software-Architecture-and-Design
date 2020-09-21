@@ -36,14 +36,7 @@ public class QueryController implements Initializable {
     }
 
     public void nextKnopClick(ActionEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("primary.fxml"));
-        Parent tableViewParent = loader.load();
-        Scene tableViewScene = new Scene(tableViewParent);
-        generateBusinessRuleController.execute(businessRule.getName());
-        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
-        window.setScene(tableViewScene);
-        window.show();
+        generateBusinessRuleController.execute(queryBox.getText());
     }
 
 }

@@ -25,7 +25,7 @@ public class GeneratorFacade {
             ICMPGenerator icmpGenerator = new ICMPGenerator();
             queryCode = icmpGenerator.generateTrigger(businessRule);
         } else {
-            System.out.println("Geen geldige Businessruletype");
+            //System.out.println("Geen geldige Businessruletype");
         }
 
         return queryCode;
