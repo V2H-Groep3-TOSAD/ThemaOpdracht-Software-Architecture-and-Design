@@ -8,7 +8,6 @@
         <class>org.application.domain.Table</class>
         <class>org.application.domain.BusinessRule</class>
         <class>org.application.domain.BusinessRuleType</class>
-        <class>org.application.domain.BusinessRuleTypeOperator</class>
         <class>org.application.domain.Category</class>
         <class>org.application.domain.Column</class>
         <class>org.application.domain.Database</class>
