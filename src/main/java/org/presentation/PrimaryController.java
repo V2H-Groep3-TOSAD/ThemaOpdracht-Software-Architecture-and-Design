@@ -14,8 +14,7 @@ import org.application.generatemodule.businesslogic.services.postgresservice.Pos
 
 public class PrimaryController {
 
-    //private DefineBusinessRuleController defineController = new DefineBusinessRuleController();
-    //private PostgresServiceProvider postgresServiceProvider = new PostgresServiceProvider();
+
 
     @FXML
     private void switchToDefine(ActionEvent event) throws IOException {
