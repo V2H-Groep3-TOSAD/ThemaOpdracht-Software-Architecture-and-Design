@@ -19,7 +19,8 @@ import java.util.List;
 public class Category {
 
     @Id
-    @GeneratedValue
+    @SequenceGenerator(name = "category_SEQ", sequenceName = "SEQUENCE_CATEGORY", initialValue = 2, allocationSize = 1)
+    @GeneratedValue(generator = "category_SEQ")
     private int id;
 
     @Column(name = "name")

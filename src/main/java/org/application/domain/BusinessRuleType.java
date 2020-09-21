@@ -19,7 +19,8 @@ import java.util.List;
 public class BusinessRuleType {
 
     @Id
-    @GeneratedValue
+    @SequenceGenerator(name = "businessruletype_SEQ", sequenceName = "SEQUENCE_BUSINESSRULETYPE", initialValue = 5, allocationSize = 1)
+    @GeneratedValue(generator = "businessruletype_SEQ")
     private int id;
 
     @Column(name = "name")
@@ -31,36 +32,6 @@ public class BusinessRuleType {
 
     @ManyToMany(mappedBy = "businessRuleTypes")
     private List<Operator> operators;
-
-//    @Id
-//    @GeneratedValue
-//    private int id;
-//
-//    @Column(name = "name")
-//    private String name;
-//
-//    @ManyToOne
-//    @JoinColumn(name = "category_id", referencedColumnName = "id")
-//    private Category category;
-//
-//    @OneToMany(mappedBy = "businessRuleType")
-//    private List<BusinessRuleTypeOperator> operators;
-//
-//    public int getId() {
-//        return id;
-//    }
-//
-//    public String getName() {
-//        return name;
-//    }
-//
-//    public Category getCategory() {
-//        return category;
-//    }
-//
-//    public List<BusinessRuleTypeOperator> getOperators() {
-//        return operators;
-//    }
 
     public String toString(){
         return name;

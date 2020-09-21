@@ -17,7 +17,8 @@ import java.util.List;
 public class Operator {
 
     @Id
-    @GeneratedValue
+    @SequenceGenerator(name = "operator_SEQ", sequenceName = "SEQUENCE_OPERATOR", initialValue = 9, allocationSize = 1)
+    @GeneratedValue(generator = "operator_SEQ")
     private int id;
 
     @Column(name = "name")
@@ -33,34 +34,9 @@ public class Operator {
     )
     private List<BusinessRuleType> businessRuleTypes;
 
-//    @Id
-//    @GeneratedValue
-//    private int id;
-//
-//    @Column(name = "name")
-//    private String name;
-//
-//    @OneToOne(mappedBy = "operator")
-//    private BusinessRule businessRule;
-//
-//    @OneToMany(mappedBy = "operator")
-//    private List<BusinessRuleTypeOperator> businessRuleType;
-//
-//    public int getId() {
-//        return id;
-//    }
-//
     public String getName() {
         return name;
     }
-//
-//    public BusinessRule getBusinessRule() {
-//        return businessRule;
-//    }
-//
-//    public List<BusinessRuleTypeOperator> getBusinessRuleType() {
-//        return businessRuleType;
-//    }
 
     public String toString(){
         return name;

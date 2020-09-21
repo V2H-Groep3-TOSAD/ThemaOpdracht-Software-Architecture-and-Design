@@ -17,7 +17,8 @@ import java.util.List;
 @Table(name = "column_")
 public class Column {
     @Id
-    @GeneratedValue
+    @SequenceGenerator(name = "column_SEQ", sequenceName = "SEQUENCE_COLUMN", initialValue = 10, allocationSize = 1)
+    @GeneratedValue(generator = "column_SEQ")
     private int id;
 
     @javax.persistence.Column(name = "name")
@@ -33,40 +34,9 @@ public class Column {
     @JoinColumn(name = "table_id")
     private org.application.domain.Table table;
 
-    //
-//    @Id
-//    @GeneratedValue
-//    private int id;
-//
-//    @javax.persistence.Column(name = "name")
-//    private String name;
-//
-//    @ManyToOne
-//    @JoinColumn(name = "table_id", referencedColumnName = "id")
-//    private org.application.domain.Table table;
-//
-//    @ManyToMany(mappedBy = "columns")
-//    private List<BusinessRule> businessRules;
-//
-//    public int getId() {
-//        return id;
-//    }
-//
-   public String getName() {
+    public String getName() {
         return name;
    }
-//
-//    public org.application.domain.Table getTable() {
-//        return table;
-//    }
-//
-//    public List<BusinessRule> getBusinessRules() {
-//        return businessRules;
-//    }
-//
-//    public void addBusinessRules(BusinessRule businessRule) {
-//        this.businessRules.add(businessRule);
-//    }
 
     @Override
     public String toString() {

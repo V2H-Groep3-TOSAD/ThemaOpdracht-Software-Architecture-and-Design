@@ -18,7 +18,8 @@ import java.util.List;
 @Setter
 public class Database {
     @Id
-    @GeneratedValue
+    @SequenceGenerator(name = "database_SEQ", sequenceName = "SEQUENCE_DATABASE", initialValue = 2, allocationSize = 1)
+    @GeneratedValue(generator = "database_SEQ")
     private int id;
 
     @Column(name = "name")

@@ -18,7 +18,8 @@ import java.util.List;
 public class Table {
 
     @Id
-    @GeneratedValue
+    @SequenceGenerator(name = "table_SEQ", sequenceName = "SEQUENCE_TABLE", initialValue = 3, allocationSize = 1)
+    @GeneratedValue(generator = "table_SEQ")
     private int id;
 
     @Column(name = "name")
@@ -31,55 +32,7 @@ public class Table {
     @JoinColumn(name = "database_id")
     private Database database;
 
-//    @Id
-//    @GeneratedValue
-//    private int id;
-//
-//    @Column(name = "name")
-//    private String name;
-//
-//    @OneToMany(mappedBy = "table")
-//    private List<org.application.domain.Column> columns;
-//
-//    @ManyToOne
-//    @JoinColumn(name = "database_id")
-//    private Database database;
-//
-//    public int getId() {
-//        return id;
-//    }
-//
-//    public void setId(int id) {
-//        this.id = id;
-//    }
-//
-//    public String getName() {
-//        return name;
-//    }
-//
-//    public void setName(String name) {
-//        this.name = name;
-//    }
-//
-//    public List<org.application.domain.Column> getColumns() {
-//        return columns;
-//    }
-//
-//    public void setColumns(List<org.application.domain.Column> columns) {
-//        this.columns = columns;
-//    }
-//
-//    public Database getDatabase() {
-//        return database;
-//    }
-//
-//    public void setDatabase(Database database) {
-//        this.database = database;
-//    }
-//
     public String toString(){
         return name;
     }
-
-
 }
