@@ -38,6 +38,7 @@ public class GenerateController implements Initializable {
 
         BusinessRule businessRule = businessRulesBox.getSelectionModel().getSelectedItem();
         QueryController queryController = loader.getController();
+        System.out.println(businessRule.getColumns());
         queryController.fillQueryArea(businessRule);
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
         window.setScene(tableViewScene);

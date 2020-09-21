@@ -82,7 +82,10 @@ public class ColumnController implements Initializable{
                 if (columnBox2.getSelectionModel().getSelectedItem() == null) {
                     volgendeScene = false;
                     errorBox.setText("Er moet een selectie worden gemaakt");
-                }  else {
+                }  else if (columnBox1.getSelectionModel().getSelectedItem() == columnBox2.getSelectionModel().getSelectedItem()) {
+                    volgendeScene = false;
+                    errorBox.setText("Je kan niet dezelfde tabel kiezen");
+                } else {
                     Column selectedColumn2 = columnBox2.getSelectionModel().getSelectedItem();
                     allColumns.add(selectedColumn1);
                     allColumns.add(selectedColumn2);
@@ -93,10 +96,12 @@ public class ColumnController implements Initializable{
             } else {
                 allColumns.add(selectedColumn1);
             }
+            System.out.println(allColumns);
             defineBusinessRuleController.setColumns(allColumns);
         }
 
 
+        System.out.println(defineBusinessRuleController.getBusinessRuleBuilder().getBusinessRuleType().toString());
         if ((defineBusinessRuleController.getBusinessRuleBuilder().getBusinessRuleType().toString().equals("ARNG") || defineBusinessRuleController.getBusinessRuleBuilder().getBusinessRuleType().toString().equals("ACMP")) && volgendeScene) {
             loader.setLocation(getClass().getResource("value.fxml"));
             Parent columnViewParent = loader.load();

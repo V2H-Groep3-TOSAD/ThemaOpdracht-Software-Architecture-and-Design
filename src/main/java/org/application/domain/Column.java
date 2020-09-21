@@ -52,9 +52,9 @@ public class Column {
 //        return id;
 //    }
 //
-//    public String getName() {
-//        return name;
-//    }
+   public String getName() {
+        return name;
+   }
 //
 //    public org.application.domain.Table getTable() {
 //        return table;

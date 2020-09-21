@@ -86,13 +86,14 @@ public class BusinessRule implements Buildable {
     @JoinColumn(name = "valuedefinition_id", referencedColumnName = "id")
     private ValueDefinition valueDefinition;
 
-    public BusinessRule( String name, String description, int serialNumber, BusinessRuleType businessRuleType, Operator operator, ValueDefinition valueDefinition) {
+    public BusinessRule(String name, String description, int serialNumber, BusinessRuleType businessRuleType, Operator operator, ValueDefinition valueDefinition, List<org.application.domain.Column> allColumns) {
         this.name = name;
         this.description = description;
         this.serialNumber = serialNumber;
         this.businessRuleType = businessRuleType;
         this.operator = operator;
         this.valueDefinition = valueDefinition;
+        this.columns = allColumns;
     }
 
     public int getId() {
@@ -236,7 +237,7 @@ public class BusinessRule implements Buildable {
 
         public BusinessRule build() {
             // Check if all required fields are there
-            return new BusinessRule(name, description, serialNumber, businessRuleType, operator, valueDefinition);
+            return new BusinessRule(name, description, serialNumber, businessRuleType, operator, valueDefinition, allColumns);
         }
     }
 }
